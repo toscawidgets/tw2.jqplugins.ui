@@ -67,8 +67,16 @@ class DatePickerWidget(twjqc.JQueryWidget):
     """
     resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
     template = "tw2.jquery.ui.templates.datepicker"
-    
 
-
-
+class DialogWidget(twjqc.JQueryWidget):
+    """
+    The basic dialog window is an overlay positioned within the
+    viewport and is protected from page content (like select elements)
+    shining through with an iframe. It has a title bar and a content
+    area, and can be moved, resized and closed with the 'x' icon by default.
+    """
+    resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
+    template = "tw2.jquery.ui.templates.dialog"
+    title = twc.Param('The title for the dialog', attribute=True)
+    value = twc.Param('The message for the dialog')
 

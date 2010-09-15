@@ -1,0 +1,8 @@
+<div xmlns:py="http://genshi.edgewall.org/">
+<div py:attrs="w.attrs" class="ui-widget"> ${w.value} </div>
+<script type="text/javascript">
+$(function() {
+    $("#${w.attrs['id']}").dialog();
+});
+</script>
+</div>

@@ -10,7 +10,8 @@ from widgets import (
     AccordianWidget,
     AutocompleteWidget,
     ButtonWidget,
-    DatePickerWidget
+    DatePickerWidget,
+    DialogWidget
 )
 
 class DemoAccordianWidget(AccordianWidget):
@@ -78,3 +79,12 @@ class DemoButtonWidget(ButtonWidget):
 
 class DemoDatePickerWidget(DatePickerWidget):
     pass
+
+class DemoDialogWidget(DialogWidget):
+    title = "Basic Dialog"
+    value = """
+    This is the default dialog which is useful for displaying information.
+    The dialog window can be moved, resized and closed with the 'x' icon.
+
+    It is likely displayed at the top of the page ;p
+    """
