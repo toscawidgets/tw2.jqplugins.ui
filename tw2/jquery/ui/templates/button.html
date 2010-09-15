@@ -1,0 +1,19 @@
+<html xmlns:py="http://genshi.edgewall.org/">
+<div py:attrs="w.attrs" class="ui-widget" py:choose="w.type">
+    <button id="${w.attrs['id']}-button"
+            py:when="'button'">${w.value}</button>
+
+    <input  id="${w.attrs['id']}-button"
+            py:when="'input'" type="submit" value="${w.value}" />
+
+    <a      id="${w.attrs['id']}-button"
+            py:when="'anchor'" href="#">${w.value}</a>
+
+</div>
+<script type="text/javascript">
+$(function() {
+    $("#${w.attrs['id']}-button").button();
+    $("#${w.attrs['id']}-button").click(${w.js_callback});
+});
+</script>
+</html>
