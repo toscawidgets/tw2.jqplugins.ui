@@ -23,13 +23,10 @@ hg clone http://bitbucket.org/paj/tw2forms || \
         pushd tw2forms && hg pull && popd
 git clone git://github.com/ralphbean/tw2.jquery.core.git || \
         pushd tw2.jquery.core && git pull && popd
-git clone git://github.com/ralphbean/tw2.jquery.ui.git || \
-        pushd tw2.jquery.ui && git pull && popd
 
 pushd tw2core ;  python setup.py develop ; popd
 pushd tw2forms ; python setup.py develop ; popd
 pushd tw2devtools ; python setup.py develop ; popd
 pushd tw2.jquery.core ; python setup.py develop ; popd
-pushd tw2.jquery.ui ; python setup.py develop ; popd
 
 pushd # $devbase
