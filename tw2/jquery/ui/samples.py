@@ -6,10 +6,10 @@ These samples will appear in the WidgetBrowser
 See http://toscawidgets.org/documentation/WidgetBrowser for more information
 """
 
-
 from widgets import (
     AccordianWidget,
-    AutocompleteWidget
+    AutocompleteWidget,
+    ButtonWidget
 )
 
 class DemoAccordianWidget(AccordianWidget):
@@ -69,3 +69,8 @@ class DemoAutocompleteWidget(AutocompleteWidget):
         "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python",
         "Ruby", "Scala", "Scheme"
     ]
+    
+class DemoButtonWidget(ButtonWidget):
+    type = 'button'
+    value = 'A button'
+    js_callback = "function() { alert( 'Hello world!' ) }"

@@ -14,13 +14,7 @@ class AccordianWidget(twjqc.JQueryWidget):
     The underlying HTML markup is a series of headers (H3 tags) and
     content divs so the content is usable without JavaScript.
     """
-
-    resources = [
-        res.jquery_js,
-        res.jquery_ui_js,
-        res.jquery_ui_css,
-    ]
-
+    resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
     template = "tw2.jquery.ui.templates.accordian"
 
     # TODO -- use strings or widgets or Markup or what?
@@ -36,17 +30,28 @@ class AutocompleteWidget(twjqc.JQueryWidget):
     The datasource is a simple JavaScript array, provided to the widget
     using the source-option.
     """
-
-    resources = [
-        res.jquery_js,
-        res.jquery_ui_js,
-        res.jquery_ui_css,
-    ]
-
+    resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
     template = "tw2.jquery.ui.templates.autocomplete"
 
     tags = twc.Param('List of completable strings', default=[])
+
     def prepare(self):
         super(AutocompleteWidget, self).prepare()
         self.tags = encoder.encode(self.tags)
+
+class ButtonWidget(twjqc.JQueryWidget):
+    """ A button with a javascript callback with different markup flavors. """
+    resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
+    template = "tw2.jquery.ui.templates.button"
+
+    type = twc.Param(
+        'Type of button.  Valid values are "button", "input", "anchor"',
+        default='button')
+
+    value = twc.Param('Value of the label on the button')
+
+    js_callback = twc.Param(
+        'A string describing a javascript callback',
+        default='function() { return false; }'
+    )
 
