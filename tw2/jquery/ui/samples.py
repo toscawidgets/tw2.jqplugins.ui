@@ -14,10 +14,10 @@ from widgets import (
     DialogWidget,
     ProgressBarWidget,
     SliderWidget,
+    TabsWidget,
 )
 
-class DemoAccordianWidget(AccordianWidget):
-    items = [
+some_items = [
         ('Section 1',
          """
                 <p>
@@ -65,6 +65,8 @@ class DemoAccordianWidget(AccordianWidget):
                 </p>
          """),
     ]
+class DemoAccordianWidget(AccordianWidget):
+    items = some_items
 
 class DemoAutocompleteWidget(AutocompleteWidget):
     tags = [
@@ -97,3 +99,5 @@ class DemoProgressBarWidget(ProgressBarWidget):
 class DemoSliderWidget(SliderWidget):
     pass
 
+class DemoTabsWidget(TabsWidget):
+    items = some_items

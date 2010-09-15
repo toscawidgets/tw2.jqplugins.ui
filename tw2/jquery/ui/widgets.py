@@ -106,3 +106,16 @@ class SliderWidget(twjqc.JQueryWidget):
     resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
     template = "tw2.jquery.ui.templates.slider"
 
+class TabsWidget(twjqc.JQueryWidget):
+    """
+    Tabs are generally used to break content into multiple sections that
+    can be swapped to save space, much like an accordion.
+
+    By default a tab widget will swap between tabbed sections onClick, but
+    the events can be changed to onHover through an option. Tab content can
+    be loaded via Ajax by setting an href on a tab.
+    """
+    resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
+    template = "tw2.jquery.ui.templates.tabs"
+    items = twc.Param(
+        'A list of (header (str), content (str)) tuples', default=[])

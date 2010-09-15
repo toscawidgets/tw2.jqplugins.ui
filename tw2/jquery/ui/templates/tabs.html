@@ -1,0 +1,17 @@
+<div xmlns:py="http://genshi.edgewall.org/"
+     py:attrs="w.attrs" class="ui-widget">
+    
+    <ul>
+    <py:for each="i in range(len(w.items))">
+        <li><a href="#${w.attrs['id']}-${i}">${w.items[i][0]}</a></li>
+    </py:for>
+    </ul>
+    <py:for each="i in range(len(w.items))">
+        <div id="${w.attrs['id']}-${i}">${w.items[i][1]}</div>
+    </py:for>
+<script type="text/javascript">
+$(function() {
+    $("#${w.attrs['id']}").tabs();
+});
+</script>
+</div>
