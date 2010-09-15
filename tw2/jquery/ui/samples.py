@@ -11,7 +11,8 @@ from widgets import (
     AutocompleteWidget,
     ButtonWidget,
     DatePickerWidget,
-    DialogWidget
+    DialogWidget,
+    ProgressBarWidget,
 )
 
 class DemoAccordianWidget(AccordianWidget):
@@ -88,3 +89,7 @@ class DemoDialogWidget(DialogWidget):
 
     It is likely displayed at the top of the page ;p
     """
+
+class DemoProgressBarWidget(ProgressBarWidget):
+    value = 28
+

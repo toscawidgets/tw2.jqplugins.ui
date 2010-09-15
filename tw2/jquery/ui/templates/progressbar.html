@@ -1,0 +1,10 @@
+<div xmlns:py="http://genshi.edgewall.org/">
+<div py:attrs="w.attrs" />
+<script type="text/javascript">
+$(function() {
+    $("#${w.attrs['id']}").progressbar({
+        value : ${w.value},
+    });
+});
+</script>
+</div>

@@ -4,6 +4,8 @@ from tw2.jquery.ui import resources as res
 import tw2.core as twc
 from tw2.core.resources import encoder
 
+# TODO make a base class JQueryUIWidget that knows how to apply all the right css tags to make widgets compliant.
+
 # TODO http://jqueryui.com/demos/
 class AccordianWidget(twjqc.JQueryWidget):
     """
@@ -74,9 +76,20 @@ class DialogWidget(twjqc.JQueryWidget):
     viewport and is protected from page content (like select elements)
     shining through with an iframe. It has a title bar and a content
     area, and can be moved, resized and closed with the 'x' icon by default.
+
+    It is likely displayed at the top of the page right now ;p
     """
     resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
     template = "tw2.jquery.ui.templates.dialog"
     title = twc.Param('The title for the dialog', attribute=True)
     value = twc.Param('The message for the dialog')
 
+class ProgressBarWidget(twjqc.JQueryWidget):
+    """
+    The progress bar is designed to simply display the current % complete
+    for a process. The bar is coded to be flexibly sized through CSS and
+    will scale to fit inside it's parent container by default.
+    """
+    resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
+    template = "tw2.jquery.ui.templates.progressbar"
+    value = twc.Param('Value of the progress bar')
