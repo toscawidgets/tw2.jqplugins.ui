@@ -1,4 +1,4 @@
-from tw2.jquery.core.base import jQueryJSLink,
+from tw2.jquery.core.base import jQueryJSLink
 from tw2.jquery.ui.base import jQueryUIThemeCSSLink, jQueryUIJSLink
 import defaults
 
