@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
-venv=virtualenv-tw2.jquery.ui
+devbase=development-deps
+venv=$devbase/virtualenv-tw2.jquery.ui
 $(
     rm -rf $venv
 ) || echo "Did not destroy $venv"
@@ -8,6 +9,8 @@ $(
 virtualenv $venv --no-site-packages
 
 source $venv/bin/activate
+
+pushd $devbase
 
 hg clone http://bitbucket.org/paj/tw2core || echo "tw2core exists."
 hg clone http://bitbucket.org/paj/tw2devtools || echo "tw2devtools exists."
@@ -17,8 +20,9 @@ git clone git://github.com/ralphbean/tw2.jquery.core.git || echo "tw2.jquery.cor
 pip install genshi
 pip install formencode
 
-cd tw2core ;  python setup.py develop ; cd -
-cd tw2forms ; python setup.py develop ; cd -
-cd tw2devtools ; python setup.py develop ; cd -
-cd tw2.jquery.core ; python setup.py develop ; cd -
+pushd tw2core ;  python setup.py develop ; popd
+pushd tw2forms ; python setup.py develop ; popd
+pushd tw2devtools ; python setup.py develop ; popd
+pushd tw2.jquery.core ; python setup.py develop ; popd
 
+pushd # $devbase
