@@ -1,0 +1,13 @@
+<html xmlns:py="http://genshi.edgewall.org/">
+<div id="${w.attrs['id'].replace(':', '-')}">
+    <py:for each="header, item in w.items">
+        <h3><a href="#">${header}</a></h3>
+        <div>${item}</div>
+    </py:for>
+</div>
+<script type="text/javascript">
+$(function() {
+    $("#${w.attrs['id'].replace(':', '-')}").accordion();
+});
+</script>
+</html>
