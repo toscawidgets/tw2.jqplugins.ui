@@ -9,7 +9,8 @@ See http://toscawidgets.org/documentation/WidgetBrowser for more information
 from widgets import (
     AccordianWidget,
     AutocompleteWidget,
-    ButtonWidget
+    ButtonWidget,
+    DatePickerWidget
 )
 
 class DemoAccordianWidget(AccordianWidget):
@@ -74,3 +75,6 @@ class DemoButtonWidget(ButtonWidget):
     type = 'button'
     value = 'A button'
     js_callback = "function() { alert( 'Hello world!' ) }"
+
+class DemoDatePickerWidget(DatePickerWidget):
+    pass

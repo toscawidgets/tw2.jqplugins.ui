@@ -14,6 +14,7 @@ class AccordianWidget(twjqc.JQueryWidget):
     The underlying HTML markup is a series of headers (H3 tags) and
     content divs so the content is usable without JavaScript.
     """
+    # TODO -- go through the different examples to broaden what can be done.
     resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
     template = "tw2.jquery.ui.templates.accordian"
 
@@ -54,4 +55,20 @@ class ButtonWidget(twjqc.JQueryWidget):
         'A string describing a javascript callback',
         default='function() { return false; }'
     )
+
+class DatePickerWidget(twjqc.JQueryWidget):
+    """
+    The datepicker is tied to a standard form input field.
+    Focus on the input (click, or use the tab key) to open an
+    interactive calendar in a small overlay.  Choose a date, click
+    elsewhere on the page (blur the input), or hit the Esc key to
+    close.  If a date is chosen, feedback is shown as the input's
+    value.
+    """
+    resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
+    template = "tw2.jquery.ui.templates.datepicker"
+    
+
+
+
 
