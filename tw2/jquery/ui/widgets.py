@@ -1,7 +1,8 @@
 from tw2.jquery.core.base import jQueryJSLink
+from tw2.jquery.core.widgets import JQueryWidget
 from tw2.jquery.ui.base import jQueryUIThemeCSSLink, jQueryUIJSLink
-import tw2.core as twc
 from tw2.jquery.ui import defaults
+import tw2.core as twc
 
 jquery_js = jQueryJSLink()
 
@@ -12,7 +13,7 @@ jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_)
 jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
 
 # TODO http://jqueryui.com/demos/
-class AccordianWidget(twc.Widget):
+class AccordianWidget(JQueryWidget):
     resources = [
         jquery_js,
         jquery_ui_js,
