@@ -9,6 +9,7 @@ from tw2.jquery.core.base import jQueryPluginLinkMixin
 class jQueryUIMixin(jQueryPluginLinkMixin):
     dirname = defaults._ui_dirname_
     basename='jquery-ui'
+    modname = 'tw2.jquery.ui'
 
 class jQueryUIJSLink(JSLink, jQueryUIMixin):
     subdir = 'js'

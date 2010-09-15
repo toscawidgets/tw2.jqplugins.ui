@@ -1,6 +1,7 @@
 from tw2.jquery.core.base import jQueryJSLink
 from tw2.jquery.ui.base import jQueryUIThemeCSSLink, jQueryUIJSLink
-import defaults
+import tw2.core as twc
+from tw2.jquery.ui import defaults
 
 jquery_js = jQueryJSLink()
 
@@ -10,3 +11,14 @@ jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_)
 
 jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
 
+# TODO http://jqueryui.com/demos/
+class AccordianWidget(twc.Widget):
+    resources = [
+        jquery_js,
+        jquery_ui_js,
+        jquery_ui_css,
+    ]
+    template = "tw2.jquery.ui.templates.accordian"
+    items = twc.Param(
+        'A list of (header (type:str), content (type:str) tuples', default=[])
+                     
