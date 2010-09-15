@@ -1,4 +1,4 @@
-<html xmlns:py="http://genshi.edgewall.org/">
+<div xmlns:py="http://genshi.edgewall.org/">
 <div py:attrs="w.attrs" class="ui-widget" py:choose="w.type">
     <button id="${w.attrs['id']}-button"
             py:when="'button'">${w.value}</button>
@@ -16,4 +16,4 @@ $(function() {
     $("#${w.attrs['id']}-button").click(${w.js_callback});
 });
 </script>
-</html>
+</div>
