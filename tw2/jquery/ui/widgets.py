@@ -14,6 +14,15 @@ jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
 
 # TODO http://jqueryui.com/demos/
 class AccordianWidget(JQueryWidget):
+    """
+    Click headers to expand/collapse content that is broken into
+    logical sections, much like tabs. Optionally, toggle sections
+    open/closed on mouseover.
+
+    The underlying HTML markup is a series of headers (H3 tags) and
+    content divs so the content is usable without JavaScript.
+    """
+
     resources = [
         jquery_js,
         jquery_ui_js,
@@ -21,5 +30,5 @@ class AccordianWidget(JQueryWidget):
     ]
     template = "tw2.jquery.ui.templates.accordian"
     items = twc.Param(
-        'A list of (header (type:str), content (type:str) tuples', default=[])
+        'A list of (header (str), content (str)) tuples', default=[])
                      
