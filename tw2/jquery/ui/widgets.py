@@ -5,8 +5,11 @@ import tw2.core as twc
 from tw2.core.resources import encoder
 
 # TODO make a base class JQueryUIWidget that knows how to apply all the right css tags to make widgets compliant.
+# TODO have base widget handle resources too
+# TODO prepare methods should verify data before rendering
+# TODO doc strings should fully match http://jqueryui.com/demos/
+# TODO use generic 'options' param to handle all options ^^
 
-# TODO http://jqueryui.com/demos/
 class AccordianWidget(twjqc.JQueryWidget):
     """
     Click headers to expand/collapse content that is broken into
@@ -16,11 +19,11 @@ class AccordianWidget(twjqc.JQueryWidget):
     The underlying HTML markup is a series of headers (H3 tags) and
     content divs so the content is usable without JavaScript.
     """
-    # TODO -- go through the different examples to broaden what can be done.
     resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
     template = "tw2.jquery.ui.templates.accordian"
 
     # TODO -- use strings or widgets or Markup or what?
+    # TODO -- if strings, how to unescape HTML?
     items = twc.Param(
         'A list of (header (str), content (str)) tuples', default=[])
 
@@ -93,3 +96,13 @@ class ProgressBarWidget(twjqc.JQueryWidget):
     resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
     template = "tw2.jquery.ui.templates.progressbar"
     value = twc.Param('Value of the progress bar')
+
+class SliderWidget(twjqc.JQueryWidget):
+    """
+    The jQuery UI Slider plugin makes selected elements into sliders.
+    There are various options such as multiple handles, and ranges. The
+    handle can be moved with the mouse or the arrow keys.
+    """
+    resources = [ res.jquery_js, res.jquery_ui_js, res.jquery_ui_css ]
+    template = "tw2.jquery.ui.templates.slider"
+
