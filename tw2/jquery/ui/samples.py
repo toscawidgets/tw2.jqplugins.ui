@@ -9,6 +9,7 @@ See http://toscawidgets.org/documentation/WidgetBrowser for more information
 
 from widgets import (
     AccordianWidget,
+    AutocompleteWidget
 )
 
 class DemoAccordianWidget(AccordianWidget):
@@ -59,4 +60,12 @@ class DemoAccordianWidget(AccordianWidget):
                 inceptos himenaeos.
                 </p>
          """),
+    ]
+
+class DemoAutocompleteWidget(AutocompleteWidget):
+    tags = [
+        "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
+        "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy",
+        "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python",
+        "Ruby", "Scala", "Scheme"
     ]
