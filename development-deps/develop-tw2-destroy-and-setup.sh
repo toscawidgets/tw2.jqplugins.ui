@@ -10,10 +10,10 @@ virtualenv $venv --no-site-packages
 
 source $venv/bin/activate
 
+pushd $devbase
+
 pip install genshi
 pip install formencode
-
-pushd $devbase
 
 hg clone http://bitbucket.org/paj/tw2core || \
         pushd tw2core && hg pull && popd
@@ -29,4 +29,4 @@ pushd tw2forms ; python setup.py develop ; popd
 pushd tw2devtools ; python setup.py develop ; popd
 pushd tw2.jquery.core ; python setup.py develop ; popd
 
-pushd # $devbase
+popd # $devbase

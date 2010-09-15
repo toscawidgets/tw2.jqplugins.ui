@@ -1,6 +1,6 @@
 from tw2.core.params import Param
 from tw2.core import CSSLink, JSLink
-from tw2.core.jquery.version import JSLinkMixin
+from tw2.jquery.core.version import JSLinkMixin
 
 import defaults
 
