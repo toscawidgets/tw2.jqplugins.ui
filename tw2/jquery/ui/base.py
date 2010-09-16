@@ -1,11 +1,18 @@
+
+# TW2 proper imports
 from tw2.core.params import Param
 from tw2.core import CSSLink, JSLink
+
+# tw2.jquery.core imports
+from tw2.jquery.core import JQueryWidget
+from tw2.jquery.core.base import jQueryJSLink
 from tw2.jquery.core.version import JSLinkMixin
-
-import defaults
-
 from tw2.jquery.core.base import jQueryPluginLinkMixin
 
+# import from *this* package
+from tw2.jquery.ui import defaults
+
+### Links, etc...
 class jQueryUIMixin(jQueryPluginLinkMixin):
     dirname = defaults._ui_dirname_
     basename='jquery-ui'
@@ -21,3 +28,14 @@ class jQueryUIThemeCSSLink(jQueryUIMixin, CSSLink):
         return 'css/%(name)s' % dict(name=self.name)
     extension = 'css'
 
+### Resources
+jquery_js = jQueryJSLink()
+jquery_ui_css = jQueryUIThemeCSSLink(
+    name=defaults._ui_theme_name_, version=defaults._ui_version_)
+jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_)
+jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
+
+### Widgets
+class JQueryUIWidget(JQueryWidget):
+    """ Base JQueryUIWidget """
+    resources = [ jquery_js, jquery_ui_js, jquery_ui_css ]
