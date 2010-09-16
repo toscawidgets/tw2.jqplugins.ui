@@ -67,14 +67,20 @@ some_items = [
     ]
 class DemoAccordianWidget(AccordianWidget):
     items = some_items
+    options = {
+        'fillSpace' : True,
+        'active' : 2
+    }
 
 class DemoAutocompleteWidget(AutocompleteWidget):
-    tags = [
-        "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
-        "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy",
-        "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python",
-        "Ruby", "Scala", "Scheme"
-    ]
+    options = {
+        'source' : [
+            "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
+            "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy",
+            "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python",
+            "Ruby", "Scala", "Scheme"
+        ],
+    }
     
 class DemoButtonWidget(ButtonWidget):
     type = 'button'

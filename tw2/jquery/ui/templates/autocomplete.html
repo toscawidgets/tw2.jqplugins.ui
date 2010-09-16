@@ -1,13 +1,8 @@
-<div xmlns:py="http://genshi.edgewall.org/"
-     py:attrs="w.attrs" class="ui-widget">
-    <label for="${w.attrs['id']}-tags">Tags: </label>
-    <input id="${w.attrs['id']}-tags" />
+<div xmlns:py="http://genshi.edgewall.org/">
+     <input py:attrs="w.attrs"/>
 <script type="text/javascript">
 $(function() {
-    var availableTags = ${w.tags};
-    $("#${w.attrs['id']}-tags").autocomplete({
-        source: availableTags,
-    });
+    $("#${w.attrs['id']}").autocomplete(${w.options});
 });
 </script>
 </div>

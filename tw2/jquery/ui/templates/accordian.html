@@ -1,12 +1,11 @@
-<div xmlns:py="http://genshi.edgewall.org/"
-     py:attrs="w.attrs" class="ui-widget">
+<div xmlns:py="http://genshi.edgewall.org/" py:attrs="w.attrs">
     <py:for each="header, item in w.items">
         <h3><a href="#">${header}</a></h3>
         <div>${item}</div>
     </py:for>
 <script type="text/javascript">
 $(function() {
-    $("#${w.attrs['id']}").accordion();
+    $("#${w.attrs['id']}").accordion(${w.options});
 });
 </script>
 </div>

@@ -1,13 +1,14 @@
 
 # TW2 proper imports
-from tw2.core.params import Param
 from tw2.core import CSSLink, JSLink
+from tw2.core.params import Param
+from tw2.core.resources import encoder
 
 # tw2.jquery.core imports
 from tw2.jquery.core import JQueryWidget
 from tw2.jquery.core.base import jQueryJSLink
-from tw2.jquery.core.version import JSLinkMixin
 from tw2.jquery.core.base import jQueryPluginLinkMixin
+from tw2.jquery.core.version import JSLinkMixin
 
 # import from *this* package
 from tw2.jquery.ui import defaults
@@ -39,3 +40,10 @@ jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
 class JQueryUIWidget(JQueryWidget):
     """ Base JQueryUIWidget """
     resources = [ jquery_js, jquery_ui_js, jquery_ui_css ]
+
+    options = Param(
+        '(dict) A dict of options to pass to the widget', default={})
+    
+    def prepare(self):
+        self.options = encoder.encode(self.options)
+        super(JQueryUIWidget, self).prepare()

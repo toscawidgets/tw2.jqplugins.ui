@@ -19,7 +19,37 @@ class AccordianWidget(uibase.JQueryUIWidget):
 
     The underlying HTML markup is a series of headers (H3 tags) and
     content divs so the content is usable without JavaScript.
+    
+    See the wrapped library's documentation for more information:
+        http://jqueryui.com/demos/accordion/
+
+    description of supported options:
+        disabled -- boolean (default: False)
+
+        active -- selector, element, jQuery, boolean, number (default: first child)
+
+        animated -- boolean, str (default: 'slide')
+
+        autoHeight -- boolean (default: True)
+
+        clearStyle -- boolean (default: False)
+
+        collapsible -- boolean (default: False)
+
+        event -- str (default: 'click')
+
+        fillSpace -- boolean (default: False)
+
+        header -- selector, jQuery (default: '> li > :first-child,> :not(li):even')
+
+        icons -- dict (default: {'header': 'ui-icon-triangle-1-e', 'headerSelected': 'ui-icon-triangle-1-s'})
+
+        navigation -- boolean (default: False)
+
+        navigationFilter -- javascript string (default: '')
+
     """
+
     template = "tw2.jquery.ui.templates.accordian"
 
     # TODO -- use strings or widgets or Markup or what?
@@ -35,14 +65,24 @@ class AutocompleteWidget(uibase.JQueryUIWidget):
 
     The datasource is a simple JavaScript array, provided to the widget
     using the source-option.
+
+    See the wrapped library's documentation for more information:
+        http://jqueryui.com/demos/autocomplete/
+
+    description of supported options:
+
+        disabled -- boolean (default: False)
+
+        delay -- int (default: 300)
+
+        minLength -- int (default: 1)
+
+        source -- str, list, callback (default: None)
     """
     template = "tw2.jquery.ui.templates.autocomplete"
 
-    tags = twc.Param('List of completable strings', default=[])
-
     def prepare(self):
         super(AutocompleteWidget, self).prepare()
-        self.tags = encoder.encode(self.tags)
 
 class ButtonWidget(uibase.JQueryUIWidget):
     """ A button with a javascript callback with different markup flavors. """
