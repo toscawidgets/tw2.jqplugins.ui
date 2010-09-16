@@ -75,10 +75,20 @@ class AccordionWidget(uibase.JQueryUIWidget):
     template = "tw2.jquery.ui.templates.accordion"
     jqmethod = "accordion"
 
-    # TODO -- use strings or widgets or Markup or what?
-    # TODO -- if strings, how to unescape HTML?
     items = twc.Param(
         'A list of (header (str), content (str)) tuples', default=[])
+
+    def prepare(self):
+        super(AccordionWidget, self).prepare()
+
+        # TODO -- use strings or widgets or Markup or what?
+        # TODO -- if strings, how to unescape HTML?
+
+        # The following *does not work*.... what will? :/
+        # The html from samples.py shows up escaped on the client browser
+        from genshi.core import unescape as unes
+        self.items = [(unes(head), unes(cont)) for head, cont in self.items]
+
 
 class AutocompleteWidget(uibase.JQueryUIWidget):
     """
