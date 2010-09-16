@@ -587,7 +587,16 @@ class DialogWidget(uibase.JQueryUIWidget):
     """
     template = "tw2.jquery.ui.templates.dialog"
     jqmethod = "dialog"
-    value = twc.Param('The message for the dialog')
+    
+    value = twc.Param('The HTML message for the dialog')
+    
+    def prepare(self):
+        super(DialogWidget, self).prepare()
+        # The following is done to treat the items contents as 'html-literals'
+        class html(str):
+            def __html__(self):
+                return self.__str__()
+        self.value = html(self.value)
 
 class ProgressBarWidget(uibase.JQueryUIWidget):
     """

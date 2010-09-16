@@ -95,10 +95,12 @@ class DemoDialogWidget(DialogWidget):
         'title' : 'Basic Dialog',
     }
     value = """
+    <p>
     This is the default dialog which is useful for displaying information.
     The dialog window can be moved, resized and closed with the 'x' icon.
+    </p>
 
-    It is likely displayed at the top of the page ;p
+    <p>It is likely displayed at the top of the page ;p</p>
     """
 
 class DemoProgressBarWidget(ProgressBarWidget):
