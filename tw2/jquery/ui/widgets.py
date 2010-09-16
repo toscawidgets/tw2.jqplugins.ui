@@ -611,7 +611,6 @@ class ProgressBarWidget(uibase.JQueryUIWidget):
     """
     template = "tw2.jquery.ui.templates.progressbar"
     jqmethod = "progressbar"
-    value = twc.Param('Value of the progress bar')
 
 class SliderWidget(uibase.JQueryUIWidget):
     """
