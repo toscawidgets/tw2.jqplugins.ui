@@ -9,9 +9,8 @@ from tw2.jquery.ui import base as uibase
 ### List of TODOs
 # TODO prepare methods should verify data before rendering
 # TODO doc strings should fully match http://jqueryui.com/demos/
-# TODO use generic 'options' param to handle all options ^^
 
-class AccordianWidget(uibase.JQueryUIWidget):
+class AccordionWidget(uibase.JQueryUIWidget):
     """
     Click headers to expand/collapse content that is broken into
     logical sections, much like tabs. Optionally, toggle sections
@@ -50,7 +49,8 @@ class AccordianWidget(uibase.JQueryUIWidget):
 
     """
 
-    template = "tw2.jquery.ui.templates.accordian"
+    template = "tw2.jquery.ui.templates.accordion"
+    jqmethod = "accordion"
 
     # TODO -- use strings or widgets or Markup or what?
     # TODO -- if strings, how to unescape HTML?
@@ -80,6 +80,7 @@ class AutocompleteWidget(uibase.JQueryUIWidget):
         source -- str, list, callback (default: None)
     """
     template = "tw2.jquery.ui.templates.autocomplete"
+    jqmethod = "autocomplete"
 
     def prepare(self):
         super(AutocompleteWidget, self).prepare()
@@ -103,6 +104,7 @@ class ButtonWidget(uibase.JQueryUIWidget):
 
     """
     template = "tw2.jquery.ui.templates.button"
+    jqmethod = "button"
 
     type = twc.Param(
         'Type of button.  Valid values are "button", "input", "anchor"',
@@ -118,6 +120,7 @@ class DatePickerWidget(uibase.JQueryUIWidget):
     value.
     """
     template = "tw2.jquery.ui.templates.datepicker"
+    jqmethod = "datepicker"
 
 class DialogWidget(uibase.JQueryUIWidget):
     """
@@ -129,6 +132,7 @@ class DialogWidget(uibase.JQueryUIWidget):
     It is likely displayed at the top of the page right now ;p
     """
     template = "tw2.jquery.ui.templates.dialog"
+    jqmethod = "dialog"
     title = twc.Param('The title for the dialog', attribute=True)
     value = twc.Param('The message for the dialog')
 
@@ -139,6 +143,7 @@ class ProgressBarWidget(uibase.JQueryUIWidget):
     will scale to fit inside it's parent container by default.
     """
     template = "tw2.jquery.ui.templates.progressbar"
+    jqmethod = "progressbar"
     value = twc.Param('Value of the progress bar')
 
 class SliderWidget(uibase.JQueryUIWidget):
@@ -148,6 +153,7 @@ class SliderWidget(uibase.JQueryUIWidget):
     handle can be moved with the mouse or the arrow keys.
     """
     template = "tw2.jquery.ui.templates.slider"
+    jqmethod = "slider"
 
 class TabsWidget(uibase.JQueryUIWidget):
     """
@@ -159,5 +165,6 @@ class TabsWidget(uibase.JQueryUIWidget):
     be loaded via Ajax by setting an href on a tab.
     """
     template = "tw2.jquery.ui.templates.tabs"
+    jqmethod = "tabs"
     items = twc.Param(
         'A list of (header (str), content (str)) tuples', default=[])

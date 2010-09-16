@@ -7,7 +7,7 @@ See http://toscawidgets.org/documentation/WidgetBrowser for more information
 """
 
 from widgets import (
-    AccordianWidget,
+    AccordionWidget,
     AutocompleteWidget,
     ButtonWidget,
     DatePickerWidget,
@@ -65,7 +65,7 @@ some_items = [
                 </p>
          """),
     ]
-class DemoAccordianWidget(AccordianWidget):
+class DemoAccordionWidget(AccordionWidget):
     items = some_items
     options = {
         'fillSpace' : True,

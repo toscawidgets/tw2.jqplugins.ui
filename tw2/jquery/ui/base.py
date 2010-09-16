@@ -1,7 +1,6 @@
 
 # TW2 proper imports
-from tw2.core import CSSLink, JSLink
-from tw2.core.params import Param
+import tw2.core as twc
 from tw2.core.resources import encoder
 
 # tw2.jquery.core imports
@@ -19,11 +18,11 @@ class jQueryUIMixin(jQueryPluginLinkMixin):
     basename='jquery-ui'
     modname = 'tw2.jquery.ui'
 
-class jQueryUIJSLink(JSLink, jQueryUIMixin):
+class jQueryUIJSLink(twc.JSLink, jQueryUIMixin):
     subdir = 'js'
 
-class jQueryUIThemeCSSLink(jQueryUIMixin, CSSLink):
-    name = Param('(string) Specify the name of the theme that you wish to use.  Default: %s' % defaults._ui_theme_name_, default=defaults._ui_theme_name_)
+class jQueryUIThemeCSSLink(jQueryUIMixin, twc.CSSLink):
+    name = twc.Param('(string) Specify the name of the theme that you wish to use.  Default: %s' % defaults._ui_theme_name_, default=defaults._ui_theme_name_)
     @property
     def subdir(self):
         return 'css/%(name)s' % dict(name=self.name)
@@ -41,10 +40,12 @@ class JQueryUIWidget(JQueryWidget):
     """ Base JQueryUIWidget """
     resources = [ jquery_js, jquery_ui_js, jquery_ui_css ]
 
-    options = Param(
+    jqmethod = twc.Variable("(str) Name of this widget's jQuery init method")
+
+    options = twc.Param(
         '(dict) A dict of options to pass to the widget', default={})
 
-    click = Param('(str) javascript callback for click event', default=None)
+    click = twc.Param('(str) javascript callback for click event', default=None)
     
     def prepare(self):
         self.options = encoder.encode(self.options)
