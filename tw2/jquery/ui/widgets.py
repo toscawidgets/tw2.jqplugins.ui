@@ -8,7 +8,6 @@ from tw2.jquery.ui import base as uibase
 
 ### List of TODOs
 # TODO prepare methods should verify data before rendering
-# TODO doc strings should fully match http://jqueryui.com/demos/
 
 class AccordionWidget(uibase.JQueryUIWidget):
     """
