@@ -45,7 +45,8 @@ class JQueryUIWidget(JQueryWidget):
     options = twc.Param(
         '(dict) A dict of options to pass to the widget', default={})
 
-    click = twc.Param('(str) javascript callback for click event', default=None)
+    click = twc.Param(
+        '(str) javascript callback for generic click event', default=None)
     
     def prepare(self):
         self.options = encoder.encode(self.options)
