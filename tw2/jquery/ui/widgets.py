@@ -6,9 +6,6 @@ from tw2.core.resources import encoder
 # imports from this package
 from tw2.jquery.ui import base as uibase
 
-### List of TODOs
-# TODO prepare methods should verify data before rendering
-
 class AccordionWidget(uibase.JQueryUIWidget):
     """
     Click headers to expand/collapse content that is broken into
