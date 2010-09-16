@@ -1,0 +1,8 @@
+<script xmlns:py="http://genshi.edgewall.org/"
+        type="text/javascript">
+$(function() {
+    <py:if test="w.click">
+    $("#${w.attrs['id']}").click(${w.click});
+    </py:if>
+});
+</script>

@@ -1,13 +1,13 @@
-<div xmlns:py="http://genshi.edgewall.org/" py:choose="w.type">
+<div xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     py:choose="w.type">
 <button py:attrs="w.attrs" py:when="'button'">${w.value}</button>
 <input  py:attrs="w.attrs" py:when="'input'" type="submit" value="${w.value}"/>
 <a      py:attrs="w.attrs" py:when="'anchor'" href="#">${w.value}</a>
 <script type="text/javascript">
 $(function() {
     $("#${w.attrs['id']}").button(${w.options});
-    <py:if test="w.click">
-    $("#${w.attrs['id']}").click(${w.click});
-    </py:if>
 });
 </script>
+<xi:include href="generic_js_events.html" />
 </div>
