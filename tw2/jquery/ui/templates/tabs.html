@@ -1,6 +1,6 @@
 <div xmlns:py="http://genshi.edgewall.org/"
-     py:attrs="w.attrs" class="ui-widget">
-    
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     py:attrs="w.attrs">
     <ul>
     <py:for each="i in range(len(w.items))">
         <li><a href="#${w.attrs['id']}-${i}">${w.items[i][0]}</a></li>
@@ -11,7 +11,8 @@
     </py:for>
 <script type="text/javascript">
 $(function() {
-    $("#${w.attrs['id']}").tabs();
+    $("#${w.attrs['id']}").tabs(${w.options});
 });
 </script>
+<xi:include href="generic_js_events.html" />
 </div>

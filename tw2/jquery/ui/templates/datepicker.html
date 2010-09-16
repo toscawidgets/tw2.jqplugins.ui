@@ -1,10 +1,12 @@
-<div xmlns:py="http://genshi.edgewall.org/">
-<div py:attrs="w.attrs" class="ui-widget">
-    <input type="text" id="${w.attrs['id']}-datepicker" />
-</div>
+<div xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude">
+     
+     <input type="text" py:attrs="w.attrs" />
+
 <script type="text/javascript">
 $(function() {
-    $("#${w.attrs['id']}-datepicker").datepicker();
+    $("#${w.attrs['id']}").datepicker(${w.options});
 });
 </script>
+<xi:include href="generic_js_events.html" />
 </div>

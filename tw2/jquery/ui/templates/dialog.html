@@ -1,8 +1,10 @@
-<div xmlns:py="http://genshi.edgewall.org/">
-<div py:attrs="w.attrs" class="ui-widget"> ${w.value} </div>
+<div xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude">
+<div py:attrs="w.attrs"> ${w.value} </div>
 <script type="text/javascript">
 $(function() {
-    $("#${w.attrs['id']}").dialog();
+    $("#${w.attrs['id']}").dialog(${w.options});
 });
 </script>
+<xi:include href="generic_js_events.html" />
 </div>

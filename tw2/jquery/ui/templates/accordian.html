@@ -1,4 +1,6 @@
-<div xmlns:py="http://genshi.edgewall.org/" py:attrs="w.attrs">
+<div xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     py:attrs="w.attrs">
     <py:for each="header, item in w.items">
         <h3><a href="#">${header}</a></h3>
         <div>${item}</div>
@@ -8,4 +10,5 @@ $(function() {
     $("#${w.attrs['id']}").accordion(${w.options});
 });
 </script>
+<xi:include href="generic_js_events.html" />
 </div>

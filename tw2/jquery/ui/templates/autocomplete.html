@@ -1,8 +1,10 @@
-<div xmlns:py="http://genshi.edgewall.org/">
+<div xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude">
      <input py:attrs="w.attrs"/>
 <script type="text/javascript">
 $(function() {
     $("#${w.attrs['id']}").autocomplete(${w.options});
 });
 </script>
+<xi:include href="generic_js_events.html" />
 </div>
