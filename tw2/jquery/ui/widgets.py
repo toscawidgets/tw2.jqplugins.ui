@@ -19,7 +19,6 @@ class AccordionWidget(uibase.JQueryUIWidget):
         http://jqueryui.com/demos/accordion/
 
     List of options passable to the ``options`` parameter
-
         disabled -- boolean (default: False)
             Disables (true) or enables (false) the accordion. Can be set
             when initialising (first creating) the accordion.
@@ -100,7 +99,6 @@ class AutocompleteWidget(uibase.JQueryUIWidget):
         http://jqueryui.com/demos/autocomplete/
 
     List of options passable to the ``options`` parameter
-
         disabled -- boolean (default: False)
             Disables (true) or enables (false) the autocomplete. Can be set
             when initialising (first creating) the autocomplete.
@@ -136,7 +134,6 @@ class ButtonWidget(uibase.JQueryUIWidget):
         http://jqueryui.com/demos/button/
 
     List of options passable to the ``options`` parameter
-
         disabled -- boolean (default: False)
             Disables (true) or enables (false) the button. Can be set
             when initialising (first creating) the button.
@@ -184,7 +181,6 @@ class DatePickerWidget(uibase.JQueryUIWidget):
         http://jqueryui.com/demos/datepicker/
 
     List of options passable to the ``options`` parameter
-
         disabled -- boolean (default: False)
             Disables (true) or enables (false) the datepicker. Can be set
             when initialising (first creating) the datepicker.
@@ -464,7 +460,6 @@ class DialogWidget(uibase.JQueryUIWidget):
         http://jqueryui.com/demos/dialog/
 
     List of options passable to the ``options`` parameter
-
         disabled -- boolean (default: False)
             Disables (true) or enables (false) the dialog. Can be set when
             initialising (first creating) the dialog.
@@ -604,7 +599,6 @@ class ProgressBarWidget(uibase.JQueryUIWidget):
         http://jqueryui.com/demos/progressbar/
 
     List of options passable to the ``options`` parameter
-
         disabled -- boolean (default: False)
             Disables (true) or enables (false) the progressbar. Can
             be set when initialising (first creating) the progressbar.
@@ -629,7 +623,6 @@ class SliderWidget(uibase.JQueryUIWidget):
         http://jqueryui.com/demos/slider/
 
     List of options passable to the ``options`` parameter
-
         disabled -- boolean (default: False)
             Disables (true) or enables (false) the slider. Can be set when
             initialising (first creating) the slider.
@@ -712,7 +705,6 @@ class TabsWidget(uibase.JQueryUIWidget):
         http://jqueryui.com/demos/tabs/
 
     List of options passable to the ``options`` parameter
-
         disabled -- boolean (default: False)
             Disables (true) or enables (false) the tabs. Can be set when
             initialising (first creating) the tabs.
