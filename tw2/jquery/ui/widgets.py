@@ -7,7 +7,6 @@ from tw2.core.resources import encoder
 from tw2.jquery.ui import base as uibase
 
 ### List of TODOs
-# TODO make a base class JQueryUIWidget that knows how to apply all the right css tags to make widgets compliant.
 # TODO prepare methods should verify data before rendering
 # TODO doc strings should fully match http://jqueryui.com/demos/
 # TODO use generic 'options' param to handle all options ^^
