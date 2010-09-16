@@ -1,19 +1,13 @@
-<div xmlns:py="http://genshi.edgewall.org/">
-<div py:attrs="w.attrs" class="ui-widget" py:choose="w.type">
-    <button id="${w.attrs['id']}-button"
-            py:when="'button'">${w.value}</button>
-
-    <input  id="${w.attrs['id']}-button"
-            py:when="'input'" type="submit" value="${w.value}" />
-
-    <a      id="${w.attrs['id']}-button"
-            py:when="'anchor'" href="#">${w.value}</a>
-
-</div>
+<div xmlns:py="http://genshi.edgewall.org/" py:choose="w.type">
+<button py:attrs="w.attrs" py:when="'button'">${w.value}</button>
+<input  py:attrs="w.attrs" py:when="'input'" type="submit" value="${w.value}"/>
+<a      py:attrs="w.attrs" py:when="'anchor'" href="#">${w.value}</a>
 <script type="text/javascript">
 $(function() {
-    $("#${w.attrs['id']}-button").button();
-    $("#${w.attrs['id']}-button").click(${w.js_callback});
+    $("#${w.attrs['id']}").button(${w.options});
+    <py:if test="w.click">
+    $("#${w.attrs['id']}").click(${w.click});
+    </py:if>
 });
 </script>
 </div>

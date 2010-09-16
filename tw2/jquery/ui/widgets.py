@@ -85,19 +85,28 @@ class AutocompleteWidget(uibase.JQueryUIWidget):
         super(AutocompleteWidget, self).prepare()
 
 class ButtonWidget(uibase.JQueryUIWidget):
-    """ A button with a javascript callback with different markup flavors. """
+    """
+    A button with a javascript callback with different markup flavors.
+
+    See the wrapped library's documentation for more information:
+        http://jqueryui.com/demos/button/
+
+    description of supported options:
+
+        disabled -- boolean (default: False)
+
+        text -- boolean (default: True)
+
+        icons -- dict (default: {'primary' : None, 'secondary' : None})
+
+        label -- str (default: "HTML content of the button")
+
+    """
     template = "tw2.jquery.ui.templates.button"
 
     type = twc.Param(
         'Type of button.  Valid values are "button", "input", "anchor"',
         default='button')
-
-    value = twc.Param('Value of the label on the button')
-
-    js_callback = twc.Param(
-        'A string describing a javascript callback',
-        default='function() { return false; }'
-    )
 
 class DatePickerWidget(uibase.JQueryUIWidget):
     """

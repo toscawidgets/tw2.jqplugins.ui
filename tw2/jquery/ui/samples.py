@@ -84,8 +84,8 @@ class DemoAutocompleteWidget(AutocompleteWidget):
     
 class DemoButtonWidget(ButtonWidget):
     type = 'button'
-    value = 'A button'
-    js_callback = "function() { alert( 'Hello world!' ) }"
+    value = "This is a jQuery UI button"
+    click = "function() { alert( 'Hello world!' ) }"
 
 class DemoDatePickerWidget(DatePickerWidget):
     pass
