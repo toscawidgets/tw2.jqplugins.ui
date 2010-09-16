@@ -91,7 +91,9 @@ class DemoDatePickerWidget(DatePickerWidget):
     pass
 
 class DemoDialogWidget(DialogWidget):
-    title = "Basic Dialog"
+    options = {
+        'title' : 'Basic Dialog',
+    }
     value = """
     This is the default dialog which is useful for displaying information.
     The dialog window can be moved, resized and closed with the 'x' icon.

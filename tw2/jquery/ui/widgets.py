@@ -589,8 +589,6 @@ class DialogWidget(uibase.JQueryUIWidget):
     """
     template = "tw2.jquery.ui.templates.dialog"
     jqmethod = "dialog"
-    # TODO -- remove title, its duplicated in options
-    title = twc.Param('The title for the dialog', attribute=True)
     value = twc.Param('The message for the dialog')
 
 class ProgressBarWidget(uibase.JQueryUIWidget):
