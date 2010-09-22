@@ -45,6 +45,8 @@ class JQueryUIWidget(JQueryWidget):
     options = twc.Param(
         '(dict) A dict of options to pass to the widget', default={})
 
+    # TODO - Refactor this out to tw2.jquery.core
+    # http://github.com/ralphbean/tw2.jquery.core/commit/7f0071d0b92ba518cb7bee82c9bcbb3333f2e8a3
     click = twc.Param(
         '(str) javascript callback for generic click event', default=None)
     
