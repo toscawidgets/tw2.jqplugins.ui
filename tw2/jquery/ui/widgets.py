@@ -126,7 +126,7 @@ class AutocompleteWidget(uibase.JQueryUIWidget):
     template = "tw2.jquery.ui.templates.autocomplete"
     jqmethod = "autocomplete"
     
-    value = twc.Param('Initial search value', default='Search', attribute=True)
+    value = twc.Param('Initial search value', default='', attribute=True)
 
 class CategoryAutocompleteWidget(AutocompleteWidget):
     """

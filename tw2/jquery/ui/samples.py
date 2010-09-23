@@ -74,7 +74,6 @@ class DemoAccordionWidget(AccordionWidget):
     }
 
 class DemoAutocompleteWidget(AutocompleteWidget):
-    value = "Search here (try 'va')"
     options = {
         'source' : [
             "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
