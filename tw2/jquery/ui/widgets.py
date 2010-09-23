@@ -126,6 +126,16 @@ class AutocompleteWidget(uibase.JQueryUIWidget):
     def prepare(self):
         super(AutocompleteWidget, self).prepare()
 
+class CategoryAutocompleteWidget(AutocompleteWidget):
+    """
+    Implements the same API and functionality as the AutocompleteWidget
+    with the exception that the data must be a list of dicts each with
+    'label' and 'category' keys.
+
+    """
+    template = "tw2.jquery.ui.templates.catcomplete"
+    jqmethod = "catcomplete"
+
 class ButtonWidget(uibase.JQueryUIWidget):
     """
     A button with a javascript callback with different markup flavors.

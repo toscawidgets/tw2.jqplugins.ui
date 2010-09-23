@@ -9,6 +9,7 @@ See http://toscawidgets.org/documentation/WidgetBrowser for more information
 from widgets import (
     AccordionWidget,
     AutocompleteWidget,
+    CategoryAutocompleteWidget,
     ButtonWidget,
     DatePickerWidget,
     DialogWidget,
@@ -80,6 +81,20 @@ class DemoAutocompleteWidget(AutocompleteWidget):
             "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python",
             "Ruby", "Scala", "Scheme"
         ],
+    }
+class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
+    options = {
+        'source' : [
+            { 'label': "anders", 'category': "" },
+            { 'label': "andreas", 'category': "" },
+            { 'label': "antal", 'category': "" },
+            { 'label': "annhhx10", 'category': "Products" },
+            { 'label': "annk K12", 'category': "Products" },
+            { 'label': "annttop C13", 'category': "Products" },
+            { 'label': "anders andersson", 'category': "People" },
+            { 'label': "andreas andersson", 'category': "People" },
+            { 'label': "andreas johnson", 'category': "People" }
+        ]
     }
     
 class DemoButtonWidget(ButtonWidget):
