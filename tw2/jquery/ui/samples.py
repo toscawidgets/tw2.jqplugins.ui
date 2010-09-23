@@ -74,6 +74,7 @@ class DemoAccordionWidget(AccordionWidget):
     }
 
 class DemoAutocompleteWidget(AutocompleteWidget):
+    value = "Search here (try 'va')"
     options = {
         'source' : [
             "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
@@ -83,6 +84,7 @@ class DemoAutocompleteWidget(AutocompleteWidget):
         ],
     }
 class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
+    value = "Try 'n' or 'a'"
     options = {
         'source' : [
             { 'label': "anders", 'category': "" },
