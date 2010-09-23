@@ -126,9 +126,6 @@ class AutocompleteWidget(uibase.JQueryUIWidget):
     template = "tw2.jquery.ui.templates.autocomplete"
     jqmethod = "autocomplete"
 
-    def prepare(self):
-        super(AutocompleteWidget, self).prepare()
-
 class CategoryAutocompleteWidget(AutocompleteWidget):
     """
     Implements the same API and functionality as the AutocompleteWidget
