@@ -6,6 +6,9 @@ from tw2.core.resources import encoder
 # imports from this package
 from tw2.jquery.ui import base as uibase
 
+# TODO -- portlets justlikeat
+# http://www.mail-archive.com/jquery-ui@googlegroups.com/msg12962.html
+
 class AccordionWidget(uibase.JQueryUIWidget):
     """
     Click headers to expand/collapse content that is broken into
