@@ -11,12 +11,19 @@ tw2.jquery_ui
 
 tw2.jquery_ui is a `toscawidgets2 (tw2)`_ wrapper for `jQuery UI`_.
 
-Peep the `live demo <http://craftsman.rc.rit.edu/module?module=tw2.jquery_ui>`_.
+Live Demo
+---------
+Peep the `live demonstration <http://craftsman.rc.rit.edu/module?module=tw2.jquery_ui>`_.
 
+Links
+-----
 Get the `source from github <http://github.com/ralphbean/tw2.jquery_ui>`_.
 
 `PyPI page <http://pypi.python.org/pypi/tw2.jquery_ui>`_
 and `bugs <http://github.com/ralphbean/tw2.jquery_ui/issues/>`_
+
+Description
+-----------
 
 `toscawidgets2 (tw2)`_ aims to be a practical and useful widgets framework
 that helps people build interactive websites with compelling features, faster
