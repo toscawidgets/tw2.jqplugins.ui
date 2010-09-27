@@ -1,2 +1,2 @@
-recursive-include tw2/jquery/ui/static *
-recursive-include tw2/jquery/ui/templates *
+recursive-include tw2/jquery_ui/static *
+recursive-include tw2/jquery_ui/templates *

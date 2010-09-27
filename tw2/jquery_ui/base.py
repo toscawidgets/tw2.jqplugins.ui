@@ -3,20 +3,20 @@
 import tw2.core as twc
 from tw2.core.resources import encoder
 
-# tw2.jquery.core imports
-from tw2.jquery.core import JQueryWidget
-from tw2.jquery.core.base import jQueryJSLink
-from tw2.jquery.core.base import jQueryPluginLinkMixin
-from tw2.jquery.core.version import JSLinkMixin
+# tw2.jquery_core imports
+from tw2.jquery_core import JQueryWidget
+from tw2.jquery_core.base import jQueryJSLink
+from tw2.jquery_core.base import jQueryPluginLinkMixin
+from tw2.jquery_core.version import JSLinkMixin
 
 # import from *this* package
-from tw2.jquery.ui import defaults
+from tw2.jquery_ui import defaults
 
 ### Links, etc...
 class jQueryUIMixin(jQueryPluginLinkMixin):
     dirname = defaults._ui_dirname_
     basename='jquery-ui'
-    modname = 'tw2.jquery.ui'
+    modname = 'tw2.jquery_ui'
 
 class jQueryUIJSLink(twc.JSLink, jQueryUIMixin):
     subdir = 'js'
@@ -45,8 +45,8 @@ class JQueryUIWidget(JQueryWidget):
     options = twc.Param(
         '(dict) A dict of options to pass to the widget', default={})
 
-    # TODO - Refactor this out to tw2.jquery.core
-    # http://github.com/ralphbean/tw2.jquery.core/commit/7f0071d0b92ba518cb7bee82c9bcbb3333f2e8a3
+    # TODO - Refactor this out to tw2.jquery_core
+    # http://github.com/ralphbean/tw2.jquery_core/commit/7f0071d0b92ba518cb7bee82c9bcbb3333f2e8a3
     click = twc.Param(
         '(str) javascript callback for generic click event', default=None)
     
