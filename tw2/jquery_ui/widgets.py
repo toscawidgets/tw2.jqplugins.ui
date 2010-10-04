@@ -138,6 +138,13 @@ class CategoryAutocompleteWidget(AutocompleteWidget):
     template = "tw2.jquery_ui.templates.catcomplete"
     jqmethod = "catcomplete"
 
+    def prepare(self):
+        # Adding the custom hook to jquery ui must be executed before
+        #   all other js references to jquery ui are executed on the client.
+        self.resources.append(uibase.jquery_ui_catcomplete_js)
+        super(CategoryAutocompleteWidget, self).prepare()
+
+
 class ButtonWidget(uibase.JQueryUIWidget):
     """
     A button with a javascript callback with different markup flavors.

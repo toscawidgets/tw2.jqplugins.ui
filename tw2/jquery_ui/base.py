@@ -32,6 +32,8 @@ class jQueryUIThemeCSSLink(jQueryUIMixin, twc.CSSLink):
 jquery_js = jQueryJSLink()
 jquery_ui_css = jQueryUIThemeCSSLink(
     name=defaults._ui_theme_name_, version=defaults._ui_version_)
+jquery_ui_catcomplete_js = jQueryUIJSLink(version='custom',
+                                          basename='catcomplete')
 jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_)
 jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
 
