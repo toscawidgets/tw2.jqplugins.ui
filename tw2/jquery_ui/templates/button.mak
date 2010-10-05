@@ -1,0 +1,9 @@
+<div xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     id="${w.attrs['id']}-wrapper"
+     py:choose="w.type">
+<button py:attrs="w.attrs" py:when="'button'">${w.value}</button>
+<input  py:attrs="w.attrs" py:when="'input'" type="submit" value="${w.value}"/>
+<a      py:attrs="w.attrs" py:when="'anchor'" href="#">${w.value}</a>
+<xi:include href="generic_jq_ui_js.html" />
+</div>

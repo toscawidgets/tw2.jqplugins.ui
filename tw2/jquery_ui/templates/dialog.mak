@@ -1,0 +1,6 @@
+<div xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     id="${w.attrs['id']}-wrapper">
+<div py:attrs="w.attrs"> ${w.value} </div>
+<xi:include href="generic_jq_ui_js.html" />
+</div>

@@ -1,0 +1,9 @@
+<div xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     id="${w.attrs['id']}-wrapper">
+     
+     <input py:attrs="w.attrs"/>
+
+<xi:include href="generic_jq_ui_js.html" />
+<xi:include href="ghost_text.html" py:if="w.attrs['value']!=''" />
+</div>
