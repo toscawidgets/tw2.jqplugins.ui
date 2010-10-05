@@ -17,8 +17,8 @@ setup(
     install_requires=[
         "tw2.core>=2.0b2",
         "tw2.jquery_core",
-        ## Add other requirements here
-        # "Genshi",
+        "genshi",
+        "mako"
         ],
     packages=find_packages(exclude=['ez_setup', 'tests']),
     namespace_packages = ['tw2'],
