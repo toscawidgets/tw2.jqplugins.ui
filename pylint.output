@@ -1,0 +1,301 @@
+************* Module tw2
+C:  1: Missing docstring
+************* Module tw2.jquery_ui.defaults
+C:  1: Missing docstring
+C:  2: Invalid name "_ui_theme_name_" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+C:  3: Invalid name "_ui_dirname_" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+C:  4: Invalid name "_ui_basename_" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+C:  5: Invalid name "_ui_version_" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+************* Module tw2.jquery_ui.samples
+C: 25: Line too long (88/80)
+C: 26: Line too long (87/80)
+C: 27: Line too long (89/80)
+C: 28: Line too long (92/80)
+C: 34: Line too long (85/80)
+C: 35: Line too long (91/80)
+C: 36: Line too long (85/80)
+C: 43: Line too long (91/80)
+C: 44: Line too long (90/80)
+C: 45: Line too long (84/80)
+C: 46: Line too long (91/80)
+C: 57: Line too long (84/80)
+C: 58: Line too long (85/80)
+C: 59: Line too long (86/80)
+C: 63: Line too long (90/80)
+C: 64: Line too long (87/80)
+W:  9: Relative import 'widgets', should be 'tw2.jquery_ui.widgets'
+C: 21: Invalid name "some_items" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+C: 69:DemoAccordionWidget: Missing docstring
+W: 69:DemoAccordionWidget: Class has no __init__ method
+R: 69:DemoAccordionWidget: Too few public methods (1/2)
+C: 76:DemoAutocompleteWidget: Missing docstring
+W: 76:DemoAutocompleteWidget: Class has no __init__ method
+R: 76:DemoAutocompleteWidget: Too few public methods (1/2)
+C: 85:DemoCategoryAutocompleteWidget: Missing docstring
+W: 85:DemoCategoryAutocompleteWidget: Class has no __init__ method
+R: 85:DemoCategoryAutocompleteWidget: Too few public methods (1/2)
+C:101:DemoButtonWidget: Missing docstring
+W:101:DemoButtonWidget: Class has no __init__ method
+R:101:DemoButtonWidget: Too few public methods (1/2)
+C:106:DemoDatePickerWidget: Missing docstring
+W:106:DemoDatePickerWidget: Class has no __init__ method
+R:106:DemoDatePickerWidget: Too few public methods (1/2)
+C:109:DemoDialogWidget: Missing docstring
+W:109:DemoDialogWidget: Class has no __init__ method
+R:109:DemoDialogWidget: Too few public methods (1/2)
+C:122:DemoProgressBarWidget: Missing docstring
+W:122:DemoProgressBarWidget: Class has no __init__ method
+R:122:DemoProgressBarWidget: Too few public methods (1/2)
+C:125:DemoSliderWidget: Missing docstring
+W:125:DemoSliderWidget: Class has no __init__ method
+R:125:DemoSliderWidget: Too few public methods (1/2)
+C:128:DemoTabsWidget: Missing docstring
+W:128:DemoTabsWidget: Class has no __init__ method
+R:128:DemoTabsWidget: Too few public methods (1/2)
+************* Module tw2.jquery_ui.base
+C: 25: Line too long (158/80)
+C: 51: Line too long (97/80)
+W: 50: TODO - Refactor this out to tw2.jquery_core
+C:  1: Missing docstring
+E:  3: No name 'core' in module 'tw2'
+F:  3: Unable to import 'tw2.core'
+E:  4: No name 'core' in module 'tw2'
+F:  4: Unable to import 'tw2.core.resources'
+E:  7: No name 'jquery_core' in module 'tw2'
+F:  7: Unable to import 'tw2.jquery_core'
+E:  8: No name 'jquery_core' in module 'tw2'
+F:  8: Unable to import 'tw2.jquery_core.base'
+E:  9: No name 'jquery_core' in module 'tw2'
+F:  9: Unable to import 'tw2.jquery_core.base'
+E: 10: No name 'jquery_core' in module 'tw2'
+F: 10: Unable to import 'tw2.jquery_core.version'
+C: 16:jQueryUIMixin: Invalid name "jQueryUIMixin" (should match [A-Z_][a-zA-Z0-9]+$)
+C: 16:jQueryUIMixin: Missing docstring
+W: 16:jQueryUIMixin: Class has no __init__ method
+W: 17:jQueryUIMixin: Access to a protected member _ui_dirname_ of a client class
+C: 18:jQueryUIMixin: Operator not preceded by a space
+    basename='jquery-ui'
+            ^
+R: 16:jQueryUIMixin: Too few public methods (0/2)
+C: 21:jQueryUIJSLink: Invalid name "jQueryUIJSLink" (should match [A-Z_][a-zA-Z0-9]+$)
+C: 21:jQueryUIJSLink: Missing docstring
+W: 21:jQueryUIJSLink: Class has no __init__ method
+R: 21:jQueryUIJSLink: Too few public methods (0/2)
+C: 24:jQueryUIThemeCSSLink: Invalid name "jQueryUIThemeCSSLink" (should match [A-Z_][a-zA-Z0-9]+$)
+C: 24:jQueryUIThemeCSSLink: Missing docstring
+W: 24:jQueryUIThemeCSSLink: Class has no __init__ method
+W: 25:jQueryUIThemeCSSLink: Access to a protected member _ui_theme_name_ of a client class
+W: 25:jQueryUIThemeCSSLink: Access to a protected member _ui_theme_name_ of a client class
+C: 27:jQueryUIThemeCSSLink.subdir: Missing docstring
+R: 24:jQueryUIThemeCSSLink: Too few public methods (1/2)
+C: 32: Invalid name "jquery_js" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+C: 33: Invalid name "jquery_ui_css" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+W: 34: Access to a protected member _ui_theme_name_ of a client class
+W: 34: Access to a protected member _ui_version_ of a client class
+C: 35: Invalid name "jquery_ui_catcomplete_js" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+C: 37: Invalid name "jquery_ui_js" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+W: 37: Access to a protected member _ui_version_ of a client class
+C: 38: Invalid name "jquery_ui" (should match (([A-Z_][A-Z0-9_]*)|(__.*__))$)
+W: 41:JQueryUIWidget: Class has no __init__ method
+C: 55:JQueryUIWidget.prepare: Missing docstring
+E: 55:JQueryUIWidget.prepare: Use super on an old style class
+R: 41:JQueryUIWidget: Too few public methods (1/2)
+W: 10: Unused import JSLinkMixin
+************* Module tw2.jquery_ui
+C:  1: Missing docstring
+W:  1: Relative import 'widgets', should be 'tw2.jquery_ui.widgets'
+W:  1: Wildcard import widgets
+************* Module tw2.jquery_ui.widgets
+W:  9: TODO -- portlets justlikeat
+C:  1: Missing docstring
+E:  3: No name 'core' in module 'tw2'
+F:  3: Unable to import 'tw2.core'
+E:  4: No name 'core' in module 'tw2'
+F:  4: Unable to import 'tw2.core.resources'
+W: 12:AccordionWidget: Class has no __init__ method
+C: 83:AccordionWidget.prepare: Missing docstring
+E: 83:AccordionWidget.prepare: Use super on an old style class
+C: 86:AccordionWidget.prepare.html: Invalid name "html" (should match [A-Z_][a-zA-Z0-9]+$)
+C: 86:AccordionWidget.prepare.html: Missing docstring
+R: 86:AccordionWidget.prepare.html: Too many public methods (38/20)
+R: 12:AccordionWidget: Too few public methods (1/2)
+W: 92:AutocompleteWidget: Class has no __init__ method
+R: 92:AutocompleteWidget: Too few public methods (1/2)
+W:131:CategoryAutocompleteWidget: Class has no __init__ method
+C:141:CategoryAutocompleteWidget.prepare: Missing docstring
+E:141:CategoryAutocompleteWidget.prepare: Use super on an old style class
+R:131:CategoryAutocompleteWidget: Too few public methods (1/2)
+W:148:ButtonWidget: Class has no __init__ method
+R:148:ButtonWidget: Too few public methods (1/2)
+W:190:DatePickerWidget: Class has no __init__ method
+R:190:DatePickerWidget: Too few public methods (1/2)
+W:471:DialogWidget: Class has no __init__ method
+C:612:DialogWidget.prepare: Missing docstring
+E:612:DialogWidget.prepare: Use super on an old style class
+C:615:DialogWidget.prepare.html: Invalid name "html" (should match [A-Z_][a-zA-Z0-9]+$)
+C:615:DialogWidget.prepare.html: Missing docstring
+R:615:DialogWidget.prepare.html: Too many public methods (38/20)
+R:471:DialogWidget: Too few public methods (1/2)
+W:620:ProgressBarWidget: Class has no __init__ method
+R:620:ProgressBarWidget: Too few public methods (1/2)
+W:643:SliderWidget: Class has no __init__ method
+R:643:SliderWidget: Too few public methods (1/2)
+W:722:TabsWidget: Class has no __init__ method
+C:835:TabsWidget.prepare: Missing docstring
+E:835:TabsWidget.prepare: Use super on an old style class
+C:838:TabsWidget.prepare.html: Invalid name "html" (should match [A-Z_][a-zA-Z0-9]+$)
+C:838:TabsWidget.prepare.html: Missing docstring
+R:838:TabsWidget.prepare.html: Too many public methods (38/20)
+R:722:TabsWidget: Too few public methods (1/2)
+W:  4: Unused import encoder
+************* Module tw2.jquery_ui.templates
+C:  1: Missing docstring
+
+
+Report
+======
+118 statements analysed.
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |=          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |165    |16.24 |79       |+86.00     |
++----------+-------+------+---------+-----------+
+|docstring |812    |79.92 |16       |+796.00    |
++----------+-------+------+---------+-----------+
+|comment   |14     |1.38  |1        |+13.00     |
++----------+-------+------+---------+-----------+
+|empty     |25     |2.46  |10       |+15.00     |
++----------+-------+------+---------+-----------+
+
+
+
+External dependencies
+---------------------
+::
+
+    tw2 
+      \-jquery_ui 
+        \-widgets 
+          \-AccordionWidget (tw2.jquery_ui.samples)
+          \-AutocompleteWidget (tw2.jquery_ui.samples)
+          \-ButtonWidget (tw2.jquery_ui.samples)
+          \-CategoryAutocompleteWidget (tw2.jquery_ui.samples)
+          \-DatePickerWidget (tw2.jquery_ui.samples)
+          \-DialogWidget (tw2.jquery_ui.samples)
+          \-ProgressBarWidget (tw2.jquery_ui.samples)
+          \-SliderWidget (tw2.jquery_ui.samples)
+          \-TabsWidget (tw2.jquery_ui.samples)
+
+
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |7      |7          |=          |14.29       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |25     |3          |+22.00     |40.00       |24.00    |
++---------+-------+-----------+-----------+------------+---------+
+|method   |9      |1          |+8.00      |33.33       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|function |0      |0          |=          |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |62     |21       |+41.00     |
++-----------+-------+---------+-----------+
+|refactor   |25     |2        |+23.00     |
++-----------+-------+---------+-----------+
+|warning    |35     |19       |+16.00     |
++-----------+-------+---------+-----------+
+|error      |13     |9        |+4.00      |
++-----------+-------+---------+-----------+
+
+
+
+% errors / warnings by module
+-----------------------------
+
++-----------------------+------+--------+---------+-----------+
+|module                 |error |warning |refactor |convention |
++=======================+======+========+=========+===========+
+|tw2.jquery_ui.base     |53.85 |34.29   |16.00    |27.42      |
++-----------------------+------+--------+---------+-----------+
+|tw2.jquery_ui.widgets  |46.15 |31.43   |48.00    |17.74      |
++-----------------------+------+--------+---------+-----------+
+|tw2.jquery_ui.samples  |0.00  |28.57   |36.00    |41.94      |
++-----------------------+------+--------+---------+-----------+
+|tw2.jquery_ui.__init__ |0.00  |5.71    |0.00     |1.61       |
++-----------------------+------+--------+---------+-----------+
+
+
+
+Messages
+--------
+
++-----------+------------+
+|message id |occurrences |
++===========+============+
+|C0111      |27          |
++-----------+------------+
+|W0232      |22          |
++-----------+------------+
+|R0903      |22          |
++-----------+------------+
+|C0301      |18          |
++-----------+------------+
+|C0103      |16          |
++-----------+------------+
+|F0401      |8           |
++-----------+------------+
+|E0611      |8           |
++-----------+------------+
+|W0212      |6           |
++-----------+------------+
+|E1002      |5           |
++-----------+------------+
+|R0904      |3           |
++-----------+------------+
+|W0611      |2           |
++-----------+------------+
+|W0511      |2           |
++-----------+------------+
+|W0403      |2           |
++-----------+------------+
+|W0401      |1           |
++-----------+------------+
+|C0322      |1           |
++-----------+------------+
+
+
+
+Global evaluation
+-----------------
+Your code has been rated at -5.85/10 (previous run: -7.76/10)
+
