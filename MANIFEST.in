@@ -1,4 +1,3 @@
 recursive-include tw2/jquery_ui/static *
 recursive-include tw2/jquery_ui/templates *
 include README.rst
-include pylint.output
