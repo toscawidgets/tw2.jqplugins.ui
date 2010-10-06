@@ -36,7 +36,6 @@ $(function() {
 </div>
 """
 
-
 class TestAutocompleteWidget(WidgetTest):
     widget = w.AutocompleteWidget
     attrs = {'id' : 'foo'}
@@ -47,6 +46,21 @@ class TestAutocompleteWidget(WidgetTest):
 <script type="text/javascript">
 $(function() {
     $("#foo").autocomplete({});
+});
+</script>
+</div>
+"""
+
+class TestCategoryAutocompleteWidget(WidgetTest):
+    widget = w.CategoryAutocompleteWidget
+    attrs = {'id' : 'foo'}
+    params = {}
+    expected = """
+<div id="foo-wrapper">
+<input id="foo" value="" />
+<script type="text/javascript">
+$(function() {
+    $("#foo").catcomplete({});
 });
 </script>
 </div>
