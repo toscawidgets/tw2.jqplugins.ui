@@ -716,7 +716,7 @@ class SliderWidget(uibase.JQueryUIWidget):
         stop -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when the user stops sliding.
     """
-    template = "genshi:tw2.jquery_ui.templates.slider"
+    template = "mako:tw2.jquery_ui.templates.slider"
     jqmethod = "slider"
 
 class TabsWidget(uibase.JQueryUIWidget):
