@@ -1,4 +1,4 @@
-<div xmlns:py="http://genshi.edgewall.org/">
+<div>
 <style type="text/css">
     .tw2-jquery-faded {color:#AAA;}
     .tw2-jquery-focused {color:#000;}

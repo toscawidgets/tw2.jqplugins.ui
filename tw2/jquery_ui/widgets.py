@@ -123,7 +123,7 @@ class AutocompleteWidget(uibase.JQueryUIWidget):
             http://jqueryui.com/demos/autocomplete/ for more details, and
             look at the various demos. 
     """
-    template = "genshi:tw2.jquery_ui.templates.autocomplete"
+    template = "mako:tw2.jquery_ui.templates.autocomplete"
     jqmethod = "autocomplete"
     
     value = twc.Param('Initial search value', default='', attribute=True)
