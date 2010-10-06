@@ -465,7 +465,7 @@ class DatePickerWidget(uibase.JQueryUIWidget):
             and the datepicker instance as parameters. this refers to the
             associated input field.
     """
-    template = "genshi:tw2.jquery_ui.templates.datepicker"
+    template = "mako:tw2.jquery_ui.templates.datepicker"
     jqmethod = "datepicker"
 
 class DialogWidget(uibase.JQueryUIWidget):
