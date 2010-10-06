@@ -100,8 +100,10 @@ class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
     
 class DemoButtonWidget(ButtonWidget):
     type = 'button'
-    value = "This is a jQuery UI button"
     click = "function() { alert( 'Hello world!' ) }"
+    options = {
+        'label' : "This is a jQuery UI button",
+    }
 
 class DemoDatePickerWidget(DatePickerWidget):
     pass

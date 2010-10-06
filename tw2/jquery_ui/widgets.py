@@ -180,7 +180,7 @@ class ButtonWidget(uibase.JQueryUIWidget):
             radio or checkbox
 
     """
-    template = "mako:tw2.jquery_ui.templates.button"
+    template = "tw2.jquery_ui.templates.button"
     jqmethod = "button"
 
     type = twc.Param(
@@ -465,7 +465,7 @@ class DatePickerWidget(uibase.JQueryUIWidget):
             and the datepicker instance as parameters. this refers to the
             associated input field.
     """
-    template = "mako:tw2.jquery_ui.templates.datepicker"
+    template = "tw2.jquery_ui.templates.datepicker"
     jqmethod = "datepicker"
 
 class DialogWidget(uibase.JQueryUIWidget):
@@ -604,7 +604,7 @@ class DialogWidget(uibase.JQueryUIWidget):
         close -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when the dialog is closed.
     """
-    template = "mako:tw2.jquery_ui.templates.dialog"
+    template = "tw2.jquery_ui.templates.dialog"
     jqmethod = "dialog"
     
     value = twc.Param('The HTML message for the dialog')
@@ -637,7 +637,7 @@ class ProgressBarWidget(uibase.JQueryUIWidget):
         change -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when the value of the progressbar changes.
     """
-    template = "mako:tw2.jquery_ui.templates.progressbar"
+    template = "tw2.jquery_ui.templates.progressbar"
     jqmethod = "progressbar"
 
 class SliderWidget(uibase.JQueryUIWidget):
@@ -716,7 +716,7 @@ class SliderWidget(uibase.JQueryUIWidget):
         stop -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when the user stops sliding.
     """
-    template = "mako:tw2.jquery_ui.templates.slider"
+    template = "tw2.jquery_ui.templates.slider"
     jqmethod = "slider"
 
 class TabsWidget(uibase.JQueryUIWidget):
@@ -826,7 +826,8 @@ class TabsWidget(uibase.JQueryUIWidget):
         disable -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when a tab is disabled.
     """
-    template = "mako:tw2.jquery_ui.templates.tabs"
+    # TODO -- broken mako template here
+    template = "genshi:tw2.jquery_ui.templates.tabs"
     jqmethod = "tabs"
     
     items = twc.Param(

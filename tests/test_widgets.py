@@ -99,3 +99,17 @@ $(document).ready( function () {
 </div>
 </div>"""
 
+class TestButtonWidget(WidgetTest):
+    widget = w.ButtonWidget
+    attrs = {'id' : 'foo'}
+    params = {}
+    expected = """
+<div id="foo-wrapper">
+<button id="foo"></button>
+<script type="text/javascript">
+$(function() {
+    $("#foo").button({});
+});
+</script>
+</div>
+"""
