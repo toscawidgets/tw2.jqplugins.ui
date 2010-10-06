@@ -54,15 +54,48 @@ $(function() {
 class TestCategoryAutocompleteWidget(WidgetTest):
     widget = w.CategoryAutocompleteWidget
     attrs = {'id' : 'foo'}
-    params = {}
+    params = {'value' : 'foobar'}
     expected = """
 <div id="foo-wrapper">
-<input id="foo" value="" />
+    <style>
+    .ui-autocomplete-category {
+        font-weight: bold;
+        padding: .6em .12em;
+        margin: .8em 0 .2em;
+        line-height: 1.5;
+    }
+    </style>
+     <input id="foo" value="foobar">
 <script type="text/javascript">
 $(function() {
     $("#foo").catcomplete({});
 });
 </script>
+<div>
+<style type="text/css">
+    .tw2-jquery-faded {color:#AAA;}
+    .tw2-jquery-focused {color:#000;}
+</style>
+<script type="text/javascript">
+$(document).ready( function () {
+    var selector = "#foo";
+    $(selector).focus( function () {
+        if ( $(selector).val()=="foobar" ) {
+            $(selector).val("");
+        }
+        $(selector).addClass("tw2-jquery-focused");
+        $(selector).removeClass("tw2-jquery-faded");
+    });
+    $(selector).blur( function () {
+        if ( $(selector).val()=="" ) {
+            $(selector).val( "foobar" );
+            $(selector).addClass("tw2-jquery-faded");
+            $(selector).removeClass("tw2-jquery-focused");
+        }
+    });
+    $(selector).addClass("tw2-jquery-faded");
+});
+</script>
 </div>
-"""
+</div>"""
 
