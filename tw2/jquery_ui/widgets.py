@@ -180,7 +180,7 @@ class ButtonWidget(uibase.JQueryUIWidget):
             radio or checkbox
 
     """
-    template = "genshi:tw2.jquery_ui.templates.button"
+    template = "mako:tw2.jquery_ui.templates.button"
     jqmethod = "button"
 
     type = twc.Param(

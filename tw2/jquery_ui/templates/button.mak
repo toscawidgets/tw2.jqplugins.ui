@@ -1,9 +1,11 @@
-<div xmlns:py="http://genshi.edgewall.org/"
-     xmlns:xi="http://www.w3.org/2001/XInclude"
-     id="${w.attrs['id']}-wrapper"
-     py:choose="w.type">
-<button py:attrs="w.attrs" py:when="'button'">${w.value}</button>
-<input  py:attrs="w.attrs" py:when="'input'" type="submit" value="${w.value}"/>
-<a      py:attrs="w.attrs" py:when="'anchor'" href="#">${w.value}</a>
-<xi:include href="generic_jq_ui_js.html" />
+<%namespace name="tw" module="tw2.core.mako_util"/>
+<div id="${w.attrs['id']}-wrapper">
+	% if w.type == 'button':
+		<button ${tw.attrs(attrs=w.attrs)}>${w.value}</button>
+	% elif w.type == 'input':
+		<input  ${tw.attrs(attrs=w.attrs)} type="submit" value="${w.value}"/>
+	% elif w.type == 'anchor':
+		<a      ${tw.attrs(attrs=w.attrs)} href="#">${w.value}</a>
+	% endif
+<%include file="generic_jq_ui_js.mak" />
 </div>
