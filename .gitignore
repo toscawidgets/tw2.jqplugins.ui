@@ -15,3 +15,4 @@ tw2devtools
 tw2forms
 tw2.jquery_*
 virtualenv-*
+*.egg
