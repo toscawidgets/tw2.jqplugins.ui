@@ -74,7 +74,7 @@ class AccordionWidget(uibase.JQueryUIWidget):
 
     """
 
-    template = "mako:tw2.jquery_ui.templates.accordion"
+    template = "tw2.jquery_ui.templates.accordion"
     jqmethod = "accordion"
 
     items = twc.Param(
