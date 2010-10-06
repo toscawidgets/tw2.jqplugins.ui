@@ -113,3 +113,33 @@ $(function() {
 </script>
 </div>
 """
+
+class TestDatePickerWidget(WidgetTest):
+    widget = w.DatePickerWidget
+    attrs = {'id' : 'foo'}
+    params = {}
+    expected = """
+<div id="foo-wrapper">
+<input type="text" id="foo">
+<script type="text/javascript">
+$(function() {
+    $("#foo").datepicker({});
+});
+</script>
+</div>
+"""
+
+class TestDialogWidget(WidgetTest):
+    widget = w.DialogWidget
+    attrs = {'id' : 'foo'}
+    params = {'value' : 'biz'}
+    expected = """
+<div id="foo-wrapper">
+<div id="foo"> biz </div>
+<script type="text/javascript">
+$(function() {
+    $("#foo").dialog({});
+});
+</script>
+</div>
+"""
