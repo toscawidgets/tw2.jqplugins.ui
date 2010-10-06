@@ -143,3 +143,53 @@ $(function() {
 </script>
 </div>
 """
+
+class TestProgressBarWidget(WidgetTest):
+    widget = w.ProgressBarWidget
+    attrs = {'id' : 'foo'}
+    params = {'options' : {'value' : 28}}
+    expected = """
+<div id="foo-wrapper">
+<div id="foo"></div>
+<script type="text/javascript">
+$(function() {
+    $("#foo").progressbar({"value": 28});
+});
+</script>
+</div>
+"""
+
+class TestSliderWidget(WidgetTest):
+    widget = w.SliderWidget
+    attrs = {'id' : 'foo'}
+    params = {}
+    expected = """
+<div id="foo-wrapper">
+<div id="foo"></div>
+<script type="text/javascript">
+$(function() {
+    $("#foo").slider({});
+});
+</script>
+</div>
+"""
+
+class TestTabsWidget(WidgetTest):
+    widget = w.TabsWidget
+    attrs = {'id' : 'foo'}
+    params = {'items':[('foo1', 'foo2')]}
+    expected = """
+<div id="foo-wrapper">
+<div id="foo">
+<ul>
+<li><a href="#foo-0">foo1</a></li>
+</ul>
+<div id="foo-0">foo2</div>
+</div>
+<script type="text/javascript">
+$(function() {
+    $("#foo").tabs({});
+});
+</script>
+</div>
+"""
