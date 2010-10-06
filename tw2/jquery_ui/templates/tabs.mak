@@ -1,15 +1,14 @@
-<div xmlns:py="http://genshi.edgewall.org/"
-     xmlns:xi="http://www.w3.org/2001/XInclude"
-     id="${w.attrs['id']}-wrapper">
-<div py:attrs="w.attrs">
-    <ul>
-    <py:for each="i in range(len(w.items))">
-        <li><a href="#${w.attrs['id']}-${i}">${w.items[i][0]}</a></li>
-    </py:for>
-    </ul>
-    <py:for each="i in range(len(w.items))">
-        <div id="${w.attrs['id']}-${i}">${w.items[i][1]}</div>
-    </py:for>
-<xi:include href="generic_jq_ui_js.html" />
+<%namespace name="tw" module="tw2.core.mako_util"/>
+<div id="${w.attrs['id']}-wrapper">
+<div ${tw.attrs(attrs=w.attrs)}>
+	<ul>
+	% for i in range(len(w.items)):
+		<li><a href="#${w.attrs['id']}-${i}">${w.items[i][0]}</a></li>
+	% endfor
+	</ul>
+	% for i in range(len(w.items)):
+		<div id="${w.attrs['id']}-${i}">${w.items[i][1]}</div>
+	% endfor
 </div>
+<%include file="generic_jq_ui_js.mak" />
 </div>
