@@ -637,7 +637,7 @@ class ProgressBarWidget(uibase.JQueryUIWidget):
         change -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when the value of the progressbar changes.
     """
-    template = "genshi:tw2.jquery_ui.templates.progressbar"
+    template = "mako:tw2.jquery_ui.templates.progressbar"
     jqmethod = "progressbar"
 
 class SliderWidget(uibase.JQueryUIWidget):

@@ -120,7 +120,9 @@ class DemoDialogWidget(DialogWidget):
     """
 
 class DemoProgressBarWidget(ProgressBarWidget):
-    value = 28
+    options = {
+        'value' : 28
+    }
 
 class DemoSliderWidget(SliderWidget):
     pass
