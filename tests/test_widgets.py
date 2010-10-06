@@ -16,12 +16,12 @@ else:
 
 import tw2.jquery_ui.widgets as w
 
-# No tests for core for now
 class TestAccordionWidget(WidgetTest):
     widget = w.AccordionWidget
     attrs = {'id' : 'foo'}
     params = {'items' : [('foo1', 'foo1c'), ('foo2', 'foo2c')]}
-    expected = """<div id="foo-wrapper">
+    expected = """
+<div id="foo-wrapper">
 <div id="foo">
         <h3><a href="#">foo1</a></h3>
         <div>foo1c</div>
@@ -33,6 +33,22 @@ $(function() {
     $("#foo").accordion({});
 });
 </script>
-</div>"""
+</div>
+"""
 
+
+class TestAutocompleteWidget(WidgetTest):
+    widget = w.AutocompleteWidget
+    attrs = {'id' : 'foo'}
+    params = {}
+    expected = """
+<div id="foo-wrapper">
+<input id="foo" value="" />
+<script type="text/javascript">
+$(function() {
+    $("#foo").autocomplete({});
+});
+</script>
+</div>
+"""
 
