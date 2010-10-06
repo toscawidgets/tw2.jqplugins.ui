@@ -13,5 +13,7 @@
 	 <input ${tw.attrs(attrs=w.attrs)} />
 
 <%include file="generic_jq_ui_js.mak" />
-<%include file="ghost_text.mak" />
+% if w.attrs['value'] != '':
+	<%include file="ghost_text.mak" />
+% endif
 </div>
