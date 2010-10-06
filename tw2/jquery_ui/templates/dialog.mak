@@ -1,6 +1,7 @@
-<div xmlns:py="http://genshi.edgewall.org/"
-     xmlns:xi="http://www.w3.org/2001/XInclude"
-     id="${w.attrs['id']}-wrapper">
-<div py:attrs="w.attrs"> ${w.value} </div>
-<xi:include href="generic_jq_ui_js.html" />
+<%namespace name="tw" module="tw2.core.mako_util"/>
+<div id="${w.attrs['id']}-wrapper">
+     
+    <div ${tw.attrs(attrs=w.attrs)}> ${w.value} </div>
+
+<%include file="generic_jq_ui_js.mak" />
 </div>

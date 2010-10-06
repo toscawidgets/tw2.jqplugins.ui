@@ -604,7 +604,7 @@ class DialogWidget(uibase.JQueryUIWidget):
         close -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when the dialog is closed.
     """
-    template = "genshi:tw2.jquery_ui.templates.dialog"
+    template = "mako:tw2.jquery_ui.templates.dialog"
     jqmethod = "dialog"
     
     value = twc.Param('The HTML message for the dialog')
