@@ -1,8 +1,7 @@
-<div xmlns:py="http://genshi.edgewall.org/"
-     xmlns:xi="http://www.w3.org/2001/XInclude"
-     id="${w.attrs['id']}-wrapper">
-
-    <style> 
+<%namespace name="tw" module="tw2.core.mako_util"/>
+<div id="${w.attrs['id']}-wrapper">
+    
+	<style> 
     .ui-autocomplete-category {
         font-weight: bold;
         padding: .6em .12em;
@@ -10,8 +9,9 @@
         line-height: 1.5;
     }
     </style> 
+     
+	 <input ${tw.attrs(attrs=w.attrs)} />
 
-     <input py:attrs="w.attrs"/>
-<xi:include href="generic_jq_ui_js.html" />
-<xi:include href="ghost_text.html" py:if="w.attrs['value']!=''" />
+<%include file="generic_jq_ui_js.mak" />
+<%include file="ghost_text.mak" />
 </div>

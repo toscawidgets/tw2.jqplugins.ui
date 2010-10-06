@@ -135,7 +135,7 @@ class CategoryAutocompleteWidget(AutocompleteWidget):
     'label' and 'category' keys.
 
     """
-    template = "genshi:tw2.jquery_ui.templates.catcomplete"
+    template = "mako:tw2.jquery_ui.templates.catcomplete"
     jqmethod = "catcomplete"
 
     def prepare(self):
