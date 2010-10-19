@@ -6,17 +6,17 @@ long_description = long_description.split('split here', 1)[1]
 f.close()
 
 setup(
-    name='tw2.jquery_ui',
+    name='tw2.jquery.plugins.ui',
     version='2.0a11',
     description='toscawidgets2 wrapper for jquery-ui',
     long_description=long_description,
     author='Ralph Bean',
     author_email='ralph.bean@gmail.com',
     license='MIT',
-    url='http://github.com/ralphbean/tw2.jquery_ui',
+    url='http://github.com/ralphbean/tw2.jquery.plugins.ui',
     install_requires=[
         "tw2.core>=2.0b2",
-        "tw2.jquery_core",
+        "tw2.jquery",
         "genshi",
         "mako"
         ],
@@ -28,7 +28,7 @@ setup(
     entry_points="""
         [tw2.widgets]
         # Register your widgets so they can be listed in the WidgetBrowser
-        widgets = tw2.jquery_ui
+        widgets = tw2.jquery.plugins.ui
     """,
     keywords = [
         'toscawidgets.widgets',

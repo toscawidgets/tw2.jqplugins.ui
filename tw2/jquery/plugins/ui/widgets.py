@@ -4,7 +4,7 @@ import tw2.core as twc
 from tw2.core.resources import encoder
 
 # imports from this package
-from tw2.jquery_ui import base as uibase
+from tw2.jquery.plugins.ui import base as uibase
 
 # TODO -- portlets justlikeat
 # http://www.mail-archive.com/jquery-ui@googlegroups.com/msg12962.html
@@ -74,7 +74,7 @@ class AccordionWidget(uibase.JQueryUIWidget):
 
     """
 
-    template = "tw2.jquery_ui.templates.accordion"
+    template = "tw2.jquery.plugins.ui.templates.accordion"
     jqmethod = "accordion"
 
     items = twc.Param(
@@ -123,7 +123,7 @@ class AutocompleteWidget(uibase.JQueryUIWidget):
             http://jqueryui.com/demos/autocomplete/ for more details, and
             look at the various demos. 
     """
-    template = "tw2.jquery_ui.templates.autocomplete"
+    template = "tw2.jquery.plugins.ui.templates.autocomplete"
     jqmethod = "autocomplete"
     
     value = twc.Param('Initial search value', default='', attribute=True)
@@ -135,7 +135,7 @@ class CategoryAutocompleteWidget(AutocompleteWidget):
     'label' and 'category' keys.
 
     """
-    template = "tw2.jquery_ui.templates.catcomplete"
+    template = "tw2.jquery.plugins.ui.templates.catcomplete"
     jqmethod = "catcomplete"
 
     def prepare(self):
@@ -180,7 +180,7 @@ class ButtonWidget(uibase.JQueryUIWidget):
             radio or checkbox
 
     """
-    template = "tw2.jquery_ui.templates.button"
+    template = "tw2.jquery.plugins.ui.templates.button"
     jqmethod = "button"
 
     type = twc.Param(
@@ -465,7 +465,7 @@ class DatePickerWidget(uibase.JQueryUIWidget):
             and the datepicker instance as parameters. this refers to the
             associated input field.
     """
-    template = "tw2.jquery_ui.templates.datepicker"
+    template = "tw2.jquery.plugins.ui.templates.datepicker"
     jqmethod = "datepicker"
 
 class DialogWidget(uibase.JQueryUIWidget):
@@ -604,7 +604,7 @@ class DialogWidget(uibase.JQueryUIWidget):
         close -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when the dialog is closed.
     """
-    template = "tw2.jquery_ui.templates.dialog"
+    template = "tw2.jquery.plugins.ui.templates.dialog"
     jqmethod = "dialog"
     
     value = twc.Param('The HTML message for the dialog')
@@ -637,7 +637,7 @@ class ProgressBarWidget(uibase.JQueryUIWidget):
         change -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when the value of the progressbar changes.
     """
-    template = "tw2.jquery_ui.templates.progressbar"
+    template = "tw2.jquery.plugins.ui.templates.progressbar"
     jqmethod = "progressbar"
 
 class SliderWidget(uibase.JQueryUIWidget):
@@ -716,7 +716,7 @@ class SliderWidget(uibase.JQueryUIWidget):
         stop -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when the user stops sliding.
     """
-    template = "tw2.jquery_ui.templates.slider"
+    template = "tw2.jquery.plugins.ui.templates.slider"
     jqmethod = "slider"
 
 class TabsWidget(uibase.JQueryUIWidget):
@@ -826,7 +826,7 @@ class TabsWidget(uibase.JQueryUIWidget):
         disable -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when a tab is disabled.
     """
-    template = "tw2.jquery_ui.templates.tabs"
+    template = "tw2.jquery.plugins.ui.templates.tabs"
     jqmethod = "tabs"
     
     items = twc.Param(
