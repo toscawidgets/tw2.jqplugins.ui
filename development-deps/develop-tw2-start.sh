@@ -6,7 +6,7 @@ source $venv/bin/activate
 
 pushd $devbase
 rm -rf tw2jquery
-hg clone ~/devel/tw2jquery
+hg clone http://bitbucket.org/toscawidgets/tw2jquery
 pushd tw2jquery
 python setup.py install_lib install_egg_info
 popd

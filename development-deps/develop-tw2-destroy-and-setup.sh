@@ -22,7 +22,7 @@ hg clone http://bitbucket.org/paj/tw2devtools || \
         (pushd tw2devtools && hg pull && popd)
 hg clone http://bitbucket.org/paj/tw2forms || \
         (pushd tw2forms && hg pull && popd)
-hg clone ~/devel/tw2jquery || \
+hg clone http://bitbucket.org/toscawidgets/tw2jquery || \
         (pushd tw2jquery && hg pull && popd)
 #hg clone https://ralphbean@bitbucket.org/toscawidgets/tw2jquery || \
 #        (pushd tw2jquery && hg pull && popd)
