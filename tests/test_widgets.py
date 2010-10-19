@@ -1,4 +1,3 @@
-from tw2.jquery_core.widgets import JQueryWidget
 from webob import Request
 from webob.multidict import NestedMultiDict
 from tw2.core.testbase import assert_in_xml, assert_eq_xml, WidgetTest
@@ -14,7 +13,7 @@ if hasattr(webob, 'NestedMultiDict'):
 else:
     from webob.multidict import NestedMultiDict
 
-import tw2.jquery_ui.widgets as w
+import tw2.jquery.plugins.ui.widgets as w
 
 class TestAccordionWidget(WidgetTest):
     widget = w.AccordionWidget
