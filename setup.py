@@ -7,7 +7,7 @@ f.close()
 
 setup(
     name='tw2.jquery.plugins.ui',
-    version='2.0b1',
+    version='2.0b2',
     description='toscawidgets2 wrapper for jquery-ui',
     long_description=long_description,
     author='Ralph Bean',
