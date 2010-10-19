@@ -13,6 +13,7 @@ source $venv/bin/activate
 pushd $devbase
 
 pip install genshi
+pip install mako
 pip install formencode
 
 hg clone http://bitbucket.org/paj/tw2core || \
@@ -21,12 +22,14 @@ hg clone http://bitbucket.org/paj/tw2devtools || \
         (pushd tw2devtools && hg pull && popd)
 hg clone http://bitbucket.org/paj/tw2forms || \
         (pushd tw2forms && hg pull && popd)
-hg clone https://ralphbean@bitbucket.org/toscawidgets/tw2jquery || \
+hg clone ~/devel/tw2jquery || \
         (pushd tw2jquery && hg pull && popd)
+#hg clone https://ralphbean@bitbucket.org/toscawidgets/tw2jquery || \
+#        (pushd tw2jquery && hg pull && popd)
 
-pushd tw2core ;  python setup.py develop ; popd
-pushd tw2forms ; python setup.py develop ; popd
-pushd tw2devtools ; python setup.py develop ; popd
-pushd tw2jquery ; python setup.py develop ; popd
+pushd tw2core ;  python setup.py install ; popd
+pushd tw2forms ; python setup.py install ; popd
+pushd tw2devtools ; python setup.py install ; popd
+pushd tw2jquery ; python setup.py install_lib install_egg_info ; popd
 
 popd # $devbase
