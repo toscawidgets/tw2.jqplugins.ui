@@ -4,11 +4,15 @@
 <div py:attrs="w.attrs">
     <ul>
     <py:for each="i in range(len(w.items))">
-        <li><a href="#${w.attrs['id']}-${i}">${w.items[i][0]}</a></li>
+        <li><a href="${w.items[i].get('href', '#'+w.attrs['id']+'-'+str(i))}">
+            ${w.items[i].get('label', '(no label)')}
+        </a></li>
     </py:for>
     </ul>
     <py:for each="i in range(len(w.items))">
-        <div id="${w.attrs['id']}-${i}">${w.items[i][1]}</div>
+        <div py:if="'content' in w.items[i]" id="${w.attrs['id']}-${i}">
+            ${w.items[i]['content']}
+        </div>
     </py:for>
 </div>
 <xi:include href="generic_jq_ui_js.html" />

@@ -826,16 +826,37 @@ class TabsWidget(uibase.JQueryUIWidget):
         disable -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when a tab is disabled.
     """
-    template = "tw2.jquery.plugins.ui.templates.tabs"
+    template = "genshi:tw2.jquery.plugins.ui.templates.tabs"
     jqmethod = "tabs"
     
     items = twc.Param(
-        'A list of (header (str), content (str)) tuples', default=[])
+        'A list of dicts, possible keys are "href", "label", and "content"',
+        default=[])
     
     def prepare(self):
         super(TabsWidget, self).prepare()
+
+        if not isinstance(self.items, list):
+            raise ValueError, 'items must be of type list'
+
+        if len(self.items) == 0:
+            # Whatevah.
+            return
+
+        # Otherwise, if its an old-style list of tuples, convert it to the
+        #  new style.
+        if isinstance(self.items[0], tuple):
+            import warnings
+            warnings.warn('list-of-tuples format for items is deprecated',
+                          DeprecationWarning)
+            self.items = [{'label': v[0], 'content': v[1]} for v in self.items]
+
         # The following is done to treat the items contents as 'html-literals'
         class html(str):
             def __html__(self):
                 return self.__str__()
-        self.items = [(html(h), html(c)) for h, c in self.items]
+
+        for i in range(len(self.items)):
+            for k in self.items[i].keys():
+                self.items[i][k] = html(self.items[i][k])
+
