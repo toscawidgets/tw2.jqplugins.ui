@@ -826,7 +826,7 @@ class TabsWidget(uibase.JQueryUIWidget):
         disable -- JSSymbol (default: None) -- function(event, ui)
             This event is triggered when a tab is disabled.
     """
-    template = "tw2.jquery.plugins.ui.templates.tabs"
+    template = "genshi:tw2.jquery.plugins.ui.templates.tabs"
     jqmethod = "tabs"
     
     items = twc.Param(
