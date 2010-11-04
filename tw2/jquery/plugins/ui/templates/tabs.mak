@@ -3,11 +3,15 @@
 <div ${tw.attrs(attrs=w.attrs)}>
 	<ul>
 	% for i in range(len(w.items)):
-		<li><a href="#${w.attrs['id']}-${str(i)}">${w.items[i][0]}</a></li>
+		<li><a href="${w.items[i].get('href', '#'+w.attrs['id']+'-'+str(i))}">
+			${w.items[i].get('label', '(no label)')}
+		</a></li>
 	% endfor
 	</ul>
 	% for i in range(len(w.items)):
-		<div id="${w.attrs['id']}-${str(i)}">${w.items[i][1]}</div>
+		% if 'content' in w.items[i]:
+			<div id="${w.attrs['id']}-${str(i)}">${w.items[i]['content']}</div>
+		% endif
 	% endfor
 </div>
 <%include file="generic_jq_ui_js.mak" />

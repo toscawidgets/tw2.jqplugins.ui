@@ -129,5 +129,27 @@ class DemoProgressBarWidget(ProgressBarWidget):
 class DemoSliderWidget(SliderWidget):
     pass
 
+# For this tabs widget, let's conveniently re-use the data from the
+# AccordionWidget, but change the third option to load its data via ajax!
+ajaxified_tabs_items = [{'label': v[0], 'content': v[1]} for v in some_items]
+ajaxified_tabs_items[2]['label'] += ' (via ajax)'
+ajaxified_tabs_items[2]['href'] = '/ajaxtab/'
+del ajaxified_tabs_items[2]['content']
+
 class DemoTabsWidget(TabsWidget):
-    items = some_items
+    items = ajaxified_tabs_items
+
+    @classmethod
+    def request(cls, req):
+        # You could, of course, use other controllers (say a tg2 controller)
+        import time
+        import webob
+        time.sleep(1)
+        resp = webob.Response(request=req, content_type="text/html")
+        resp.body = "<p>wow.. this came via <h4>ajax!</h4></p>"
+        return resp
+
+# Register the widget's controller
+import tw2.core as twc
+mw = twc.core.request_local()['middleware']
+mw.controllers.register(DemoTabsWidget, 'ajaxtab')
