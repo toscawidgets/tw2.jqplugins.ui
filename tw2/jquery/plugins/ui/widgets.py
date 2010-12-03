@@ -1,6 +1,7 @@
 
 # tw2-proper imports
 import tw2.core as twc
+import tw2.forms as twf
 from tw2.core.resources import encoder
 
 # imports from this package
@@ -89,7 +90,7 @@ class AccordionWidget(uibase.JQueryUIWidget):
         self.items = [(html(h), html(c)) for h, c in self.items]
 
 
-class AutocompleteWidget(uibase.JQueryUIWidget):
+class AutocompleteWidget(uibase.JQueryUIWidget, twf.TextField):
     """
     The Autocomplete widgets provides suggestions while you type into
     the field. Here the suggestions are tags for programming languages,

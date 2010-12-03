@@ -12,7 +12,7 @@ _extra_mako = ["Mako >= 0.1.1"]
 
 setup(
     name='tw2.jquery.plugins.ui',
-    version='2.0b4',
+    version='2.0b5',
     description='toscawidgets2 wrapper for jquery-ui',
     long_description=long_description,
     author='Ralph Bean',
@@ -21,6 +21,7 @@ setup(
     url='http://github.com/ralphbean/tw2.jquery.plugins.ui',
     install_requires=[
         "tw2.core>=2.0b2",
+        "tw2.forms",
         "tw2.jquery",
         ],
     extras_require = {
