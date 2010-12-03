@@ -173,6 +173,7 @@ $(function() {
 </div>
 """
 
+# Why does this test fail?  I dunno.  Halp!!!
 class TestTabsWidget(WidgetTest):
     widget = w.TabsWidget
     attrs = {'id' : 'foo'}
@@ -180,10 +181,14 @@ class TestTabsWidget(WidgetTest):
     expected = """
 <div id="foo:wrapper">
 <div id="foo">
-<ul>
-<li><a href="#foo:0">foo1</a></li>
-</ul>
-<div id="foo:0">foo2</div>
+    <ul>
+        <li><a href="#foo:0">
+            foo1
+        </a></li>
+    </ul>
+    <div id="foo:0">
+        foo2
+    </div>
 </div>
 <script type="text/javascript">
 $(function() {
