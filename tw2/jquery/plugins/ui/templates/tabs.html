@@ -1,16 +1,16 @@
 <div xmlns:py="http://genshi.edgewall.org/"
      xmlns:xi="http://www.w3.org/2001/XInclude"
-     id="${w.attrs['id']}-wrapper">
+     id="${w.attrs['id']}:wrapper">
 <div py:attrs="w.attrs">
     <ul>
     <py:for each="i in range(len(w.items))">
-        <li><a href="${w.items[i].get('href', '#'+w.attrs['id']+'-'+str(i))}">
+        <li><a href="${w.items[i].get('href','#'+w.attrs['id']+':'+str(i))}">
             ${w.items[i].get('label', '(no label)')}
         </a></li>
     </py:for>
     </ul>
     <py:for each="i in range(len(w.items))">
-        <div py:if="'content' in w.items[i]" id="${w.attrs['id']}-${i}">
+        <div py:if="'content' in w.items[i]" id="${w.attrs['id']}:${i}">
             ${w.items[i]['content']}
         </div>
     </py:for>

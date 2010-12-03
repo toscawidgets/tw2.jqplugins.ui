@@ -20,7 +20,7 @@ class TestAccordionWidget(WidgetTest):
     attrs = {'id' : 'foo'}
     params = {'items' : [('foo1', 'foo1c'), ('foo2', 'foo2c')]}
     expected = """
-<div id="foo-wrapper">
+<div id="foo:wrapper">
 <div id="foo">
         <h3><a href="#">foo1</a></h3>
         <div>foo1c</div>
@@ -40,7 +40,7 @@ class TestAutocompleteWidget(WidgetTest):
     attrs = {'id' : 'foo'}
     params = {}
     expected = """
-<div id="foo-wrapper">
+<div id="foo:wrapper">
 <input id="foo" value="" />
 <script type="text/javascript">
 $(function() {
@@ -55,7 +55,7 @@ class TestCategoryAutocompleteWidget(WidgetTest):
     attrs = {'id' : 'foo'}
     params = {'value' : 'foobar'}
     expected = """
-<div id="foo-wrapper">
+<div id="foo:wrapper">
     <style>
     .ui-autocomplete-category {
         font-weight: bold;
@@ -103,7 +103,7 @@ class TestButtonWidget(WidgetTest):
     attrs = {'id' : 'foo'}
     params = {}
     expected = """
-<div id="foo-wrapper">
+<div id="foo:wrapper">
 <button id="foo"></button>
 <script type="text/javascript">
 $(function() {
@@ -118,7 +118,7 @@ class TestDatePickerWidget(WidgetTest):
     attrs = {'id' : 'foo'}
     params = {}
     expected = """
-<div id="foo-wrapper">
+<div id="foo:wrapper">
 <input type="text" id="foo">
 <script type="text/javascript">
 $(function() {
@@ -133,7 +133,7 @@ class TestDialogWidget(WidgetTest):
     attrs = {'id' : 'foo'}
     params = {'value' : 'biz'}
     expected = """
-<div id="foo-wrapper">
+<div id="foo:wrapper">
 <div id="foo"> biz </div>
 <script type="text/javascript">
 $(function() {
@@ -148,7 +148,7 @@ class TestProgressBarWidget(WidgetTest):
     attrs = {'id' : 'foo'}
     params = {'options' : {'value' : 28}}
     expected = """
-<div id="foo-wrapper">
+<div id="foo:wrapper">
 <div id="foo"></div>
 <script type="text/javascript">
 $(function() {
@@ -163,7 +163,7 @@ class TestSliderWidget(WidgetTest):
     attrs = {'id' : 'foo'}
     params = {}
     expected = """
-<div id="foo-wrapper">
+<div id="foo:wrapper">
 <div id="foo"></div>
 <script type="text/javascript">
 $(function() {
@@ -178,12 +178,12 @@ class TestTabsWidget(WidgetTest):
     attrs = {'id' : 'foo'}
     params = {'items':[('foo1', 'foo2')]}
     expected = """
-<div id="foo-wrapper">
+<div id="foo:wrapper">
 <div id="foo">
 <ul>
-<li><a href="#foo-0">foo1</a></li>
+<li><a href="#foo:0">foo1</a></li>
 </ul>
-<div id="foo-0">foo2</div>
+<div id="foo:0">foo2</div>
 </div>
 <script type="text/javascript">
 $(function() {

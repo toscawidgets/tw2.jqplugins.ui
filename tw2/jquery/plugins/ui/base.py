@@ -39,6 +39,7 @@ jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
 class JQueryUIWidget(twc.Widget):
     """ Base JQueryUIWidget """
     resources = [ jquery_js, jquery_ui_js, jquery_ui_css ]
+    _hide_docs = False
 
     jqmethod = twc.Variable("(str) Name of this widget's jQuery init method")
 
@@ -55,4 +56,4 @@ class JQueryUIWidget(twc.Widget):
         super(JQueryUIWidget, self).prepare()
         if not hasattr(self, 'id') or 'id' not in self.attrs:
             raise ValueError, 'JQueryWidget must be supplied an id'
-        self.attrs['id'] = self.attrs['id'].replace(':', '-')
+        self.attrs['sel'] = self.attrs['id'].replace(':', '\\\\:')

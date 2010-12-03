@@ -1,5 +1,5 @@
 <%namespace name="tw" module="tw2.core.mako_util"/>
-<div id="${w.attrs['id']}-wrapper">
+<div id="${w.attrs['id']}:wrapper">
 	% if w.type == 'button':
 		<button ${tw.attrs(attrs=w.attrs)}></button>
 	% elif w.type == 'input':

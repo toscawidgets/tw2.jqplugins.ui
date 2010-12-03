@@ -1,8 +1,8 @@
 <script type="text/javascript">
 $(function() {
-    $("#${w.attrs['id']}").${w.jqmethod}(${w.options});
+    $("#${w.attrs['sel']}").${w.jqmethod}(${w.options});
 	% if w.click:
-    	$("#${w.attrs['id']}").click(${w.click});
+    	$("#${w.attrs['sel']}").click(${w.click});
 	% endif
 });
 </script>

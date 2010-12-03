@@ -1,5 +1,5 @@
 <%namespace name="tw" module="tw2.core.mako_util"/>
-<div id="${w.attrs['id']}-wrapper">
+<div id="${w.attrs['id']}:wrapper">
      
      <input type="text" ${tw.attrs(attrs=w.attrs)} />
 
