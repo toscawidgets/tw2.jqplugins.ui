@@ -1,10 +1,10 @@
 <script xmlns:py="http://genshi.edgewall.org/"
         type="text/javascript">
 $(function() {
-    $("#${w.attrs['sel']}").${w.jqmethod}(${w.options});
+    $("#${w.selector}").${w.jqmethod}(${w.options});
 
     <py:if test="w.click">
-    $("#${w.attrs['sel']}").click(${w.click});
+    $("#${w.selector}").click(${w.click});
     </py:if>
 });
 </script>

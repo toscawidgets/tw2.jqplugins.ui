@@ -42,6 +42,7 @@ class JQueryUIWidget(twc.Widget):
     _hide_docs = False
 
     jqmethod = twc.Variable("(str) Name of this widget's jQuery init method")
+    selector = twc.Variable("(str) Escaped id.  jQuery selector.")
 
     options = twc.Param(
         '(dict) A dict of options to pass to the widget', default={})
@@ -56,4 +57,4 @@ class JQueryUIWidget(twc.Widget):
         super(JQueryUIWidget, self).prepare()
         if not hasattr(self, 'id') or 'id' not in self.attrs:
             raise ValueError, 'JQueryWidget must be supplied an id'
-        self.attrs['sel'] = self.attrs['id'].replace(':', '\\\\:')
+        self.selector = self.attrs['id'].replace(':', '\\\\:')

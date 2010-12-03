@@ -5,7 +5,7 @@
 </style>
 <script type="text/javascript">
 $(document).ready( function () {
-    var selector = "#${w.attrs['sel']}";
+    var selector = "#${w.selector}";
     $(selector).focus( function () {
         if ( $(selector).val()=="${w.attrs['value']}" ) {
             $(selector).val("");
