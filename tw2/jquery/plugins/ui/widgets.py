@@ -126,8 +126,6 @@ class AutocompleteWidget(uibase.JQueryUIWidget, twf.TextField):
     """
     template = "tw2.jquery.plugins.ui.templates.autocomplete"
     jqmethod = "autocomplete"
-    
-    value = twc.Param('Initial search value', default='', attribute=True)
 
 class CategoryAutocompleteWidget(AutocompleteWidget):
     """
