@@ -13,7 +13,7 @@ if hasattr(webob, 'NestedMultiDict'):
 else:
     from webob.multidict import NestedMultiDict
 
-import tw2.jquery.plugins.ui.widgets as w
+import tw2.jqplugins.ui.widgets as w
 
 class TestAccordionWidget(WidgetTest):
     widget = w.AccordionWidget
