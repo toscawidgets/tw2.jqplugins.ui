@@ -8,13 +8,13 @@ from tw2.jquery.base import jQueryJSLink, jQueryPluginLinkMixin
 from tw2.jquery.version import JSLinkMixin
 
 # import from *this* package
-from tw2.jquery.plugins.ui import defaults
+from tw2.jqplugins.ui import defaults
 
 ### Links, etc...
 class jQueryUIMixin(jQueryPluginLinkMixin):
     dirname = defaults._ui_dirname_
     basename='jquery-ui'
-    modname = 'tw2.jquery.plugins.ui'
+    modname = 'tw2.jqplugins.ui'
 
 class jQueryUIJSLink(twc.JSLink, jQueryUIMixin):
     subdir = 'js'

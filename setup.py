@@ -11,14 +11,14 @@ _extra_mako = ["Mako >= 0.1.1"]
 
 
 setup(
-    name='tw2.jquery.plugins.ui',
-    version='2.0b8',
+    name='tw2.jqplugins.ui',
+    version='2.0b9',
     description='toscawidgets2 wrapper for jquery-ui',
     long_description=long_description,
     author='Ralph Bean',
     author_email='ralph.bean@gmail.com',
     license='MIT',
-    url='http://github.com/ralphbean/tw2.jquery.plugins.ui',
+    url='http://github.com/ralphbean/tw2.jqplugins.ui',
     install_requires=[
         "tw2.core>=2.0b2",
         "tw2.forms",
@@ -30,14 +30,14 @@ setup(
     },
     tests_require = ['BeautifulSoup', 'nose', 'FormEncode', 'WebTest',] + _extra_genshi + _extra_mako,
     packages=find_packages(exclude=['ez_setup', 'tests']),
-    namespace_packages = ['tw2', 'tw2.jquery.plugins'],
+    namespace_packages = ['tw2', 'tw2.jqplugins'],
     zip_safe=False,
     include_package_data=True,
     test_suite = 'nose.collector',
     entry_points="""
         [tw2.widgets]
         # Register your widgets so they can be listed in the WidgetBrowser
-        widgets = tw2.jquery.plugins.ui
+        widgets = tw2.jqplugins.ui
     """,
     keywords = [
         'toscawidgets.widgets',

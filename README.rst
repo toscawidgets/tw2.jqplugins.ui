@@ -1,4 +1,4 @@
-tw2.jquery.plugins.ui
+tw2.jqplugins.ui
 =====================
 
 :Author: Ralph Bean <ralph.bean@gmail.com>
@@ -9,18 +9,18 @@ tw2.jquery.plugins.ui
 .. _jQuery UI: http://jqueryui.com/
 .. _jQuery: http://jquery.com/
 
-tw2.jquery.plugins.ui is a `toscawidgets2 (tw2)`_ wrapper for `jQuery UI`_.
+tw2.jqplugins.ui is a `toscawidgets2 (tw2)`_ wrapper for `jQuery UI`_.
 
 Live Demo
 ---------
-Peep the `live demonstration <http://craftsman.rc.rit.edu/module?module=tw2.jquery.plugins.ui>`_.
+Peep the `live demonstration <http://craftsman.rc.rit.edu/module?module=tw2.jqplugins.ui>`_.
 
 Links
 -----
-Get the `source from github <http://github.com/ralphbean/tw2.jquery.plugins.ui>`_.
+Get the `source from github <http://github.com/ralphbean/tw2.jqplugins.ui>`_.
 
-`PyPI page <http://pypi.python.org/pypi/tw2.jquery.plugins.ui>`_
-and `bugs <http://github.com/ralphbean/tw2.jquery.plugins.ui/issues/>`_
+`PyPI page <http://pypi.python.org/pypi/tw2.jqplugins.ui>`_
+and `bugs <http://github.com/ralphbean/tw2.jqplugins.ui/issues/>`_
 
 Description
 -----------
@@ -41,5 +41,5 @@ advanced effects and high-level, themeable widgets, built on top of the
 jQuery JavaScript Library, that you can use to build highly interactive
 web applications.
 
-This module, tw2.jquery.plugins.ui, provides `toscawidgets2 (tw2)`_ access to
+This module, tw2.jqplugins.ui, provides `toscawidgets2 (tw2)`_ access to
 `jQuery UI`_ widgets.
