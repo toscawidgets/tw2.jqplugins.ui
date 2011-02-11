@@ -140,8 +140,8 @@ class CategoryAutocompleteWidget(AutocompleteWidget):
     def prepare(self):
         # Adding the custom hook to jquery ui must be executed before
         #   all other js references to jquery ui are executed on the client.
-        self.resources.append(uibase.jquery_ui_catcomplete_js)
         super(CategoryAutocompleteWidget, self).prepare()
+        self.resources.append(uibase.jquery_ui_catcomplete_js)
 
 
 class ButtonWidget(uibase.JQueryUIWidget):
