@@ -10,9 +10,9 @@ pushd tw2.devtools
 python setup.py install
 popd
 
-rm -rf tw2jquery
-hg clone http://bitbucket.org/toscawidgets/tw2jquery
-pushd tw2jquery
+rm -rf tw2.jquery
+hg clone http://bitbucket.org/ralphbean/tw2.jquery
+pushd tw2.jquery
 python setup.py install_lib install_egg_info
 popd
 
