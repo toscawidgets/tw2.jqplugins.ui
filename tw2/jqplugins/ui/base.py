@@ -1,4 +1,3 @@
-
 # TW2 proper imports
 import tw2.core as twc
 from tw2.core.resources import encoder
@@ -38,14 +37,16 @@ jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
 ### Widgets
 class JQueryUIWidget(twc.Widget):
     """ Base JQueryUIWidget """
-    resources = [ jquery_js, jquery_ui_js, jquery_ui_css ]
     _hide_docs = False
+    resources = [ jquery_js, jquery_ui_js ]
 
     jqmethod = twc.Variable("(str) Name of this widget's jQuery init method")
     selector = twc.Variable("(str) Escaped id.  jQuery selector.")
 
     options = twc.Param(
         '(dict) A dict of options to pass to the widget', default={})
+    ui_theme_name = twc.Param(
+        '(str) Name of the ui-theme to use.', default='smoothness')
 
     # TODO -- add all the events http://api.jquery.com/category/events/
     # TODO -- try to automatically generate IDs if not specified
@@ -53,6 +54,7 @@ class JQueryUIWidget(twc.Widget):
         '(str) javascript callback for generic click event', default=None)
     
     def prepare(self):
+        self.resources.append(jquery_ui_css(name=self.ui_theme_name))
         self.options = encoder.encode(self.options)
         super(JQueryUIWidget, self).prepare()
         if not hasattr(self, 'id') or 'id' not in self.attrs:
