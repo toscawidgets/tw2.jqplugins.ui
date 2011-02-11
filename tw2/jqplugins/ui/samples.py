@@ -67,6 +67,7 @@ some_items = [
          """),
     ]
 class DemoAccordionWidget(AccordionWidget):
+    ui_theme_name = 'le-frog'
     items = some_items
     options = {
         'fillSpace' : True,
@@ -74,6 +75,7 @@ class DemoAccordionWidget(AccordionWidget):
     }
 
 class DemoAutocompleteWidget(AutocompleteWidget):
+    ui_theme_name = 'le-frog'
     options = {
         'source' : [
             "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
@@ -84,6 +86,7 @@ class DemoAutocompleteWidget(AutocompleteWidget):
     }
 class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
     value = "Try 'n' or 'a'"
+    ui_theme_name = 'le-frog'
     options = {
         'source' : [
             { 'label': "anders", 'category': "" },
@@ -99,16 +102,20 @@ class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
     }
     
 class DemoButtonWidget(ButtonWidget):
+    ui_theme_name = 'le-frog'
     type = 'button'
     click = "function() { alert( 'Hello world!' ) }"
     options = {
         'label' : "This is a jQuery UI button",
     }
+    ui_theme_name = 'le-frog'
 
 class DemoDatePickerWidget(DatePickerWidget):
+    ui_theme_name = 'le-frog'
     pass
 
 class DemoDialogWidget(DialogWidget):
+    ui_theme_name = 'le-frog'
     options = {
         'title' : 'Basic Dialog',
     }
@@ -122,11 +129,13 @@ class DemoDialogWidget(DialogWidget):
     """
 
 class DemoProgressBarWidget(ProgressBarWidget):
+    ui_theme_name = 'le-frog'
     options = {
         'value' : 28
     }
 
 class DemoSliderWidget(SliderWidget):
+    ui_theme_name = 'le-frog'
     pass
 
 # For this tabs widget, let's conveniently re-use the data from the
@@ -137,6 +146,7 @@ ajaxified_tabs_items[2]['href'] = '/ajaxtab/'
 del ajaxified_tabs_items[2]['content']
 
 class DemoTabsWidget(TabsWidget):
+    ui_theme_name = 'le-frog'
     items = ajaxified_tabs_items
 
     @classmethod
