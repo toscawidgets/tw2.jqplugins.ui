@@ -94,8 +94,10 @@ class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
             { 'label': "annk K12", 'category': "Products" },
             { 'label': "annttop C13", 'category': "Products" },
             { 'label': "anders andersson", 'category': "People" },
-            { 'label': "andreas andersson", 'category': "People" },
-            { 'label': "andreas johnson", 'category': "People" }
+            { 'label': "andreas <strong>anders</strong>son",
+              'category': "People" },
+            { 'label': "andreas <strong>john</strong>son",
+              'category': "People" }
         ]
     }
     
