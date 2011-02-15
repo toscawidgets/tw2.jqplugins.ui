@@ -18,6 +18,7 @@ from widgets import (
     TabsWidget,
 )
 
+
 some_items = [
         ('Section 1',
          """
@@ -67,7 +68,6 @@ some_items = [
          """),
     ]
 class DemoAccordionWidget(AccordionWidget):
-    ui_theme_name = 'smoothness'
     items = some_items
     options = {
         'fillSpace' : True,
@@ -75,7 +75,6 @@ class DemoAccordionWidget(AccordionWidget):
     }
 
 class DemoAutocompleteWidget(AutocompleteWidget):
-    ui_theme_name = 'smoothness'
     options = {
         'source' : [
             "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
@@ -86,7 +85,6 @@ class DemoAutocompleteWidget(AutocompleteWidget):
     }
 class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
     value = "Try 'n' or 'a'"
-    ui_theme_name = 'smoothness'
     options = {
         'source' : [
             { 'label': "anders", 'category': "" },
@@ -102,20 +100,16 @@ class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
     }
     
 class DemoButtonWidget(ButtonWidget):
-    ui_theme_name = 'smoothness'
     type = 'button'
     click = "function() { alert( 'Hello world!' ) }"
     options = {
         'label' : "This is a jQuery UI button",
     }
-    ui_theme_name = 'smoothness'
 
 class DemoDatePickerWidget(DatePickerWidget):
-    ui_theme_name = 'smoothness'
     pass
 
 class DemoDialogWidget(DialogWidget):
-    ui_theme_name = 'smoothness'
     options = {
         'title' : 'Basic Dialog',
     }
@@ -129,13 +123,11 @@ class DemoDialogWidget(DialogWidget):
     """
 
 class DemoProgressBarWidget(ProgressBarWidget):
-    ui_theme_name = 'smoothness'
     options = {
         'value' : 28
     }
 
 class DemoSliderWidget(SliderWidget):
-    ui_theme_name = 'smoothness'
     pass
 
 # For this tabs widget, let's conveniently re-use the data from the
@@ -146,7 +138,6 @@ ajaxified_tabs_items[2]['href'] = '/ajaxtab/'
 del ajaxified_tabs_items[2]['content']
 
 class DemoTabsWidget(TabsWidget):
-    ui_theme_name = 'smoothness'
     items = ajaxified_tabs_items
 
     @classmethod
