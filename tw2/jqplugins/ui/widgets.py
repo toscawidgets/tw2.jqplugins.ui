@@ -184,15 +184,19 @@ class ButtonWidget(uibase.JQueryUIWidget):
 
 class ButtonSetRadio(uibase.JQueryUIWidget):
     """
-    Styles a group of radio buttons as a 'button set' by calling ``.buttonset()`` on a common container.
+    Styles a group of radio buttons as a 'button set' by calling
+    ``.buttonset()`` on a common container.
     
-    see the wrapped library's documentation for more information:
+    See the wrapped library's documentation for more information:
         http://jqueryui.com/demos/button/#radio
     """
     template = 'tw2.jqplugins.ui.templates.buttonset_radio'
     
-    items = twc.Param("a list of dicts - required keys are 'id' and 'label'", default=[])
-    checked_item = twc.Param("a single button may be marked as 'checked' by passing its 'id' [as a string] to this parameter", default=None)
+    items = twc.Param("a list of dicts - required keys are 'id' and 'label'",
+                      default=[])
+    checked_item = twc.Param("a single button may be marked as 'checked' by " +
+                             "passing its 'id' [as a string] to this parameter",
+                             default=None)
     jqmethod = "buttonset"
 
     def prepare(self):
@@ -201,20 +205,25 @@ class ButtonSetRadio(uibase.JQueryUIWidget):
         if not isinstance(self.items, list):
             raise ValueError, "'items' must be of type list"
             
-        if self.checked_item and self.checked_item not in [i['id'] for i in self.items]:
-                raise ValueError, "A 'checked_item' has been passed in but the id to which it refers is not in the 'items' list"
+        ids = [i['id'] for i in self.items]
+        if self.checked_item and self.checked_item not in ids:
+                raise ValueError, "A 'checked_item' has been passed in but " + \
+                                  "the id to which it refers is not in the " + \
+                                  "'items' list"
             
 
 class ButtonSetCheckbox(uibase.JQueryUIWidget):
     """
-    Styles a group of checkboxes as a 'button set' by calling ``.buttonset()`` on a common container.
+    Styles a group of checkboxes as a 'button set' by calling ``.buttonset()``
+    on a common container.
     
-    see the wrapped library's documentation for more information:
+    See the wrapped library's documentation for more information:
         http://jqueryui.com/demos/button/#checkbox
     """
     template = 'tw2.jqplugins.ui.templates.buttonset_checkbox'
     
-    items = twc.Param("a list of dicts - required keys are 'id', 'label' and (optionally) 'isSelected' [boolean]", default=[])
+    items = twc.Param("a list of dicts - required keys are 'id', 'label' " +
+                      "and (optionally) 'isSelected' [boolean]", default=[])
     jqmethod = "buttonset"
 
     def prepare(self):
@@ -223,7 +232,7 @@ class ButtonSetCheckbox(uibase.JQueryUIWidget):
         if not isinstance(self.items, list):
             raise ValueError, "'items' must be of type list"
             
-        # plug in value 'isSelected'=False if 'isSelected' not present in dict 
+        # plug in value 'isSelected'=False if 'isSelected' not present in dict
         for i in self.items:
             if not i.has_key('isSelected'):
                 i['isSelected'] = False
