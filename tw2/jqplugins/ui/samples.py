@@ -16,6 +16,8 @@ from widgets import (
     ProgressBarWidget,
     SliderWidget,
     TabsWidget,
+    ButtonSetRadio,
+    ButtonSetCheckbox,
 )
 
 
@@ -105,7 +107,23 @@ class DemoButtonWidget(ButtonWidget):
     options = {
         'label' : "This is a jQuery UI button",
     }
-
+    
+class DemoButtonSetRadio(ButtonSetRadio):
+    items = [
+        {'id':'rb_1', 'label':'BBC1'},
+        {'id':'rb_2', 'label':'BBC2'},
+        {'id':'rb_3', 'label':'BBC3'},
+    ]
+    checked_item = 'rb_2'
+    
+class DemoButtonSetCheckbox(ButtonSetCheckbox):
+    items = [
+        {'id':'cb_1', 'label':'BBC1'},
+        {'id':'cb_2', 'label':'BBC2', 'isSelected':True},
+        {'id':'cb_3', 'label':'BBC3'},
+        {'id':'cb_4', 'label':'BBC4'},
+    ]
+    
 class DemoDatePickerWidget(DatePickerWidget):
     pass
 
