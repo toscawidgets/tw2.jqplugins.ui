@@ -5,12 +5,13 @@
    <py:for each="btn in w.items">
       <py:choose test="btn['isSelected']">
       <py:when test="True">
-          <input type="checkbox" id="${btn['id']}" checked="checked" /><label for="${btn['id']}">${btn['label']}</label> 
+      <input type="checkbox" id="${btn['id']}" checked="checked" />
       </py:when>
       <py:otherwise>
-          <input type="checkbox" id="${btn['id']}" /><label for="${btn['id']}">${btn['label']}</label> 
+      <input type="checkbox" id="${btn['id']}" />
       </py:otherwise>
       </py:choose>
+      <label for="${btn['id']}">${btn['label']}</label>
    </py:for>
 </div>
 <xi:include href="generic_jq_ui_js.html" />
