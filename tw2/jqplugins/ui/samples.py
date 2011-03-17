@@ -115,6 +115,8 @@ class DemoButtonSetRadio(ButtonSetRadio):
         {'id':'rb_3', 'label':'BBC3'},
     ]
     checked_item = 'rb_2'
+    # demonstrates acquisition of the selected radio button
+    click = "function(e) {alert($(this).attr('id') + ' : was selected');}"
     
 class DemoButtonSetCheckbox(ButtonSetCheckbox):
     items = [
@@ -123,6 +125,28 @@ class DemoButtonSetCheckbox(ButtonSetCheckbox):
         {'id':'cb_3', 'label':'BBC3'},
         {'id':'cb_4', 'label':'BBC4'},
     ]
+    # demonstrates acquisition of checkbutton settings [checked/unchecked]
+    btn_ids = [i['id'] for i in items]
+    click = '''
+        function(e) {
+            var areChecked = {};
+            var button_ids = new Array(%s);
+            
+            for ( i in button_ids ) {
+                areChecked[button_ids[i]] =  $('#'+button_ids[i]).attr('checked');
+            }
+            
+            alert( $(this).attr('id') + ' : was clicked \\n\\n' +
+                   'contents of variable "areChecked": \\n' +
+                   'cb_1: ' + areChecked['cb_1'] + '\\n' +
+                   'cb_2: ' + areChecked['cb_2'] + '\\n' +
+                   'cb_3: ' + areChecked['cb_3'] + '\\n' +
+                   'cb_4: ' + areChecked['cb_4']
+                   )
+        }
+        ''' % (str(btn_ids)[1:-1])
+        
+        
     
 class DemoDatePickerWidget(DatePickerWidget):
     pass

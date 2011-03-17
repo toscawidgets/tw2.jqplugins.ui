@@ -10,5 +10,14 @@
 		<label for="${btn['id']}">${btn['label']}</label>
 		% endfor
 	</div>
-	<%include file="generic_jq_ui_js.mak" />
+	
+	<script type="text/javascript">
+		$(function() {
+			$("#${w.selector}").${w.jqmethod}(${w.options});
+			% if w.click:
+				$("#${w.selector} input").click(${w.click});
+			% endif
+		});
+	</script>
+	
 </div>
