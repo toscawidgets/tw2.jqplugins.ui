@@ -99,8 +99,9 @@ class JQueryUIWidget(twc.Widget):
 
     # TODO -- add all the events http://api.jquery.com/category/events/
     # TODO -- try to automatically generate IDs if not specified
+    # TODO -- TBD, figure out if this actually makes sense for all ui things.
     click = twc.Param(
-        '(str) javascript callback for generic click event', default=None)
+        '(str) (BETA) javascript callback for generic click event', default=None)
     
     def prepare(self):
         self.resources.append(jquery_ui_css(name=get_ui_theme_name()))
