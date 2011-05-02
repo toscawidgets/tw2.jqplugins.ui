@@ -6,4 +6,9 @@ You can set the jquery-ui theme with
 Get the source from http://github.com/ralphbean/tw2.jqplugins.ui
 """
 
+from base import (
+    set_ui_theme_name, get_ui_theme_name,
+    jquery_ui_js, jquery_ui_css, jquery_ui
+)
+
 from widgets import *
