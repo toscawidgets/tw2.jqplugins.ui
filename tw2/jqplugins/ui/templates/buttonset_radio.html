@@ -5,10 +5,10 @@
    <py:for each="btn in w.items">
       <py:choose test="w.checked_item">
       <py:when test="btn['id']">
-          <input type="radio" id="${btn['id']}" name="radio" checked="checked"/>
+          <input type="${w.attrs['id']}" id="${btn['id']}" name="radio" checked="checked"/>
       </py:when>
       <py:otherwise>
-          <input type="radio" id="${btn['id']}" name="radio"/>
+          <input type="${w.attrs['id']}" id="${btn['id']}" name="radio"/>
       </py:otherwise>
       </py:choose>
       <label for="${btn['id']}">${btn['label']}</label>

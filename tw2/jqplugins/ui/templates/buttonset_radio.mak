@@ -3,9 +3,9 @@
 	<div id="${w.attrs['id']}">
 		% for btn in w.items:
 		% if w.checked_item == btn['id']:
-			<input name="radio" type="radio" id="${btn['id']}" checked="checked" />
+			<input name="${w.attrs['id']}" type="radio" id="${btn['id']}" checked="checked" />
 		% else:
-			<input name="radio" type="radio" id="${btn['id']}"/>
+			<input name="${w.attrs['id']}" type="radio" id="${btn['id']}"/>
 		% endif
 		<label for="${btn['id']}">${btn['label']}</label>
 		% endfor
