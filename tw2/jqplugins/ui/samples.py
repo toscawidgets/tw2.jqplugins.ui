@@ -107,7 +107,7 @@ class DemoButtonWidget(ButtonWidget):
     options = {
         'label' : "This is a jQuery UI button",
     }
-    
+
 class DemoButtonSetRadio(ButtonSetRadio):
     items = [
         {'id':'rb_1', 'label':'BBC1'},
@@ -117,7 +117,7 @@ class DemoButtonSetRadio(ButtonSetRadio):
     checked_item = 'rb_2'
     # demonstrates acquisition of the selected radio button
     click = "function(e) {alert($(this).attr('id') + ' : was selected');}"
-    
+
 class DemoButtonSetCheckbox(ButtonSetCheckbox):
     items = [
         {'id':'cb_1', 'label':'BBC1'},
@@ -131,11 +131,9 @@ class DemoButtonSetCheckbox(ButtonSetCheckbox):
         function(e) {
             var areChecked = {};
             var button_ids = new Array(%s);
-            
             for ( i in button_ids ) {
                 areChecked[button_ids[i]] =  $('#'+button_ids[i]).attr('checked');
             }
-            
             alert( $(this).attr('id') + ' : was clicked \\n\\n' +
                    'contents of variable "areChecked": \\n' +
                    'cb_1: ' + areChecked['cb_1'] + '\\n' +
@@ -145,9 +143,7 @@ class DemoButtonSetCheckbox(ButtonSetCheckbox):
                    )
         }
         ''' % (str(btn_ids)[1:-1])
-        
-        
-    
+
 class DemoDatePickerWidget(DatePickerWidget):
     pass
 
@@ -194,5 +190,8 @@ class DemoTabsWidget(TabsWidget):
 
 # Register the widget's controller
 import tw2.core as twc
-mw = twc.core.request_local()['middleware']
-mw.controllers.register(DemoTabsWidget, 'ajaxtab')
+try:
+    mw = twc.core.request_local()['middleware']
+    mw.controllers.register(DemoTabsWidget, 'ajaxtab')
+except TypeError as e:
+    pass  # This happens if the middleware hasn't been installed.

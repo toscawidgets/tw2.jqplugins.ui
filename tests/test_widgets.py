@@ -14,6 +14,7 @@ else:
     from webob.multidict import NestedMultiDict
 
 import tw2.jqplugins.ui.widgets as w
+import tw2.jqplugins.ui.samples as s
 
 class TestAccordionWidget(WidgetTest):
     widget = w.AccordionWidget
@@ -173,7 +174,6 @@ $(function() {
 </div>
 """
 
-# Why does this test fail?  I dunno.  Halp!!!
 class TestTabsWidget(WidgetTest):
     widget = w.TabsWidget
     attrs = {'id' : 'foo'}
@@ -197,3 +197,84 @@ $(function() {
 </script>
 </div>
 """
+
+
+class TestEmptyTabsWidget(WidgetTest):
+    widget = w.TabsWidget
+    attrs = {'id' : 'foo'}
+    params = {'items':[]}
+    expected = """
+<div id="foo:wrapper">
+<div id="foo">
+    <ul>
+    </ul>
+</div>
+<script type="text/javascript">
+$(function() {
+    $("#foo").tabs({});
+});
+</script>
+</div>
+"""
+
+class TestDemoButtonSetCheckbox(WidgetTest):
+    widget = s.DemoButtonSetCheckbox
+    attrs = {'id':'foo'}
+    params = {}
+    expected = """
+<div id="foo:wrapper">
+    <div id="foo">
+            <input type="checkbox" id="cb_1"/>
+        <label for="cb_1">BBC1</label>
+            <input type="checkbox" id="cb_2" checked="checked" />
+        <label for="cb_2">BBC2</label>
+            <input type="checkbox" id="cb_3"/>
+        <label for="cb_3">BBC3</label>
+            <input type="checkbox" id="cb_4"/>
+        <label for="cb_4">BBC4</label>
+    </div>
+    <script type="text/javascript">
+        $(function() {
+            $("#foo").buttonset({});
+                $("#foo input").click(
+        function(e) {
+            var areChecked = {};
+            var button_ids = new Array('cb_1', 'cb_2', 'cb_3', 'cb_4');
+            for ( i in button_ids ) {
+                areChecked[button_ids[i]] =  $('#'+button_ids[i]).attr('checked');
+            }
+            alert( $(this).attr('id') + ' : was clicked \\n\\n' +
+                   'contents of variable "areChecked": \\n' +
+                   'cb_1: ' + areChecked['cb_1'] + '\\n' +
+                   'cb_2: ' + areChecked['cb_2'] + '\\n' +
+                   'cb_3: ' + areChecked['cb_3'] + '\\n' +
+                   'cb_4: ' + areChecked['cb_4']
+                   )
+        }
+        );
+        });
+    </script>
+</div>
+"""
+
+class TestDemoButtonSetRadio(WidgetTest):
+    widget = s.DemoButtonSetRadio
+    attrs = {'id':'foo'}
+    params = {}
+    expected = """
+<div id="foo:wrapper">
+    <div id="foo">
+            <input name="foo" type="radio" id="rb_1"/>
+        <label for="rb_1">BBC1</label>
+            <input name="foo" type="radio" id="rb_2" checked="checked" />
+        <label for="rb_2">BBC2</label>
+            <input name="foo" type="radio" id="rb_3"/>
+        <label for="rb_3">BBC3</label>
+    </div>
+    <script type="text/javascript">
+        $(function() {
+            $("#foo").buttonset({});
+                $("#foo input").click(function(e) {alert($(this).attr('id') + ' : was selected');});
+        });
+    </script>
+</div>"""
