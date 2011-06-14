@@ -6,6 +6,11 @@ import tw2.forms as twf
 # imports from this package
 from tw2.jqplugins.ui import base as uibase
 
+class html(str):
+    """ A stand-in used to treat the item contents as 'html-literals' """
+    def __html__(self):
+        return self.__str__()
+
 class AccordionWidget(uibase.JQueryUIWidget):
     """
     Click headers to expand/collapse content that is broken into
@@ -79,10 +84,6 @@ class AccordionWidget(uibase.JQueryUIWidget):
 
     def prepare(self):
         super(AccordionWidget, self).prepare()
-        # The following is done to treat the items contents as 'html-literals'
-        class html(str):
-            def __html__(self):
-                return self.__str__()
         self.items = [(html(h), html(c)) for h, c in self.items]
 
 
@@ -663,9 +664,6 @@ class DialogWidget(uibase.JQueryUIWidget):
     def prepare(self):
         super(DialogWidget, self).prepare()
         # The following is done to treat the items contents as 'html-literals'
-        class html(str):
-            def __html__(self):
-                return self.__str__()
         self.value = html(self.value)
 
 class ProgressBarWidget(uibase.JQueryUIWidget):
@@ -901,11 +899,6 @@ class TabsWidget(uibase.JQueryUIWidget):
             warnings.warn('list-of-tuples format for items is deprecated',
                           DeprecationWarning)
             self.items = [{'label': v[0], 'content': v[1]} for v in self.items]
-
-        # The following is done to treat the items contents as 'html-literals'
-        class html(str):
-            def __html__(self):
-                return self.__str__()
 
         for i in range(len(self.items)):
             for k in self.items[i].keys():

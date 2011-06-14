@@ -39,3 +39,33 @@ def test_exception_noid():
         assert(False)
     except ValueError as e:
         assert(str(e) == 'JQueryWidget must be supplied an id')
+
+def test_exception_radio_notalist():
+    w = tw2.jqplugins.ui.ButtonSetRadio(id='lol', items='fail')
+    try:
+        w.display()
+        assert(False)
+    except ValueError as e:
+        assert(str(e) == "'items' must be of type list")
+
+def test_exception_check_notalist():
+    w = tw2.jqplugins.ui.ButtonSetCheckbox(id='lol', items='fail')
+    try:
+        w.display()
+        assert(False)
+    except ValueError as e:
+        assert(str(e) == "'items' must be of type list")
+
+def test_exception_radio_mischeck():
+    w = tw2.jqplugins.ui.ButtonSetRadio(
+        id='lol',
+        items=[{'id':'foo'}],
+        checked_item='bar'
+    )
+    try:
+        w.display()
+        assert(False)
+    except ValueError as e:
+        print str(e)
+        assert(str(e) == "A 'checked_item' has been passed in but the id to "+
+                         "which it refers is not in the 'items' list" )

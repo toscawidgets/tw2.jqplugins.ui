@@ -36,3 +36,11 @@ def test_set_non_theme():
     w = tw2.jqplugins.ui.TabsWidget(id='foobar', items=[{'name':'awesome'}])
     w.display()
     assert(not any(['vader' in r.req().link for r in w.resources]))
+
+def test___html__():
+    """ Doesn't actually test an exception.. ;p """
+    s = 'foo'
+    from tw2.jqplugins.ui.widgets import html
+    h = html(s)
+    assert(str(h) == s)
+    assert(h.__html__() == s)
