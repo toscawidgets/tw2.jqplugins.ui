@@ -1,3 +1,4 @@
+% if 'value' in w.attrs and w.attrs['value']:
 <div>
 <style type="text/css">
     .tw2-jquery-faded {color:#AAA;}
@@ -6,7 +7,6 @@
 <script type="text/javascript">
 $(document).ready( function () {
     var selector = "#${w.selector}";
-	% if 'value' in w.attrs and w.attrs['value']:
     $(selector).focus( function () {
         if ( $(selector).val()=="${w.attrs['value']}" ) {
             $(selector).val("");
@@ -22,7 +22,7 @@ $(document).ready( function () {
         }
     });
     $(selector).addClass("tw2-jquery-faded");
-	% endif
 });
 </script>
 </div>
+% endif

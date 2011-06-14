@@ -10,9 +10,9 @@
     </py:for>
     </ul>
     <py:for each="i in range(len(w.items))">
-        <div py:if="'content' in w.items[i]" id="${w.attrs['id']}:${i}">
-            ${w.items[i]['content']}
-        </div>
+    <div py:if="'content' in w.items[i]" id="${w.attrs['id']}:${i}">
+        ${w.items[i]['content']}
+    </div>
     </py:for>
 </div>
 <xi:include href="generic_jq_ui_js.html" />

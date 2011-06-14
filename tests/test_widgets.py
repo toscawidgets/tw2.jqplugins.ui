@@ -41,7 +41,7 @@ class TestAutocompleteWidget(WidgetTest):
     params = {}
     expected = """
 <div id="foo:wrapper">
-<input id="foo" value="" />
+    <input name="foo" id="foo" type="text">
 <script type="text/javascript">
 $(function() {
     $("#foo").autocomplete({});
@@ -64,7 +64,7 @@ class TestCategoryAutocompleteWidget(WidgetTest):
         line-height: 1.5;
     }
     </style>
-     <input id="foo" value="foobar">
+     <input name="foo" id="foo" value="foobar" type="text">
 <script type="text/javascript">
 $(function() {
     $("#foo").catcomplete({});
