@@ -102,8 +102,15 @@ class JQueryUIWidget(twc.Widget):
     # TODO -- TBD, figure out if this actually makes sense for all ui things.
     click = twc.Param(
         '(str) (BETA) javascript callback for generic click event', default=None)
-    
+
+    events = twc.Param('(dict) (BETA) javascript callbacks for events', default=None)
+
     def prepare(self):
+        # Backwards Compat for click
+        if self.click is not None:
+            self.events = self.events if isinstance(self.events, dict) else dict()
+            self.events["click"] = self.click
+
         self.resources.append(jquery_ui_css(name=get_ui_theme_name()))
         self.options = encoder.encode(self.options)
         super(JQueryUIWidget, self).prepare()
