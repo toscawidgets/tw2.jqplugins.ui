@@ -3,8 +3,10 @@
 $(function() {
     $("#${w.selector}").${w.jqmethod}(${w.options});
 
-    <py:if test="w.click">
-    $("#${w.selector}").click(${w.click});
+    <py:if test="w.events">
+    <py:for each="k in w.events">
+    $("#${w.selector}").bind("${k}", ${w.events[k]});
+    </py:for>
     </py:if>
 });
 </script>
