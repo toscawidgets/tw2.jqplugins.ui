@@ -20,7 +20,7 @@ setup(
     license='MIT',
     url='http://github.com/ralphbean/tw2.jqplugins.ui',
     install_requires=[
-        "tw2.core>=2.0b2",
+        "tw2.core>=2.0b5",
         "tw2.forms",
         "tw2.jquery",
         ],
