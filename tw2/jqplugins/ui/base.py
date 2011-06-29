@@ -104,7 +104,7 @@ class JQueryUIWidget(twc.Widget):
     events = twc.Param('(dict) (BETA) javascript callbacks for events', default=None)
 
     def prepare(self):
-        if hasattr(self, 'events') and not isinstance(self.events, dict):
+        if self.events is not None and not isinstance(self.events, dict):
             raise ValueError, 'Events parameter must be a dict'
 
         self.resources.append(jquery_ui_css(name=get_ui_theme_name()))
