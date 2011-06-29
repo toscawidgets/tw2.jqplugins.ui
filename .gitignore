@@ -20,3 +20,4 @@ virtualenv-*
 *.egg
 *devtools*
 tw2.jquery
+htmlcov
