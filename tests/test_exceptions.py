@@ -56,6 +56,17 @@ def test_exception_check_notalist():
     except ValueError as e:
         assert(str(e) == "'items' must be of type list")
 
+def test_non_events_dict():
+    w = tw2.jqplugins.ui.ButtonSetCheckbox(id='lol', items=['lol'],
+                                           events='failboat')
+    try:
+        w.display()
+        assert(False)
+    except ValueError as e:
+        print str(e)
+        assert(str(e) == "Events parameter must be a dict")
+
+
 def test_exception_radio_mischeck():
     w = tw2.jqplugins.ui.ButtonSetRadio(
         id='lol',
