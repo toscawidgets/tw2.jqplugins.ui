@@ -5,6 +5,7 @@ from tw2.core.resources import encoder
 # tw2.jquery imports
 from tw2.jquery.base import jQueryJSLink, jQueryPluginLinkMixin
 from tw2.jquery.version import JSLinkMixin
+from tw2.jquery import jquery_js
 
 # import from *this* package
 from tw2.jqplugins.ui import defaults
@@ -26,12 +27,12 @@ class jQueryUIThemeCSSLink(jQueryUIMixin, twc.CSSLink):
     extension = 'css'
 
 ### Resources
-jquery_js = jQueryJSLink()
 jquery_ui_css = jQueryUIThemeCSSLink(
     name=defaults._ui_theme_name_, version=defaults._ui_version_)
 jquery_ui_catcomplete_js = jQueryUIJSLink(version='custom',
                                           basename='catcomplete')
-jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_)
+jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version,
+                              resources=[jquery_js])
 jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
 
 def set_ui_theme_name(ui_theme_name):
@@ -89,7 +90,7 @@ def get_ui_theme_name():
 class JQueryUIWidget(twc.Widget):
     """ Base JQueryUIWidget """
     _hide_docs = False
-    resources = [ jquery_js, jquery_ui_js, jquery_ui_css ]
+    resources = [ jquery_ui_js, jquery_ui_css ]
 
     jqmethod = twc.Variable("(str) Name of this widget's jQuery init method")
     selector = twc.Variable("(str) Escaped id.  jQuery selector.")
