@@ -8,7 +8,7 @@ from tw2.jquery.version import JSLinkMixin
 from tw2.jquery import jquery_js
 
 # import from *this* package
-from tw2.jqplugins.ui import defaults
+import defaults
 
 ### Links, etc...
 class jQueryUIMixin(jQueryPluginLinkMixin):
@@ -31,7 +31,7 @@ jquery_ui_css = jQueryUIThemeCSSLink(
     name=defaults._ui_theme_name_, version=defaults._ui_version_)
 jquery_ui_catcomplete_js = jQueryUIJSLink(version='custom',
                                           basename='catcomplete')
-jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version,
+jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_,
                               resources=[jquery_js])
 jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
 
