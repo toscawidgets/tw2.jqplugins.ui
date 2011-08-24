@@ -102,7 +102,8 @@ class JQueryUIWidget(twc.Widget):
     # TODO -- try to automatically generate IDs if not specified
     # TODO -- TBD, figure out if this actually makes sense for all ui things.
 
-    events = twc.Param('(dict) (BETA) javascript callbacks for events', default=None)
+    events = twc.Param(
+        '(dict) (BETA) javascript callbacks for events', default={})
 
     def prepare(self):
         if self.events is not None and not isinstance(self.events, dict):
