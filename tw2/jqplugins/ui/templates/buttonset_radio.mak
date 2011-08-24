@@ -13,8 +13,8 @@
     <script type="text/javascript">
         $(function() {
             $("#${w.selector}").${w.jqmethod}(${w.options});
-            % if w.click:
-                $("#${w.selector} input").click(${w.click});
+			% if 'click' in w.events:
+                $("#${w.selector} input").click(${w.events['click']});
             % endif
         });
     </script>

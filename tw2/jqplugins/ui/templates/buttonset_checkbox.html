@@ -18,8 +18,8 @@
    $(function() {
       $("#${w.selector}").${w.jqmethod}(${w.options});
 
-      <py:if test="w.click">
-         $("#${w.selector} input").click(${w.click});
+      <py:if test="'click' in w.events">
+         $("#${w.selector} input").click(${w.events['click']});
       </py:if>
    });
 </script>
