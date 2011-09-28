@@ -13,7 +13,7 @@ tw2.jqplugins.ui is a `toscawidgets2 (tw2)`_ wrapper for `jQuery UI`_.
 
 Live Demo
 ---------
-Peep the `live demonstration <http://craftsman.rc.rit.edu/module?module=tw2.jqplugins.ui>`_.
+Peep the `live demonstration <http://tw2-demos.threebean.org/module?module=tw2.jqplugins.ui>`_.
 
 Links
 -----
