@@ -103,7 +103,9 @@ class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
     
 class DemoButtonWidget(ButtonWidget):
     type = 'button'
-    click = "function() { alert( 'Hello world!' ) }"
+    events = {
+        'click': "function() { alert( 'Hello world!' ) }"
+    }
     options = {
         'label' : "This is a jQuery UI button",
     }
@@ -116,7 +118,9 @@ class DemoButtonSetRadio(ButtonSetRadio):
     ]
     checked_item = 'rb_2'
     # demonstrates acquisition of the selected radio button
-    click = "function(e) {alert($(this).attr('id') + ' : was selected');}"
+    events = {
+        'click': "function(e) {alert($(this).attr('id') + ' : was selected');}"
+    }
 
 class DemoButtonSetCheckbox(ButtonSetCheckbox):
     items = [
@@ -127,7 +131,8 @@ class DemoButtonSetCheckbox(ButtonSetCheckbox):
     ]
     # demonstrates acquisition of checkbutton settings [checked/unchecked]
     btn_ids = [i['id'] for i in items]
-    click = '''
+    events = {
+        "click": '''
         function(e) {
             var areChecked = {};
             var button_ids = new Array(%s);
@@ -143,6 +148,7 @@ class DemoButtonSetCheckbox(ButtonSetCheckbox):
                    )
         }
         ''' % (str(btn_ids)[1:-1])
+    }
 
 class DemoDatePickerWidget(DatePickerWidget):
     pass
