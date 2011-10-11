@@ -120,7 +120,7 @@ class TestDatePickerWidget(WidgetTest):
     params = {}
     expected = """
 <div id="foo:wrapper">
-<input type="text" id="foo">
+<input name="foo" type="text" id="foo">
 <script type="text/javascript">
 $(function() {
     $("#foo").datepicker({});

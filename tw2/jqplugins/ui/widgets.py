@@ -239,7 +239,7 @@ class ButtonSetCheckbox(uibase.JQueryUIWidget):
                 i['isSelected'] = False
 
 
-class DatePickerWidget(uibase.JQueryUIWidget):
+class DatePickerWidget(uibase.JQueryUIWidget, twf.TextField):
     """
     The datepicker is tied to a standard form input field.
     Focus on the input (click, or use the tab key) to open an
