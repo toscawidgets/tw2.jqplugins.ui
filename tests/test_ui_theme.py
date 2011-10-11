@@ -32,10 +32,9 @@ def test_set_theme():
 
 def test_set_non_theme():
     tw2.jqplugins.ui.set_ui_theme_name('vader')
-    tw2.jqplugins.ui.set_ui_theme_name('smoothness')
     w = tw2.jqplugins.ui.TabsWidget(id='foobar', items=[{'name':'awesome'}])
     w.display()
-    assert(not any(['vader' in r.req().link for r in w.resources]))
+    assert(not any(['smoothness' in r.req().link for r in w.resources]))
 
 def test___html__():
     """ Doesn't actually test an exception.. ;p """
