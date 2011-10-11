@@ -20,20 +20,16 @@ class jQueryUIJSLink(twc.JSLink, jQueryUIMixin):
     subdir = 'js'
 
 class jQueryUIThemeCSSLink(jQueryUIMixin, twc.CSSLink):
-    name = twc.Param('(string) Specify the name of the theme that you wish to use.  Default: %s' % defaults._ui_theme_name_, default=defaults._ui_theme_name_)
+    name = twc.Variable()  # Generated from get_ui_theme_name()
+
     @property
     def subdir(self):
         return 'css/%(name)s' % dict(name=self.name)
     extension = 'css'
 
-### Resources
-jquery_ui_css = jQueryUIThemeCSSLink(
-    name=defaults._ui_theme_name_, version=defaults._ui_version_)
-jquery_ui_catcomplete_js = jQueryUIJSLink(version='custom',
-                                          basename='catcomplete')
-jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_,
-                              resources=[jquery_js])
-jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
+    def prepare(self):
+        self.name = get_ui_theme_name()
+        super(jQueryUIThemeCSSLink, self).prepare()
 
 def set_ui_theme_name(ui_theme_name):
     """ Set the jquery ui theme on a request/thread local basis 
@@ -85,6 +81,15 @@ def get_ui_theme_name():
         base = defaults._ui_theme_name_
         twc.core.request_local()['jquery_ui_theme_name'] = base
     return twc.core.request_local()['jquery_ui_theme_name']
+
+### Resources
+jquery_ui_css = jQueryUIThemeCSSLink(version=defaults._ui_version_)
+jquery_ui_catcomplete_js = jQueryUIJSLink(version='custom',
+                                          basename='catcomplete')
+jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_,
+                              resources=[jquery_js])
+jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
+
 
 ### Widgets
 class JQueryUIWidget(twc.Widget):
