@@ -6,10 +6,10 @@ import tw2.forms as twf
 # imports from this package
 from tw2.jqplugins.ui import base as uibase
 
-class html(str):
+class html(unicode):
     """ A stand-in used to treat the item contents as 'html-literals' """
     def __html__(self):
-        return self.__str__()
+        return self.__unicode__()
 
 class AccordionWidget(uibase.JQueryUIWidget):
     """
