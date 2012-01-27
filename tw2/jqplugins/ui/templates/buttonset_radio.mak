@@ -11,7 +11,7 @@
         % endfor
     </div>
     <script type="text/javascript">
-        $(function() {
+        $(document).ready(function() {
             $("#${w.selector}").${w.jqmethod}(${w.options});
 			% if 'click' in w.events:
                 $("#${w.selector} input").click(${w.events['click']});

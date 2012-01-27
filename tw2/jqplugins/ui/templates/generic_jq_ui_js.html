@@ -1,6 +1,6 @@
 <script xmlns:py="http://genshi.edgewall.org/"
         type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#${w.selector}").${w.jqmethod}(${w.options});
 
     <py:if test="w.events">

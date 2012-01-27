@@ -29,7 +29,7 @@ class TestAccordionWidget(WidgetTest):
         <div>foo2c</div>
 </div>
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#foo").accordion({});
 });
 </script>
@@ -44,7 +44,7 @@ class TestAutocompleteWidget(WidgetTest):
 <div id="foo:wrapper">
     <input name="foo" id="foo" type="text">
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#foo").autocomplete({});
 });
 </script>
@@ -67,7 +67,7 @@ class TestCategoryAutocompleteWidget(WidgetTest):
     </style>
      <input name="foo" id="foo" value="foobar" type="text">
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#foo").catcomplete({});
 });
 </script>
@@ -107,7 +107,7 @@ class TestButtonWidget(WidgetTest):
 <div id="foo:wrapper">
 <button id="foo"></button>
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#foo").button({});
 });
 </script>
@@ -122,7 +122,7 @@ class TestDatePickerWidget(WidgetTest):
 <div id="foo:wrapper">
 <input name="foo" type="text" id="foo">
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#foo").datepicker({});
 });
 </script>
@@ -137,7 +137,7 @@ class TestDialogWidget(WidgetTest):
 <div id="foo:wrapper">
 <div id="foo"> biz </div>
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#foo").dialog({});
 });
 </script>
@@ -152,7 +152,7 @@ class TestProgressBarWidget(WidgetTest):
 <div id="foo:wrapper">
 <div id="foo"></div>
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#foo").progressbar({"value": 28});
 });
 </script>
@@ -167,7 +167,7 @@ class TestSliderWidget(WidgetTest):
 <div id="foo:wrapper">
 <div id="foo"></div>
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#foo").slider({});
 });
 </script>
@@ -191,7 +191,7 @@ class TestTabsWidget(WidgetTest):
     </div>
 </div>
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#foo").tabs({});
 });
 </script>
@@ -210,7 +210,7 @@ class TestEmptyTabsWidget(WidgetTest):
     </ul>
 </div>
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#foo").tabs({});
 });
 </script>
@@ -234,7 +234,7 @@ class TestDemoButtonSetCheckbox(WidgetTest):
         <label for="cb_4">BBC4</label>
     </div>
     <script type="text/javascript">
-        $(function() {
+        $(document).ready(function() {
             $("#foo").buttonset({});
                 $("#foo input").click(
         function(e) {
@@ -272,7 +272,7 @@ class TestDemoButtonSetRadio(WidgetTest):
         <label for="rb_3">BBC3</label>
     </div>
     <script type="text/javascript">
-        $(function() {
+        $(document).ready(function() {
             $("#foo").buttonset({});
                 $("#foo input").click(function(e) {alert($(this).attr('id') + ' : was selected');});
         });

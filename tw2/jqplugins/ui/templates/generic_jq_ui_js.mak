@@ -1,5 +1,5 @@
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
     $("#${w.selector}").${w.jqmethod}(${w.options});
 	% if w.events:
 	% for k in w.events:
