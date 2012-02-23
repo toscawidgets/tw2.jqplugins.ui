@@ -115,6 +115,10 @@ class JQueryUIWidget(twc.Widget):
             raise ValueError, 'Events parameter must be a dict'
 
         self.resources.append(jquery_ui_css(name=get_ui_theme_name()))
+        
+        if self.options is not None and not isinstance(self.options, dict):
+            raise ValueError, 'Options parameter must be a dict'
+            
         self.options = encoder.encode(self.options)
         super(JQueryUIWidget, self).prepare()
         if not hasattr(self, 'id') or 'id' not in self.attrs:
