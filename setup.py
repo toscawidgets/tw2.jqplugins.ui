@@ -1,5 +1,9 @@
 from setuptools import setup, find_packages
 
+# Hack to get tests working on python 2.7
+import multiprocessing
+import logging
+
 f = open('README.rst')
 long_description = f.read().strip()
 long_description = long_description.split('split here', 1)[1]
