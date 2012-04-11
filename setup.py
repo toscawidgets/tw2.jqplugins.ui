@@ -39,7 +39,7 @@ setup(
         'WebTest',
         'strainer',
     ] + _extra_genshi + _extra_mako,
-    packages=find_packages(exclude=['ez_setup', 'tests']),
+    packages=find_packages(exclude=['ez_setup']),
     namespace_packages = ['tw2', 'tw2.jqplugins'],
     zip_safe=False,
     include_package_data=True,
@@ -53,7 +53,7 @@ setup(
         'toscawidgets.widgets',
     ],
     classifiers = [
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Environment :: Web Environment :: ToscaWidgets',
         'Topic :: Software Development :: Libraries :: Python Modules',
