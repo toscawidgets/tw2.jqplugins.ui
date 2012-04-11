@@ -1,7 +1,7 @@
 tw2.jqplugins.ui
 =====================
 
-:Author: Ralph Bean <ralph.bean@gmail.com>
+:Author: Ralph Bean <rbean@redhat.com>
 
 .. comment: split here
 
@@ -17,10 +17,10 @@ Peep the `live demonstration <http://tw2-demos.threebean.org/module?module=tw2.j
 
 Links
 -----
-Get the `source from github <http://github.com/ralphbean/tw2.jqplugins.ui>`_.
+Get the `source from github <http://github.com/toscawidgets/tw2.jqplugins.ui>`_.
 
 `PyPI page <http://pypi.python.org/pypi/tw2.jqplugins.ui>`_
-and `bugs <http://github.com/ralphbean/tw2.jqplugins.ui/issues/>`_
+and `bugs <http://github.com/toscawidgets/tw2.jqplugins.ui/issues/>`_
 
 Description
 -----------
@@ -43,3 +43,22 @@ web applications.
 
 This module, tw2.jqplugins.ui, provides `toscawidgets2 (tw2)`_ access to
 `jQuery UI`_ widgets.
+
+Sampling tw2.jqplugins.ui in the WidgetBrowser
+----------------------------------------------
+
+The best way to scope out ``tw2.jqplugins.ui`` is to load its widgets in the
+``tw2.devtools`` WidgetBrowser.  To see the source code that configures them,
+check out ``tw2.jqplugins.ui/tw2/jqplugins/ui/samples.py``
+
+To give it a try you'll need git, python, and `virtualenvwrapper
+<http://pypi.python.org/pypi/virtualenvwrapper>`_.  Run::
+
+    $ git clone git://github.com/toscawidgets/tw2.jqplugins.ui.git
+    $ cd tw2.jqplugins.ui
+    $ mkvirtualenv tw2.jqplugins.ui
+    (tw2.jqplugins.ui) $ pip install tw2.devtools
+    (tw2.jqplugins.ui) $ python setup.py develop
+    (tw2.jqplugins.ui) $ paster tw2.browser
+
+...and browse to http://localhost:8000/ to check it out.

@@ -196,8 +196,4 @@ class DemoTabsWidget(TabsWidget):
 
 # Register the widget's controller
 import tw2.core as twc
-try:
-    mw = twc.core.request_local()['middleware']
-    mw.controllers.register(DemoTabsWidget, 'ajaxtab')
-except TypeError as e:
-    pass  # This happens if the middleware hasn't been installed.
+twc.register_controller(DemoTabsWidget, 'ajaxtab')

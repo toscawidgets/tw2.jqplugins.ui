@@ -1,6 +1,6 @@
 # TW2 proper imports
 import tw2.core as twc
-from tw2.core.resources import encoder
+from tw2.core.resources import encoder, ResourceBundle
 
 # tw2.jquery imports
 from tw2.jquery.base import jQueryJSLink, jQueryPluginLinkMixin
@@ -88,7 +88,7 @@ jquery_ui_catcomplete_js = jQueryUIJSLink(version='custom',
                                           basename='catcomplete')
 jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_,
                               resources=[jquery_js])
-jquery_ui = jQueryJSLink(resources = [jquery_ui_css, jquery_ui_js])
+jquery_ui = ResourceBundle(resources=[jquery_ui_css, jquery_ui_js])
 
 
 ### Widgets

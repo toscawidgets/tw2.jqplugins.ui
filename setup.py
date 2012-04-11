@@ -1,5 +1,9 @@
 from setuptools import setup, find_packages
 
+# Hack to get tests working on python 2.7
+import multiprocessing
+import logging
+
 f = open('README.rst')
 long_description = f.read().strip()
 long_description = long_description.split('split here', 1)[1]
@@ -12,13 +16,13 @@ _extra_mako = ["Mako >= 0.1.1"]
 
 setup(
     name='tw2.jqplugins.ui',
-    version='2.0b26',
+    version='2.0.0',
     description='toscawidgets2 wrapper for jquery-ui',
     long_description=long_description,
     author='Ralph Bean',
-    author_email='ralph.bean@gmail.com',
+    author_email='rbean@redhat.com',
     license='MIT',
-    url='http://github.com/ralphbean/tw2.jqplugins.ui',
+    url='http://github.com/toscawidgets/tw2.jqplugins.ui',
     install_requires=[
         "tw2.core>=2.0b5",
         "tw2.forms",
@@ -35,7 +39,7 @@ setup(
         'WebTest',
         'strainer',
     ] + _extra_genshi + _extra_mako,
-    packages=find_packages(exclude=['ez_setup', 'tests']),
+    packages=find_packages(exclude=['ez_setup']),
     namespace_packages = ['tw2', 'tw2.jqplugins'],
     zip_safe=False,
     include_package_data=True,
@@ -49,7 +53,7 @@ setup(
         'toscawidgets.widgets',
     ],
     classifiers = [
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Environment :: Web Environment :: ToscaWidgets',
         'Topic :: Software Development :: Libraries :: Python Modules',
