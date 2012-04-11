@@ -3,7 +3,7 @@
 %global modname tw2.jqplugins.ui
 
 Name:           python-tw2-jqplugins-ui
-Version:        2.0.0
+Version:        2.0.1
 Release:        1%{?dist}
 Summary:        jQuery UI for ToscaWidgets2
 
@@ -88,5 +88,9 @@ rm -rf %{buildroot}
 %{python_sitelib}/*
 
 %changelog
+* Wed Apr 11 2012 Ralph Bean <rbean@redhat.com> - 2.0.1-1
+- Packaging latest release.
+- Fixing a collision of the tests.
+
 * Wed Apr 11 2012 Ralph Bean <rbean@redhat.com> - 2.0.0-1
 - Initial packaging for Fedora

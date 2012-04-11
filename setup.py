@@ -16,7 +16,7 @@ _extra_mako = ["Mako >= 0.1.1"]
 
 setup(
     name='tw2.jqplugins.ui',
-    version='2.0.0',
+    version='2.0.1',
     description='toscawidgets2 wrapper for jquery-ui',
     long_description=long_description,
     author='Ralph Bean',
@@ -39,8 +39,8 @@ setup(
         'WebTest',
         'strainer',
     ] + _extra_genshi + _extra_mako,
-    packages=find_packages(exclude=['ez_setup']),
-    namespace_packages = ['tw2', 'tw2.jqplugins'],
+    packages=['tw2', 'tw2.jqplugins', 'tw2.jqplugins.ui'],
+    namespace_packages=['tw2', 'tw2.jqplugins'],
     zip_safe=False,
     include_package_data=True,
     test_suite = 'nose.collector',
