@@ -70,6 +70,9 @@ jQuery UI widgets.
 
 %build
 %{__python} setup.py build
+# This is a hack to get the jqplugins to not stomp all over each others
+# namespace declarations.
+rm -f build/lib/tw2/jqplugins/__init__.py*
 
 %install
 rm -rf %{buildroot}
