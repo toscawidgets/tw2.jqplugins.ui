@@ -68,6 +68,17 @@ jQuery UI widgets.
 %prep
 %setup -q -n %{modname}-%{version}
 
+%if %{?rhel}%{!?rhel:0} >= 6
+
+# Make sure that epel/rhel picks up the correct version of webob
+awk 'NR==1{print "import __main__; __main__.__requires__ = __requires__ = [\"WebOb>=1.0\"]; import pkg_resources"}1' setup.py > setup.py.tmp
+mv setup.py.tmp setup.py
+
+# Remove all the fancy nosetests configuration for older python
+rm setup.cfg
+
+%endif
+
 %build
 %{__python} setup.py build
 # This is a hack to get the jqplugins to not stomp all over each others
