@@ -22,93 +22,100 @@ from widgets import (
 
 
 some_items = [
-        ('Section 1',
-         """
-                <p>
-                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                </p>
-         """),
-        ('Section 2',
-         """
-                <p>
-                Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                suscipit faucibus urna.
-                </p>
-        """),
-        ('Section 3',
-         """
-                <p>
-                Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-                Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-                ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-                lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-                </p>
-                <ul>
-                    <li>List item one</li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                </ul>
-         """),
-        ('Section 4',
-         """
-                <p>
-                Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                mauris vel est.
-                </p>
-                <p>
-                Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                inceptos himenaeos.
-                </p>
-         """),
-    ]
+('Section 1',
+"""
+<p>
+Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+</p>
+"""),
+('Section 2',
+"""
+<p>
+Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+suscipit faucibus urna.
+</p>
+"""),
+('Section 3',
+"""
+<p>
+Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+</p>
+<ul>
+    <li>List item one</li>
+    <li>List item two</li>
+    <li>List item three</li>
+</ul>
+"""),
+('Section 4',
+"""
+<p>
+Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+mauris vel est.
+</p>
+<p>
+Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+inceptos himenaeos.
+</p>
+"""),
+]
+
+
 class DemoAccordionWidget(AccordionWidget):
     items = some_items
     options = {
-        'fillSpace' : True,
-        'active' : 2
+        'fillSpace': True,
+        'active': 2
     }
+
 
 class DemoAutocompleteWidget(AutocompleteWidget):
     options = {
-        'source' : [
+        'source': [
             "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
             "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy",
             "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python",
             "Ruby", "Scala", "Scheme"
         ],
     }
+
+
 class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
     value = "Try 'n' or 'a'"
     options = {
-        'source' : [
-            { 'label': "anders", 'category': "" },
-            { 'label': "andreas", 'category': "" },
-            { 'label': "antal", 'category': "" },
-            { 'label': "annhhx10", 'category': "Products" },
-            { 'label': "annk K12", 'category': "Products" },
-            { 'label': "annttop C13", 'category': "Products" },
-            { 'label': "anders andersson", 'category': "People" },
-            { 'label': "andreas andersson", 'category': "People" },
-            { 'label': "andreas johnson", 'category': "People" }
+        'source': [
+            {'label': "anders", 'category': ""},
+            {'label': "andreas", 'category': ""},
+            {'label': "antal", 'category': ""},
+            {'label': "annhhx10", 'category': "Products"},
+            {'label': "annk K12", 'category': "Products"},
+            {'label': "annttop C13", 'category': "Products"},
+            {'label': "anders andersson", 'category': "People"},
+            {'label': "andreas andersson", 'category': "People"},
+            {'label': "andreas johnson", 'category': "People"}
         ]
     }
-    
+
+
 class DemoButtonWidget(ButtonWidget):
     type = 'button'
     events = {
         'click': "function() { alert( 'Hello world!' ) }"
     }
     options = {
-        'label' : "This is a jQuery UI button",
+        'label': "This is a jQuery UI button",
     }
+
 
 class DemoButtonSetRadio(ButtonSetRadio):
     items = [
@@ -119,8 +126,9 @@ class DemoButtonSetRadio(ButtonSetRadio):
     checked_item = 'rb_2'
     # demonstrates acquisition of the selected radio button
     events = {
-        'click': "function(e) {alert($(this).attr('id') + ' : was selected');}"
+        'click': "function(e) {alert($(this).attr('id') + ': was selected');}"
     }
+
 
 class DemoButtonSetCheckbox(ButtonSetCheckbox):
     items = [
@@ -133,29 +141,31 @@ class DemoButtonSetCheckbox(ButtonSetCheckbox):
     btn_ids = [i['id'] for i in items]
     events = {
         "click": '''
-        function(e) {
-            var areChecked = {};
-            var button_ids = new Array(%s);
-            for ( i in button_ids ) {
-                areChecked[button_ids[i]] =  $('#'+button_ids[i]).attr('checked');
-            }
-            alert( $(this).attr('id') + ' : was clicked \\n\\n' +
-                   'contents of variable "areChecked": \\n' +
-                   'cb_1: ' + areChecked['cb_1'] + '\\n' +
-                   'cb_2: ' + areChecked['cb_2'] + '\\n' +
-                   'cb_3: ' + areChecked['cb_3'] + '\\n' +
-                   'cb_4: ' + areChecked['cb_4']
-                   )
-        }
+function(e) {
+    var areChecked = {};
+    var button_ids = new Array(%s);
+    for ( i in button_ids ) {
+        areChecked[button_ids[i]] =  $('#'+button_ids[i]).attr('checked');
+    }
+    alert( $(this).attr('id') + ': was clicked \\n\\n' +
+           'contents of variable "areChecked": \\n' +
+           'cb_1: ' + areChecked['cb_1'] + '\\n' +
+           'cb_2: ' + areChecked['cb_2'] + '\\n' +
+           'cb_3: ' + areChecked['cb_3'] + '\\n' +
+           'cb_4: ' + areChecked['cb_4']
+           )
+}
         ''' % (str(btn_ids)[1:-1])
     }
+
 
 class DemoDatePickerWidget(DatePickerWidget):
     pass
 
+
 class DemoDialogWidget(DialogWidget):
     options = {
-        'title' : 'Basic Dialog',
+        'title': 'Basic Dialog',
     }
     value = """
     <p>
@@ -166,10 +176,12 @@ class DemoDialogWidget(DialogWidget):
     <p>It is likely displayed at the top of the page ;p</p>
     """
 
+
 class DemoProgressBarWidget(ProgressBarWidget):
     options = {
-        'value' : 28
+        'value': 28
     }
+
 
 class DemoSliderWidget(SliderWidget):
     pass
@@ -180,6 +192,7 @@ ajaxified_tabs_items = [{'label': v[0], 'content': v[1]} for v in some_items]
 ajaxified_tabs_items[2]['label'] += ' (via ajax)'
 ajaxified_tabs_items[2]['href'] = '/ajaxtab/'
 del ajaxified_tabs_items[2]['content']
+
 
 class DemoTabsWidget(TabsWidget):
     items = ajaxified_tabs_items
