@@ -523,6 +523,18 @@ class DatePickerWidget(uibase.JQueryUIWidget, twf.TextField):
     template = "tw2.jqplugins.ui.templates.datepicker"
     jqmethod = "datepicker"
 
+
+class DateTimePickerWidget(uibase.JQueryUIWidget, twf.TextField):
+    """ docs to be done
+    
+    ref:
+    http://trentrichardson.com/examples/timepicker/
+    
+     """        
+    template = "tw2.jqplugins.ui.templates.datetimepicker"
+    jqmethod = "datetimepicker"
+
+
 class DialogWidget(uibase.JQueryUIWidget):
     """
     The basic dialog window is an overlay positioned within the
