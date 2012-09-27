@@ -90,12 +90,17 @@ jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_,
                               resources=[jquery_js])
 jquery_ui = ResourceBundle(resources=[jquery_ui_css, jquery_ui_js])
 
+jquery_ui_slideraccess_js = jQueryUIJSLink(version='custom',
+                                          basename='jquery-ui-sliderAccess')
+jquery_ui_timepicker_js = jQueryUIJSLink(version='custom',
+                                          basename='jquery-ui-timepicker-addon')
+
 
 ### Widgets
 class JQueryUIWidget(twc.Widget):
     """ Base JQueryUIWidget """
     _hide_docs = False
-    resources = [ jquery_ui_js, jquery_ui_css ]
+    resources = [ jquery_ui_js, jquery_ui_css, jquery_ui_slideraccess_js, jquery_ui_timepicker_js ]
 
     jqmethod = twc.Variable("(str) Name of this widget's jQuery init method")
     selector = twc.Variable("(str) Escaped id.  jQuery selector.")
