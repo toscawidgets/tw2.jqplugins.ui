@@ -33,11 +33,10 @@ setup(
         'mako': _extra_mako,
     },
     tests_require = [
-        'BeautifulSoup',
         'nose',
         'FormEncode',
         'WebTest',
-        'strainer',
+        'sieve',
     ] + _extra_genshi + _extra_mako,
     packages=['tw2', 'tw2.jqplugins', 'tw2.jqplugins.ui'],
     namespace_packages=['tw2', 'tw2.jqplugins'],

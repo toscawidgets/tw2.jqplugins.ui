@@ -1,3 +1,4 @@
+from __future__ import print_function
 import tw2.core as twc
 import tw2.jqplugins.ui
 
@@ -63,7 +64,7 @@ def test_non_events_dict():
         w.display()
         assert(False)
     except ValueError as e:
-        print str(e)
+        print(str(e))
         assert(str(e) == "Events parameter must be a dict")
 
 
@@ -77,6 +78,6 @@ def test_exception_radio_mischeck():
         w.display()
         assert(False)
     except ValueError as e:
-        print str(e)
+        print(str(e))
         assert(str(e) == "A 'checked_item' has been passed in but the id to "+
                          "which it refers is not in the 'items' list" )

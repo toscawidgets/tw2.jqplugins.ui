@@ -8,11 +8,12 @@ from tw2.jqplugins.ui import base as uibase
 
 # generic imports
 import types
+import six
 
-class html(types.UnicodeType):
+class html(str):
     """ A stand-in used to treat the item contents as 'html-literals' """
     def __html__(self):
-        return unicode(self)
+        return six.text_type(self)
 
 class AccordionWidget(uibase.JQueryUIWidget):
     """
@@ -207,13 +208,13 @@ class ButtonSetRadio(uibase.JQueryUIWidget):
         super(ButtonSetRadio, self).prepare()
 
         if not isinstance(self.items, list):
-            raise ValueError, "'items' must be of type list"
+            raise ValueError("'items' must be of type list")
             
         ids = [i['id'] for i in self.items]
         if self.checked_item and self.checked_item not in ids:
-                raise ValueError, "A 'checked_item' has been passed in but " + \
+                raise ValueError("A 'checked_item' has been passed in but " + \
                                   "the id to which it refers is not in the " + \
-                                  "'items' list"
+                                  "'items' list")
             
 
 class ButtonSetCheckbox(uibase.JQueryUIWidget):
@@ -234,11 +235,11 @@ class ButtonSetCheckbox(uibase.JQueryUIWidget):
         super(ButtonSetCheckbox, self).prepare()
 
         if not isinstance(self.items, list):
-            raise ValueError, "'items' must be of type list"
+            raise ValueError("'items' must be of type list")
             
         # plug in value 'isSelected'=False if 'isSelected' not present in dict
         for i in self.items:
-            if not i.has_key('isSelected'):
+            if 'isSelected' not in i:
                 i['isSelected'] = False
 
 
@@ -901,7 +902,7 @@ class TabsWidget(uibase.JQueryUIWidget):
         super(TabsWidget, self).prepare()
 
         if not isinstance(self.items, list):
-            raise ValueError, 'items must be of type list'
+            raise ValueError('items must be of type list')
 
         if len(self.items) == 0:
             # Whatevah.
