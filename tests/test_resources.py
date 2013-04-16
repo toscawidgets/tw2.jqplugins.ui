@@ -1,6 +1,7 @@
+from __future__ import print_function
 import tw2.core as twc
 import tw2.jqplugins.ui
-import testapi
+from . import testapi
 
 from nose.tools import eq_
 
@@ -35,5 +36,5 @@ def test_weird_case_for_zykes():
     import pprint
     pprint.pprint(rl['resources'])
     for r in rl['resources']:
-        print '-', r
+        print('-', r)
     eq_(len(rl['resources']), 3)

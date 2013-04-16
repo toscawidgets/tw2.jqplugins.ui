@@ -6,7 +6,7 @@ These samples will appear in the WidgetBrowser
 See http://toscawidgets.org/documentation/WidgetBrowser for more information
 """
 
-from widgets import (
+from .widgets import (
     AccordionWidget,
     AutocompleteWidget,
     CategoryAutocompleteWidget,
