@@ -27,6 +27,7 @@ setup(
         "tw2.core>=2.0b5",
         "tw2.forms",
         "tw2.jquery",
+        "six",
         ],
     extras_require = {
         'genshi': _extra_genshi,
