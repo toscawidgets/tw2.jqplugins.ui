@@ -1,3 +1,4 @@
+import collections
 
 # tw2-proper imports
 import tw2.core as twc
@@ -8,11 +9,12 @@ from tw2.jqplugins.ui import base as uibase
 
 # generic imports
 import types
+import six
 
-class html(types.UnicodeType):
+class html(str):
     """ A stand-in used to treat the item contents as 'html-literals' """
     def __html__(self):
-        return unicode(self)
+        return six.text_type(self)
 
 class AccordionWidget(uibase.JQueryUIWidget):
     """
@@ -22,7 +24,7 @@ class AccordionWidget(uibase.JQueryUIWidget):
 
     The underlying HTML markup is a series of headers (H3 tags) and
     content divs so the content is usable without JavaScript.
-    
+
     See the wrapped library's documentation for more information:
         http://jqueryui.com/demos/accordion/
 
@@ -62,7 +64,7 @@ class AccordionWidget(uibase.JQueryUIWidget):
 
         header -- selector, jQuery (default: '> li > :first-child,> :not(li):even')
             Selector for the header element.
-        
+
         icons -- dict (default: {'header': 'ui-icon-triangle-1-e', 'headerSelected': 'ui-icon-triangle-1-s'})
             Icons to use for headers. Icons may be specified for 'header'
             and 'headerSelected', and we recommend using the icons native
@@ -122,7 +124,7 @@ class AutocompleteWidget(uibase.JQueryUIWidget, twf.TextField):
         source -- str, list, callback (default: None)
             Defines the data to use, must be specified. See
             http://jqueryui.com/demos/autocomplete/ for more details, and
-            look at the various demos. 
+            look at the various demos.
     """
     template = "tw2.jqplugins.ui.templates.autocomplete"
     jqmethod = "autocomplete"
@@ -190,12 +192,12 @@ class ButtonSetRadio(uibase.JQueryUIWidget):
     """
     Styles a group of radio buttons as a 'button set' by calling
     ``.buttonset()`` on a common container.
-    
+
     See the wrapped library's documentation for more information:
         http://jqueryui.com/demos/button/#radio
     """
     template = 'tw2.jqplugins.ui.templates.buttonset_radio'
-    
+
     items = twc.Param("a list of dicts - required keys are 'id' and 'label'",
                       default=[])
     checked_item = twc.Param("a single button may be marked as 'checked' by " +
@@ -206,26 +208,31 @@ class ButtonSetRadio(uibase.JQueryUIWidget):
     def prepare(self):
         super(ButtonSetRadio, self).prepare()
 
-        if not isinstance(self.items, list):
-            raise ValueError, "'items' must be of type list"
-            
+        if not isinstance(self.items, collections.Iterable):
+            raise ValueError("'items' must be iterable")
+
+        if isinstance(self.items, basestring):
+            raise ValueError("'items' must not be a string")
+
+        self.items = list(self.items)
+
         ids = [i['id'] for i in self.items]
         if self.checked_item and self.checked_item not in ids:
-                raise ValueError, "A 'checked_item' has been passed in but " + \
+                raise ValueError("A 'checked_item' has been passed in but " + \
                                   "the id to which it refers is not in the " + \
-                                  "'items' list"
-            
+                                  "'items' list")
+
 
 class ButtonSetCheckbox(uibase.JQueryUIWidget):
     """
     Styles a group of checkboxes as a 'button set' by calling ``.buttonset()``
     on a common container.
-    
+
     See the wrapped library's documentation for more information:
         http://jqueryui.com/demos/button/#checkbox
     """
     template = 'tw2.jqplugins.ui.templates.buttonset_checkbox'
-    
+
     items = twc.Param("a list of dicts - required keys are 'id', 'label' " +
                       "and (optionally) 'isSelected' [boolean]", default=[])
     jqmethod = "buttonset"
@@ -233,12 +240,17 @@ class ButtonSetCheckbox(uibase.JQueryUIWidget):
     def prepare(self):
         super(ButtonSetCheckbox, self).prepare()
 
-        if not isinstance(self.items, list):
-            raise ValueError, "'items' must be of type list"
-            
+        if not isinstance(self.items, collections.Iterable):
+            raise ValueError("'items' must be iterable")
+
+        if isinstance(self.items, basestring):
+            raise ValueError("'items' must not be a string")
+
+        self.items = list(self.items)
+
         # plug in value 'isSelected'=False if 'isSelected' not present in dict
         for i in self.items:
-            if not i.has_key('isSelected'):
+            if 'isSelected' not in i:
                 i['isSelected'] = False
 
 
@@ -250,7 +262,7 @@ class DatePickerWidget(uibase.JQueryUIWidget, twf.TextField):
     elsewhere on the page (blur the input), or hit the Esc key to
     close.  If a date is chosen, feedback is shown as the input's
     value.
-    
+
     See the wrapped library's documentation for more information:
         http://jqueryui.com/demos/datepicker/
 
@@ -258,91 +270,91 @@ class DatePickerWidget(uibase.JQueryUIWidget, twf.TextField):
         disabled -- boolean (default: False)
             Disables (true) or enables (false) the datepicker. Can be set
             when initialising (first creating) the datepicker.
-        
+
         altField -- str (default: '')
             The jQuery selector for another field that is to be updated
             with the selected date from the datepicker. Use the altFormat
             setting to change the format of the date within this field.
             Leave as blank for no alternate field.
-        
+
         altFormat -- str (default: '')
             The dateFormat to be used for the altField option. This
             allows one date format to be shown to the user for selection
             purposes, while a different format is actually sent behind the
             scenes. For a full list of the possible formats see the
             jQuery formatDate function
-        
+
         appendText -- str (default: '')
             The text to display after each date field, e.g. to show the
             required format.
-        
+
         autoSize -- boolean (default: False)
             Set to true to automatically resize the input field to
             accomodate dates in the current dateFormat.
-        
+
         buttonImage -- str (default: '')
             The URL for the popup button image. If set, buttonText becomes
             the alt value and is not directly displayed.
-        
+
         buttonImageOnly -- boolean (default: False)
             Set to true to place an image after the field to use as the
             trigger without it appearing on a button.
-        
+
         buttonText -- str (default: '...')
             The text to display on the trigger button. Use in conjunction
             with showOn equal to 'button' or 'both'.
-        
+
         calculateWeek -- JSSymbol (default : $.datepicker.iso8601Week)
             A function to calculate the week of the year for a given date.
             The default implementation uses the ISO 8601 definition: weeks
             start on a Monday; the first week of the year contains the first
             Thursday of the year.
-        
+
         changeMonth -- boolean (default: False)
             Allows you to change the month by selecting from a drop-down
             list. You can enable this feature by setting the attribute to true.
-        
+
         changeYear -- boolean (default: False)
             Allows you to change the year by selecting from a drop-down
             list. You can enable this feature by setting the attribute to
             true. Use the yearRange option to control which years are made
             available for selection.
-        
+
         closeText -- str (default: 'Done')
             The text to display for the close link. This attribute is one
             of the regionalisation attributes. Use the showButtonPanel to
             display this button.
-        
+
         constrainInput -- boolean (default: True)
             When true entry in the input field is constrained to those
             characters allowed by the current dateFormat.
-        
+
         currentText -- str (default: 'Today')
             The text to display for the current day link. This attribute
             is one of the regionalisation attributes. Use the
             showButtonPanel to display this button.
-        
+
         dateFormat -- str (default: 'mm/dd/yy')
             The format for parsed and displayed dates. This attribute is
             one of the regionalisation attributes. For a full list of the
             possible formats see the formatDate function.
-        
+
         dayNames -- list (default:['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'])
             The list of long day names, starting from Sunday, for use as
             requested via the dateFormat setting. They also appear as popup
             hints when hovering over the corresponding column headings. This
             attribute is one of the regionalisation attributes.
-        
+
         dayNamesMin -- list (default:['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'])
             The list of minimised day names, starting from Sunday, for use
             as column headers within the datepicker. This attribute is one
             of the regionalisation attributes.
-        
+
         dayNamesShort -- list (default:['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'])
             The list of abbreviated day names, starting from Sunday, for
             use as requested via the dateFormat setting. This attribute
             is one of the regionalisation attributes.
-        
+
         defaultDate -- date, number, str (default: None)
             Set the date to highlight on first opening if the field is
             blank. Specify either an actual date via a Date object or as a
@@ -350,36 +362,36 @@ class DatePickerWidget(uibase.JQueryUIWidget, twf.TextField):
             today (e.g. +7) or a string of values and periods ('y' for
             years, 'm' for months, 'w' for weeks, 'd' for days,
             e.g. '+1m +7d'), or null for today.
-        
+
         duration -- str, number (default: 'normal')
             Control the speed at which the datepicker appears, it may be
             a time in milliseconds or a string representing one of the three
             predefined speeds ("slow", "normal", "fast").
-        
+
         firstDay -- number (default: 0)
             Set the first day of the week: Sunday is 0, Monday is 1, ...
             This attribute is one of the regionalisation attributes.
-        
+
         gotoCurrent -- boolean (default: False)
             When true the current day link moves to the currently selected
             date instead of today.
-        
+
         hideIfNoPrevNext -- boolean (default: False)
             Normally the previous and next links are disabled when not
             applicable (see minDate/maxDate). You can hide them altogether
             by setting this attribute to true.
-        
+
         isRTL -- boolean (default: False)
             True if the current language is drawn from right to left. This
             attribute is one of the regionalisation attributes.
-        
+
         maxDate -- date, number, str (default: None)
             Set a maximum selectable date via a Date object or as a string
             in the current dateFormat, or a number of days from
             today (e.g. +7) or a string of values and periods ('y' for
             years, 'm' for months, 'w' for weeks, 'd' for days,
             e.g. '+1m +1w'), or None for no limit.
-        
+
         minDate -- date, number, str (default: None)
             Set a minimum selectable date via a Date object or as a string
             in the current dateFormat, or a number of days from today (e.g. +7)
@@ -390,37 +402,37 @@ class DatePickerWidget(uibase.JQueryUIWidget, twf.TextField):
             The list of full month names, for use as requested via the
             dateFormat setting. This attribute is one of the
             regionalisation attributes.
-        
+
         monthNamesShort -- list (default: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
             The list of abbreviated month names, as used in the month
             header on each datepicker and as requested via the dateFormat
             setting. This attribute is one of the regionalisation attributes.
-        
+
         navigationAsDateFormat -- bool (default: False)
             When true the formatDate function is applied to the prevText,
             nextText, and currentText values before display, allowing them
             to display the target month names for example.
-        
+
         nextText -- str (default: 'Next')
             The text to display for the next month link. This attribute
             is one of the regionalisation attributes. With the standard
             ThemeRoller styling, this value is replaced by an icon.
-        
+
         numberOfMonths -- number, list (default: 1)
             Set how many months to show at once. The value can be a
             straight integer, or can be a two-element array to define the
             number of rows and columns to display.
-        
+
         prevText -- str (default: 'Prev')
             The text to display for the previous month link. This attribute
             is one of the regionalisation attributes. With the standard
             ThemeRoller styling, this value is replaced by an icon.
-        
+
         selectOtherMonths -- boolean (default: False)
             When true days in other months shown before or after the
             current month are selectable. This only applies if
             showOtherMonths is also true.
-        
+
         shortYearCutoff -- str, number (default: '+10')
             Set the cutoff year for determining the century for a date
             (used in conjunction with dateFormat 'y'). If a numeric
@@ -430,51 +442,51 @@ class DatePickerWidget(uibase.JQueryUIWidget, twf.TextField):
             any dates entered with a year value less than or equal to it are
             considered to be in the current century, while those greater than
             it are deemed to be in the previous century.
-        
+
         showAnim -- str (default: 'show')
             Set the name of the animation used to show/hide the
             datepicker. Use 'show' (the default), 'slideDown', 'fadeIn',
             any of the show/hide jQuery UI effects, or '' for no animation.
-        
+
         showButtonPanel -- boolean (default: False)
             Whether to show the button panel.
-        
+
         showCurrentAtPos -- number (default: 0)
             Specify where in a multi-month display the current month
             shows, starting from 0 at the top/left.
-        
+
         showMonthAfterYear -- boolean (default: False)
             Whether to show the month after the year in the header. This
             attribute is one of the regionalisation attributes.
-        
+
         showOn -- str (default: 'focus')
             Have the datepicker appear automatically when the field
             receives focus ('focus'), appear only when a button is
             clicked ('button'), or appear when either event takes
             place ('both').
-        
+
         showOptions -- dict (default: {})
             If using one of the jQuery UI effects for showAnim, you can
             provide additional settings for that animation via this option.
-        
+
         showOtherMonths -- boolean (default: False)
             Display dates in other months (non-selectable) at the start
             or end of the current month. To make these days selectable
             use selectOtherMonths.
-        
+
         showWeek -- boolean (default: False)
             When true a column is added to show the week of the year.
             The calculateWeek option determines how the week of the year
             is calculated. You may also want to change the firstDay option.
-        
+
         stepMonths -- number (default: 1)
             Set how many months to move when clicking the Previous/Next links.
-        
+
         weekHeader -- str (default: 'Wk')
             The text to display for the week of the year column heading.
             This attribute is one of the regionalisation attributes. Use
             showWeek to display this column.
-        
+
         yearRange -- str (default: 'c-10:c+10')
             Control the range of years displayed in the year drop-down:
             either relative to today's year (-nn:+nn), relative to the
@@ -482,7 +494,7 @@ class DatePickerWidget(uibase.JQueryUIWidget, twf.TextField):
             combinations of these formats (nnnn:-nn). Note that this option
             only affects what appears in the drop-down, to restrict which
             dates may be selected use the minDate and/or maxDate options.
-        
+
         yearSuffix -- str (default: '')
             Additional text to display after the year in the month headers.
             This attribute is one of the regionalisation attributes.
@@ -523,13 +535,25 @@ class DatePickerWidget(uibase.JQueryUIWidget, twf.TextField):
     template = "tw2.jqplugins.ui.templates.datepicker"
     jqmethod = "datepicker"
 
+
+class DateTimePickerWidget(uibase.JQueryUIWidget, twf.TextField):
+    """ docs to be done
+
+    ref:
+    http://trentrichardson.com/examples/timepicker/
+
+     """
+    template = "tw2.jqplugins.ui.templates.datetimepicker"
+    jqmethod = "datetimepicker"
+
+
 class DialogWidget(uibase.JQueryUIWidget):
     """
     The basic dialog window is an overlay positioned within the
     viewport and is protected from page content (like select elements)
     shining through with an iframe. It has a title bar and a content
     area, and can be moved, resized and closed with the 'x' icon by default.
-    
+
     See the wrapped library's documentation for more information:
         http://jqueryui.com/demos/dialog/
 
@@ -590,16 +614,16 @@ class DialogWidget(uibase.JQueryUIWidget):
             items on the page will be disabled (i.e. cannot be interacted
             with). Modal dialogs create an overlay below the dialog but above
             other page elements.
-    
+
         position -- str, list (default: 'center')
-            Specifies where the dialog should be displayed. Possible values: 
+            Specifies where the dialog should be displayed. Possible values:
                 1) a single string representing position within
-                viewport: 'center', 'left', 'right', 'top', 'bottom'. 
+                viewport: 'center', 'left', 'right', 'top', 'bottom'.
 
                 2) an array containing an x,y coordinate pair in pixel
-                offset from left, top corner of viewport (e.g. [350,100]) 
+                offset from left, top corner of viewport (e.g. [350,100])
 
-                3) an array containing x,y position string values 
+                3) an array containing x,y position string values
                 (e.g. ['right','top'] for top right corner).
 
         resizable -- boolean (default:  True)
@@ -661,9 +685,9 @@ class DialogWidget(uibase.JQueryUIWidget):
     """
     template = "tw2.jqplugins.ui.templates.dialog"
     jqmethod = "dialog"
-    
+
     value = twc.Param('The HTML message for the dialog')
-    
+
     def prepare(self):
         super(DialogWidget, self).prepare()
         # The following is done to treat the items contents as 'html-literals'
@@ -674,7 +698,7 @@ class ProgressBarWidget(uibase.JQueryUIWidget):
     The progress bar is designed to simply display the current % complete
     for a process. The bar is coded to be flexibly sized through CSS and
     will scale to fit inside it's parent container by default.
-    
+
     See the wrapped library's documentation for more information:
         http://jqueryui.com/demos/progressbar/
 
@@ -697,7 +721,7 @@ class SliderWidget(uibase.JQueryUIWidget):
     The jQuery UI Slider plugin makes selected elements into sliders.
     There are various options such as multiple handles, and ranges. The
     handle can be moved with the mouse or the arrow keys.
-    
+
     See the wrapped library's documentation for more information:
         http://jqueryui.com/demos/slider/
 
@@ -705,7 +729,7 @@ class SliderWidget(uibase.JQueryUIWidget):
         disabled -- boolean (default: False)
             Disables (true) or enables (false) the slider. Can be set when
             initialising (first creating) the slider.
-        
+
         animate -- boolean, str, number (default: False)
             Whether to slide handle smoothly when user click outside handle
             on the bar. Will also accept a string representing one of the
@@ -779,7 +803,7 @@ class TabsWidget(uibase.JQueryUIWidget):
     By default a tab widget will swap between tabbed sections onClick, but
     the events can be changed to onHover through an option. Tab content can
     be loaded via Ajax by setting an href on a tab.
-    
+
     See the wrapped library's documentation for more information:
         http://jqueryui.com/demos/tabs/
 
@@ -880,16 +904,21 @@ class TabsWidget(uibase.JQueryUIWidget):
     """
     template = "tw2.jqplugins.ui.templates.tabs"
     jqmethod = "tabs"
-    
+
     items = twc.Param(
         'A list of dicts, possible keys are "href", "label", and "content"',
         default=[])
-    
+
     def prepare(self):
         super(TabsWidget, self).prepare()
 
-        if not isinstance(self.items, list):
-            raise ValueError, 'items must be of type list'
+        if not isinstance(self.items, collections.Iterable):
+            raise ValueError("'items' must be iterable")
+
+        if isinstance(self.items, basestring):
+            raise ValueError("'items' must not be a string")
+
+        self.items = list(self.items)
 
         if len(self.items) == 0:
             # Whatevah.

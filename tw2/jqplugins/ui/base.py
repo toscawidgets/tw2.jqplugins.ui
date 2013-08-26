@@ -8,7 +8,7 @@ from tw2.jquery.version import JSLinkMixin
 from tw2.jquery import jquery_js
 
 # import from *this* package
-import defaults
+from . import defaults
 
 ### Links, etc...
 class jQueryUIMixin(jQueryPluginLinkMixin):
@@ -90,12 +90,17 @@ jquery_ui_js = jQueryUIJSLink(version=defaults._ui_version_,
                               resources=[jquery_js])
 jquery_ui = ResourceBundle(resources=[jquery_ui_css, jquery_ui_js])
 
+jquery_ui_slideraccess_js = jQueryUIJSLink(version='custom',
+                                          basename='jquery-ui-sliderAccess')
+jquery_ui_timepicker_js = jQueryUIJSLink(version='custom',
+                                          basename='jquery-ui-timepicker-addon')
+
 
 ### Widgets
 class JQueryUIWidget(twc.Widget):
     """ Base JQueryUIWidget """
     _hide_docs = False
-    resources = [ jquery_ui_js, jquery_ui_css ]
+    resources = [ jquery_ui_js, jquery_ui_css, jquery_ui_slideraccess_js, jquery_ui_timepicker_js ]
 
     jqmethod = twc.Variable("(str) Name of this widget's jQuery init method")
     selector = twc.Variable("(str) Escaped id.  jQuery selector.")
@@ -112,15 +117,15 @@ class JQueryUIWidget(twc.Widget):
 
     def prepare(self):
         if self.events is not None and not isinstance(self.events, dict):
-            raise ValueError, 'Events parameter must be a dict'
+            raise ValueError('Events parameter must be a dict')
 
         self.resources.append(jquery_ui_css(name=get_ui_theme_name()))
         
         if self.options is not None and not isinstance(self.options, dict):
-            raise ValueError, 'Options parameter must be a dict'
+            raise ValueError('Options parameter must be a dict')
             
         self.options = encoder.encode(self.options)
         super(JQueryUIWidget, self).prepare()
         if not hasattr(self, 'id') or 'id' not in self.attrs:
-            raise ValueError, 'JQueryWidget must be supplied an id'
+            raise ValueError('JQueryWidget must be supplied an id')
         self.selector = self.attrs['id'].replace(':', '\\\\:')

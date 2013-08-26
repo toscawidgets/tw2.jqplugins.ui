@@ -16,7 +16,7 @@ _extra_mako = ["Mako >= 0.1.1"]
 
 setup(
     name='tw2.jqplugins.ui',
-    version='2.0.1',
+    version='2.2.0',
     description='toscawidgets2 wrapper for jquery-ui',
     long_description=long_description,
     author='Ralph Bean',
@@ -27,17 +27,17 @@ setup(
         "tw2.core>=2.0b5",
         "tw2.forms",
         "tw2.jquery",
+        "six",
         ],
     extras_require = {
         'genshi': _extra_genshi,
         'mako': _extra_mako,
     },
     tests_require = [
-        'BeautifulSoup',
         'nose',
         'FormEncode',
         'WebTest',
-        'strainer',
+        'sieve',
     ] + _extra_genshi + _extra_mako,
     packages=['tw2', 'tw2.jqplugins', 'tw2.jqplugins.ui'],
     namespace_packages=['tw2', 'tw2.jqplugins'],
