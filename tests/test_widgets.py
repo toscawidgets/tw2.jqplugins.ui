@@ -1,20 +1,8 @@
-from webob import Request
-from webob.multidict import NestedMultiDict
-from tw2.core.testbase import assert_in_xml, assert_eq_xml, WidgetTest
-from nose.tools import raises
-from cStringIO import StringIO
-from tw2.core import EmptyField, IntValidator, ValidationError
-from cgi import FieldStorage
-import formencode
-
-import webob
-if hasattr(webob, 'NestedMultiDict'):
-    from webob import NestedMultiDict
-else:
-    from webob.multidict import NestedMultiDict
+from tw2.core.testbase import WidgetTest
 
 import tw2.jqplugins.ui.widgets as w
 import tw2.jqplugins.ui.samples as s
+
 
 class TestAccordionWidget(WidgetTest):
     widget = w.AccordionWidget
@@ -36,6 +24,7 @@ $(document).ready(function() {
 </div>
 """
 
+
 class TestAutocompleteWidget(WidgetTest):
     widget = w.AutocompleteWidget
     attrs = {'id' : 'foo'}
@@ -50,6 +39,7 @@ $(document).ready(function() {
 </script>
 </div>
 """
+
 
 class TestCategoryAutocompleteWidget(WidgetTest):
     widget = w.CategoryAutocompleteWidget
@@ -99,6 +89,7 @@ $(document).ready( function () {
 </div>
 </div>"""
 
+
 class TestButtonWidget(WidgetTest):
     widget = w.ButtonWidget
     attrs = {'id' : 'foo'}
@@ -113,6 +104,7 @@ $(document).ready(function() {
 </script>
 </div>
 """
+
 
 class TestDatePickerWidget(WidgetTest):
     widget = w.DatePickerWidget
@@ -129,6 +121,7 @@ $(document).ready(function() {
 </div>
 """
 
+
 class TestDialogWidget(WidgetTest):
     widget = w.DialogWidget
     attrs = {'id' : 'foo'}
@@ -143,6 +136,7 @@ $(document).ready(function() {
 </script>
 </div>
 """
+
 
 class TestProgressBarWidget(WidgetTest):
     widget = w.ProgressBarWidget
@@ -159,6 +153,7 @@ $(document).ready(function() {
 </div>
 """
 
+
 class TestSliderWidget(WidgetTest):
     widget = w.SliderWidget
     attrs = {'id' : 'foo'}
@@ -173,6 +168,7 @@ $(document).ready(function() {
 </script>
 </div>
 """
+
 
 class TestTabsWidget(WidgetTest):
     widget = w.TabsWidget
@@ -217,6 +213,7 @@ $(document).ready(function() {
 </div>
 """
 
+
 class TestDemoButtonSetCheckbox(WidgetTest):
     widget = s.DemoButtonSetCheckbox
     attrs = {'id':'foo'}
@@ -256,6 +253,7 @@ class TestDemoButtonSetCheckbox(WidgetTest):
     </script>
 </div>
 """
+
 
 class TestDemoButtonSetRadio(WidgetTest):
     widget = s.DemoButtonSetRadio

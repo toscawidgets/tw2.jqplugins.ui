@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+import sys
 
 # Hack to get tests working on python 2.7
 import multiprocessing
@@ -12,6 +13,15 @@ f.close()
 # Requirements to install buffet plugins and engines
 _extra_genshi = ["Genshi >= 0.3.5"]
 _extra_mako = ["Mako >= 0.1.1"]
+
+tests_require = [
+    'nose',
+    'WebTest',
+    'sieve',
+] + _extra_genshi + _extra_mako
+
+if sys.version_info[0] < 3:
+    tests_require.append('FormEncode')
 
 
 setup(
@@ -33,12 +43,7 @@ setup(
         'genshi': _extra_genshi,
         'mako': _extra_mako,
     },
-    tests_require = [
-        'nose',
-        'FormEncode',
-        'WebTest',
-        'sieve',
-    ] + _extra_genshi + _extra_mako,
+    tests_require=tests_require,
     packages=['tw2', 'tw2.jqplugins', 'tw2.jqplugins.ui'],
     namespace_packages=['tw2', 'tw2.jqplugins'],
     zip_safe=False,
