@@ -12,7 +12,7 @@ import types
 import six
 
 
-class html(str):
+class html(six.text_type):
     """ A stand-in used to treat the item contents as 'html-literals' """
     def __html__(self):
         return six.text_type(self)
