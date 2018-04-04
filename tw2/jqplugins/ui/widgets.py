@@ -11,10 +11,12 @@ from tw2.jqplugins.ui import base as uibase
 import types
 import six
 
-class html(str):
+
+class html(six.text_type):
     """ A stand-in used to treat the item contents as 'html-literals' """
     def __html__(self):
         return six.text_type(self)
+
 
 class AccordionWidget(uibase.JQueryUIWidget):
     """
@@ -188,6 +190,7 @@ class ButtonWidget(uibase.JQueryUIWidget):
         'Type of button.  Valid values are "button", "input", "anchor"',
         default='button')
 
+
 class ButtonSetRadio(uibase.JQueryUIWidget):
     """
     Styles a group of radio buttons as a 'button set' by calling
@@ -211,7 +214,7 @@ class ButtonSetRadio(uibase.JQueryUIWidget):
         if not isinstance(self.items, collections.Iterable):
             raise ValueError("'items' must be iterable")
 
-        if isinstance(self.items, basestring):
+        if isinstance(self.items, six.string_types):
             raise ValueError("'items' must not be a string")
 
         self.items = list(self.items)
@@ -243,7 +246,7 @@ class ButtonSetCheckbox(uibase.JQueryUIWidget):
         if not isinstance(self.items, collections.Iterable):
             raise ValueError("'items' must be iterable")
 
-        if isinstance(self.items, basestring):
+        if isinstance(self.items, six.string_types):
             raise ValueError("'items' must not be a string")
 
         self.items = list(self.items)
@@ -915,7 +918,7 @@ class TabsWidget(uibase.JQueryUIWidget):
         if not isinstance(self.items, collections.Iterable):
             raise ValueError("'items' must be iterable")
 
-        if isinstance(self.items, basestring):
+        if isinstance(self.items, six.string_types):
             raise ValueError("'items' must not be a string")
 
         self.items = list(self.items)
