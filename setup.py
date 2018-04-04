@@ -26,7 +26,7 @@ if sys.version_info[0] < 3:
 
 setup(
     name='tw2.jqplugins.ui',
-    version='2.2.0',
+    version='2.3.0',
     description='toscawidgets2 wrapper for jquery-ui',
     long_description=long_description,
     author='Ralph Bean',
